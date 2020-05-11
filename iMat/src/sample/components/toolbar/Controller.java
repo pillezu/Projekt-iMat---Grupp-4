@@ -1,17 +1,29 @@
 package sample.components.toolbar;
 
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
+import javafx.scene.control.Hyperlink;
+import sample.IMat;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    IMatDataHandler dataHandler = IMatDataHandler.getInstance();
-
+    @FXML
+    Hyperlink mainLink;
+    @FXML
+    Hyperlink favoritesLink;
+    @FXML
+    Hyperlink historyLink;
+    @FXML
+    Hyperlink accountDetailsLink;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        mainLink.setOnMouseClicked(mouseEvent -> IMat.changeRoot("sample/screens/main/Screen.fxml"));
+        favoritesLink.setOnMouseClicked(mouseEvent -> IMat.changeRoot("sample/screens/favorites/Screen.fxml"));
+        historyLink.setOnMouseClicked(mouseEvent -> IMat.changeRoot("sample/screens/main/Screen.fxml"));
+        accountDetailsLink.setOnMouseClicked(mouseEvent -> IMat.changeRoot("sample/screens/main/Screen.fxml"));
     }
 }
