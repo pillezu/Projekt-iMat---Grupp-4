@@ -11,7 +11,7 @@ import se.chalmers.ait.dat215.project.IMatDataHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class IMatController implements Initializable {
+public class History implements Initializable {
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
@@ -22,8 +22,6 @@ public class IMatController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        btn1.setOnMouseClicked(mouseEvent -> {
-            IMat.changeRoot("History.fxml");
-        });
+        btn1.setOnMouseClicked(mouseEvent -> System.out.println("test"));
     }
 }

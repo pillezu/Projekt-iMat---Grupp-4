@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<VBox id="background" fx:controller="sample.IMatController" fx:id="mainScreen" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<VBox id="background" fx:id="mainScreen" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.History">
    <children>
       <ToolBar prefHeight="44.0" prefWidth="924.0" styleClass="toolbar">
         <items>
@@ -27,6 +27,6 @@
             <DropShadow blurType="ONE_PASS_BOX" color="#0000003f" height="4.0" radius="0.5" width="0.0" />
          </effect>
       </ToolBar>
-      <Button fx:id="btn1" mnemonicParsing="false" text="You're on MainScreen" />
+      <Button fx:id="btn1" mnemonicParsing="false" text="You're on HistoryScreen" />
    </children>
 </VBox>
