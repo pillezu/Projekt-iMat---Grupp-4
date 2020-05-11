@@ -2,10 +2,7 @@ package sample.screens.history;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 import sample.IMat;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 
@@ -16,15 +13,12 @@ public class Controller implements Initializable {
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
-    @FXML Label iMatLabel;
-    @FXML ImageView homeImage;
-    @FXML VBox mainScreen;
-    @FXML Button btn1;
+    @FXML Label mainLink;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        btn1.setOnMouseClicked(mouseEvent -> {
-            IMat.changeRoot("History.fxml");
+        mainLink.setOnMouseClicked(mouseEvent -> {
+            IMat.changeRoot("sample/screens/main/Screen.fxml");
         });
     }
 }

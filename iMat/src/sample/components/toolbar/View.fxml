@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.text.Font?>
-<ToolBar id="background" fx:controller="sample.components.toolbar.Controller" fx:id="toolbar"
-         maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-         xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" prefHeight="44.0"
-         prefWidth="924.0" styleClass="toolbar">
+<ToolBar id="background" fx:id="toolbar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+         minWidth="-Infinity" prefHeight="44.0" prefWidth="924.0" styleClass="toolbar"
+         xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="sample.components.toolbar.Controller">
     <items>
         <ImageView fx:id="homeImage" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -21,6 +22,7 @@
                 <Font size="40.0"/>
             </font>
         </Label>
+        <Hyperlink text="Alla varor" fx:id="mainLink"/>
     </items>
     <effect>
         <DropShadow blurType="ONE_PASS_BOX" color="#0000003f" height="4.0" radius="0.5" width="0.0"/>
