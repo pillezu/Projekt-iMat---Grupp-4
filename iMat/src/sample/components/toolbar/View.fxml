@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.text.Font?>
 <ToolBar styleClass="toolbar" stylesheets="@../../stylesheet.css" xmlns="http://javafx.com/javafx"
-         xmlns:fx="http://javafx.com/fxml" fx:controller="sample.components.toolbar.Controller">
+         xmlns:fx="http://javafx.com/fxml" fx:controller="sample.components.toolbar.Controller" viewOrder="-10">
     <items>
         <ImageView fx:id="homeImage" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
             <image>
