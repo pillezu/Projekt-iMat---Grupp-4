@@ -14,6 +14,7 @@ public class ProductItem extends AnchorPane {
 
     private Product product;
     private Controller parentController;
+    private int korv;
 
     @FXML ImageView productImageView;
     @FXML Label productNameLabel;
