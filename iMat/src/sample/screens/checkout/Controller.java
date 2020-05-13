@@ -77,6 +77,15 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        nameTextField.focusedProperty().addListener(new TextFieldListener(nameTextField));
+        lastnameTextField.focusedProperty().addListener(new TextFieldListener(lastnameTextField));
+        epostTextField.focusedProperty().addListener(new TextFieldListener(epostTextField));
+        addressTextField.focusedProperty().addListener(new TextFieldListener(addressTextField));
+        postnrTextField.focusedProperty().addListener(new TextFieldListener(postnrTextField));
+        telephonenrTextField.focusedProperty().addListener(new TextFieldListener(telephonenrTextField));
+        accountTextField.focusedProperty().addListener(new TextFieldListener(accountTextField));
+        cvcTextField.focusedProperty().addListener(new TextFieldListener(cvcTextField));
+
 
 
     }

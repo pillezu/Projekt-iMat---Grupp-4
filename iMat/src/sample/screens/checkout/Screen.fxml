@@ -24,7 +24,7 @@
             <DropShadow blurType="ONE_PASS_BOX" color="#0000003f" height="4.0" radius="0.5" width="0.0" />
          </effect>
       </ToolBar>
-      <AnchorPane fx:id="accountTextField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="287.0" prefWidth="924.0" VBox.vgrow="ALWAYS">
+      <AnchorPane fx:id="" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="287.0" prefWidth="924.0" VBox.vgrow="ALWAYS">
          <children>
             <Label fx:id="kontouppgiftLabel" layoutX="14.0" layoutY="14.0" prefHeight="36.0" prefWidth="247.0" text="Dina kontaktuppgifter">
                <font>
