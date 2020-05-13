@@ -1,45 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<VBox id="background" fx:id="mainScreen" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.screens.history.Controller">
-   <children>
-      <ToolBar prefHeight="44.0" prefWidth="924.0" styleClass="toolbar">
-        <items>
-            <Label fx:id="iMatLabel" prefHeight="36.0" prefWidth="92.0" text="IMat" textFill="WHITE">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-        </items>
-         <effect>
-            <DropShadow blurType="ONE_PASS_BOX" color="#0000003f" height="4.0" radius="0.5" width="0.0" />
-         </effect>
-      </ToolBar>
-      <AnchorPane prefHeight="605.0" prefWidth="724.0">
-         <VBox.margin>
-            <Insets right="200.0" />
-         </VBox.margin>
-         <children>
-            <ScrollPane layoutX="36.0" layoutY="99.0" prefHeight="429.0" prefWidth="607.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="586.0">
-                     <children>
-                        <Accordion prefHeight="275.0" prefWidth="597.0">
-                          <panes>
-                            <TitledPane animated="false" text="untitled 1" />
-                            <TitledPane animated="false" text="untitled 2" />
-                          </panes>
-                        </Accordion>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </ScrollPane>
-         </children>
-      </AnchorPane>
-   </children>
-</VBox>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml" fx:controller="sample.screens.history.Controller">
+    <fx:include source="../../components/toolbar/View.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                AnchorPane.topAnchor="0.0"/>
+    <Label layoutX="488.0" layoutY="78.0" text="history"/>
+</AnchorPane>
