@@ -21,9 +21,9 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        mainLink.setOnAction(mouseEvent -> IMat.changeRoot("screens/main/Screen.fxml"));
-        favoritesLink.setOnAction(mouseEvent -> IMat.changeRoot("screens/favorites/Screen.fxml"));
-        historyLink.setOnAction(mouseEvent -> IMat.changeRoot("screens/main/Screen.fxml"));
-        accountDetailsLink.setOnAction(mouseEvent -> IMat.changeRoot("screens/main/Screen.fxml"));
+        mainLink.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/main/Screen.fxml"));
+        favoritesLink.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/favorites/Screen.fxml"));
+        historyLink.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/main/Screen.fxml"));
+        accountDetailsLink.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/main/Screen.fxml"));
     }
 }

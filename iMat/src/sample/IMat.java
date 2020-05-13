@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class IMat extends Application {
     public static Stage stage;
@@ -25,7 +26,9 @@ public class IMat extends Application {
     public static void changeRoot(String fxmlPath) {
         System.out.println("Changing root to: " + fxmlPath);
         try {
-            Parent root = FXMLLoader.load(IMat.class.getResource(fxmlPath));
+            URL location = IMat.class.getResource(fxmlPath);
+            Parent root = FXMLLoader.load(location);
+            System.out.println(root);
             IMat.stage.getScene().setRoot(root);
         } catch (IOException e) {
             System.out.println("Could not open fxmlPath: " + fxmlPath);
