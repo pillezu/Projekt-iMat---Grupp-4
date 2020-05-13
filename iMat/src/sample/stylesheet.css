@@ -1,7 +1,36 @@
-.toolbar{
-    -fx-background-color: #5293A5;
+// Variable definitions for all the colors
+* {
+    -background1: #FFFFFF;
+    -background2: #D1D1D1;
+    -primary1: #5293A5;
+    -primary2: #97BEC9;
+    -primary3: #AFD8E3;
+    -add-remove: #FAB42D;
+    -red: #FF1515;
+    -green: #00900E;
 }
 
-#background{
-    -fx-background-color: rgba(209, 209, 209, 0.33);
+.side-panel {
+    -fx-background-color: -primary2;
+}
+
+.cart-header {
+    -fx-background-color: -primary1;
+}
+
+.cart-checkout-button {
+    -fx-background-color: green;
+}
+
+.center-stage {
+    -fx-background-color: background2;
+}
+
+.toolbar {
+    -fx-background-color: -primary1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+#background {
+    -fx-background-color: -background2;
 }
