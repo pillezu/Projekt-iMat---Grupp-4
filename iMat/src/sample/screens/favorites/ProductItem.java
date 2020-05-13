@@ -6,22 +6,23 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 
 import java.io.IOException;
 
 public class ProductItem extends AnchorPane {
 
+    private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
+
     private Product product;
     private Controller parentController;
-    private int korv;
 
     @FXML ImageView productImageView;
     @FXML Label productNameLabel;
 
     public ProductItem(Product product, Controller parentController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductItem.fxml"));
-        fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
         try{
@@ -33,7 +34,6 @@ public class ProductItem extends AnchorPane {
         this.product = product;
         this.parentController = parentController;
 
-        productImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(product.getImageName())));
         productNameLabel.setText(product.getName());
     }
 }
