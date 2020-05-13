@@ -7,7 +7,6 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -25,54 +24,71 @@
             <DropShadow blurType="ONE_PASS_BOX" color="#0000003f" height="4.0" radius="0.5" width="0.0" />
          </effect>
       </ToolBar>
-      <Button fx:id="btn1" mnemonicParsing="false" text="You're on MainScreen" />
-      <StackPane prefHeight="554.0" prefWidth="924.0">
+      <AnchorPane fx:id="accountTextField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="287.0" prefWidth="924.0" VBox.vgrow="ALWAYS">
          <children>
-            <AnchorPane fx:id="accountTextField" prefHeight="287.0" prefWidth="924.0">
-               <children>
-                  <Label fx:id="kontouppgiftLabel" layoutX="15.0" layoutY="56.0" prefHeight="36.0" prefWidth="247.0" text="Dina kontaktuppgifter">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font></Label>
-                  <TextField fx:id="nameTextField" layoutX="15.0" layoutY="111.0" prefHeight="36.0" prefWidth="262.0" />
-                  <TextField fx:id="lastnameTextField" layoutX="290.0" layoutY="111.0" prefHeight="36.0" prefWidth="262.0" />
-                  <TextField fx:id="epostTextField" layoutX="15.0" layoutY="163.0" prefHeight="36.0" prefWidth="542.0" />
-                  <TextField fx:id="addressTextField" layoutX="15.0" layoutY="219.0" prefHeight="36.0" prefWidth="370.0" />
-                  <TextField fx:id="postnrTextField" layoutX="398.0" layoutY="219.0" prefHeight="36.0" prefWidth="161.0" />
-                  <TextField fx:id="telephonenrTextField" layoutX="15.0" layoutY="272.0" prefHeight="36.0" prefWidth="550.0" />
-                  <TextField fx:id="accountTextField" layoutX="14.0" layoutY="357.0" prefHeight="36.0" prefWidth="370.0" />
-                  <Label fx:id="validLabel" layoutX="14.0" layoutY="409.0" prefHeight="27.0" prefWidth="163.0" text="Giltig tom(månad/år):">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="monthComboBox" layoutX="179.0" layoutY="409.0" prefHeight="27.0" prefWidth="83.0" />
-                  <ComboBox fx:id="yearComboBox" layoutX="277.0" layoutY="409.0" prefHeight="27.0" prefWidth="83.0" />
-                  <TextField fx:id="cvcTextField" layoutX="404.0" layoutY="357.0" prefHeight="36.0" />
-                  <Button fx:id="backButton" layoutX="20.0" layoutY="493.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="126.0" text="Button" />
-                  <Button fx:id="saveButton" layoutX="479.0" layoutY="493.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="126.0" text="Button" />
-                  <Label fx:id="nameLabel" layoutX="63.0" layoutY="118.0" prefHeight="17.0" prefWidth="83.0" text="Förnamn:">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lastnameLabel" layoutX="301.0" layoutY="118.0" prefHeight="23.0" prefWidth="83.0" text="Efternamn:">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="epostaddressLabel" layoutX="21.0" layoutY="170.0" prefHeight="17.0" prefWidth="149.0" text="E-postaddress:">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="addresslLabel" layoutX="69.0" layoutY="226.0" prefHeight="23.0" prefWidth="71.0" text="Address:">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </children></AnchorPane>
+            <Label fx:id="kontouppgiftLabel" layoutX="15.0" layoutY="56.0" prefHeight="36.0" prefWidth="247.0" text="Dina kontaktuppgifter">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameTextField" layoutX="15.0" layoutY="111.0" prefHeight="36.0" prefWidth="315.0" />
+            <TextField fx:id="lastnameTextField" layoutX="354.0" layoutY="112.0" prefHeight="36.0" prefWidth="315.0" />
+            <TextField fx:id="epostTextField" layoutX="15.0" layoutY="163.0" prefHeight="36.0" prefWidth="653.0" />
+            <TextField fx:id="addressTextField" layoutX="15.0" layoutY="219.0" prefHeight="36.0" prefWidth="413.0" />
+            <TextField fx:id="postnrTextField" layoutX="435.0" layoutY="220.0" prefHeight="36.0" prefWidth="233.0" />
+            <TextField fx:id="telephonenrTextField" layoutX="15.0" layoutY="272.0" prefHeight="36.0" prefWidth="653.0" />
+            <TextField fx:id="accountTextField" layoutX="14.0" layoutY="357.0" prefHeight="36.0" prefWidth="461.0" />
+            <Label fx:id="validLabel" layoutX="14.0" layoutY="429.0" prefHeight="27.0" prefWidth="163.0" text="Giltig tom(månad/år):">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="monthComboBox" layoutX="193.0" layoutY="429.0" prefHeight="27.0" prefWidth="83.0" />
+            <ComboBox fx:id="yearComboBox" layoutX="302.0" layoutY="409.0" prefHeight="27.0" prefWidth="83.0" />
+            <TextField fx:id="cvcTextField" layoutX="487.0" layoutY="358.0" prefHeight="36.0" prefWidth="185.0" />
+            <Button fx:id="backButton" layoutX="20.0" layoutY="493.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="126.0" text="Button" />
+            <Button fx:id="saveButton" layoutX="479.0" layoutY="493.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="126.0" text="Button" />
+            <Label fx:id="nameLabel" layoutX="63.0" layoutY="118.0" prefHeight="17.0" prefWidth="83.0" text="Förnamn:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lastnameLabel" layoutX="363.0" layoutY="119.0" prefHeight="23.0" prefWidth="83.0" text="Efternamn:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="epostaddressLabel" layoutX="21.0" layoutY="170.0" prefHeight="17.0" prefWidth="149.0" text="E-postaddress:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="addresslLabel" layoutX="70.0" layoutY="227.0" prefHeight="23.0" prefWidth="70.0" text="Address:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="postnrLabel" layoutX="440.0" layoutY="227.0" prefHeight="23.0" prefWidth="107.0" text="Postnummer:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="telephonenrLabel" layoutX="20.0" layoutY="279.0" prefHeight="23.0" prefWidth="126.0" text="Telefonnummer:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="accountLabel" layoutX="27.0" layoutY="364.0" prefHeight="17.0" prefWidth="113.0" text="Kontonummer:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="cvcLabel" layoutX="493.0" layoutY="368.0" prefHeight="23.0" prefWidth="47.0" text="CVC:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
-      </StackPane>
+      </AnchorPane>
    </children>
 </VBox>
