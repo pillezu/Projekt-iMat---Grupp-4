@@ -6,8 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
-import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
 
@@ -35,5 +35,6 @@ public class ProductItem extends AnchorPane {
         this.parentController = parentController;
 
         productNameLabel.setText(product.getName());
+
     }
 }

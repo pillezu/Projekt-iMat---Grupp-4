@@ -7,34 +7,27 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.screens.favorites.Controller">
-   <children>
-       <fx:include source="../../components/toolbar/View.fxml" />
-      <HBox>
-         <children>
-            <VBox prefWidth="200.0" />
-            <VBox maxWidth="1.7976931348623157E308" prefHeight="1042.0" prefWidth="1520.0" spacing="10.0">
-               <children>
-                   <Label text="Favoriter">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Label>
-                  <TextField maxWidth="500.0" />
-                  <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0">
-                     <content>
-                        <FlowPane fx:id="productsFlowPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1294.0" />
-                     </content>
-                  </ScrollPane>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </VBox>
-         </children>
-      </HBox>
-   </children>
+<VBox id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.screens.main.Controller">
+   <fx:include source="../../components/toolbar/View.fxml" VBox.vgrow="NEVER" />
+   <HBox maxHeight="1.7976931348623157E308" style="-fx-background-color: gray;" VBox.vgrow="ALWAYS">
+      <VBox prefWidth="200.0" HBox.hgrow="NEVER" />
+      <VBox id="background" alignment="CENTER" maxWidth="1.7976931348623157E308" prefWidth="200.0" spacing="10.0" HBox.hgrow="ALWAYS">
+         <Label maxWidth="1.7976931348623157E308" prefHeight="46.0" prefWidth="1327.0" style="-fx-font-size: 30;" text="Favoriter" VBox.vgrow="ALWAYS">
+            <padding>
+               <Insets left="50.0" />
+            </padding></Label>
+         <TextField maxWidth="500.0" VBox.vgrow="NEVER" />
+         <ScrollPane prefHeight="890.0" prefWidth="1499.0">
+            <content>
+               <FlowPane fx:id="productsFlowPane" prefHeight="871.0" prefWidth="1489.0" />
+            </content>
+         </ScrollPane>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+      <!--        Lämna maxHeight här, den funkar även fast intellij klagar-->
+      <fx:include maxHeight="Infinity" source="../../components/cart/View.fxml" HBox.hgrow="NEVER" />
+   </HBox>
 </VBox>

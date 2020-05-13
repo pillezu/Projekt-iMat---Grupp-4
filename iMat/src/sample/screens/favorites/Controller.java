@@ -3,8 +3,8 @@ package sample.screens.favorites;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.FlowPane;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
-import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.Product;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -22,6 +22,12 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        for (Product product : dataHandler.getProducts()) {
+            ProductItem productItem = new ProductItem(product, this);
+            productItemMap.put(product.getName(), productItem);
+        }
+
+        updateProducts();
     }
 
     private void updateProducts() {
@@ -30,5 +36,6 @@ public class Controller implements Initializable {
         for (Product product : dataHandler.getProducts()) {
             productsFlowPane.getChildren().add(productItemMap.get(product.getName()));
         }
+
     }
 }

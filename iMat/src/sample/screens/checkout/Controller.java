@@ -9,7 +9,7 @@ import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import sample.IMat;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 import java.net.URL;
 import java.util.ResourceBundle;
