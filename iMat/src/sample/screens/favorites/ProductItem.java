@@ -3,7 +3,6 @@ package sample.screens.favorites;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -18,10 +17,10 @@ public class ProductItem extends AnchorPane {
     private Product product;
     private Controller parentController;
 
-    @FXML ImageView productImageView;
-    @FXML Label productNameLabel;
+    @FXML private ImageView productImageView;
+    @FXML private Label productNameLabel;
 
-    public ProductItem(Product product, Controller parentController) {
+    public ProductItem(Product product, Controller controller) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductItem.fxml"));
         fxmlLoader.setController(this);
 
@@ -32,9 +31,10 @@ public class ProductItem extends AnchorPane {
         }
 
         this.product = product;
-        this.parentController = parentController;
+        this.parentController = controller;
 
         productNameLabel.setText(product.getName());
+        productImageView.setImage(dataHandler.getFXImage(product));
 
     }
 }

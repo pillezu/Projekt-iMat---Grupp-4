@@ -17,7 +17,7 @@ public class Controller implements Initializable {
 
     Map<String, ProductItem> productItemMap = new HashMap<>();
 
-    @FXML FlowPane productsFlowPane;
+    @FXML private FlowPane productsFlowPane;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -34,7 +34,9 @@ public class Controller implements Initializable {
         productsFlowPane.getChildren().clear();
 
         for (Product product : dataHandler.getProducts()) {
-            productsFlowPane.getChildren().add(productItemMap.get(product.getName()));
+            if (dataHandler.isFavorite(product)) {
+                productsFlowPane.getChildren().add(productItemMap.get(product.getName()));
+            }
         }
 
     }
