@@ -18,7 +18,7 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         mainLink.setOnMouseClicked(mouseEvent -> {
-            IMat.changeRoot("sample/screens/main/Screen.fxml");
+            IMat.changeRoot("screens/main/Screen.fxml");
         });
     }
 }
