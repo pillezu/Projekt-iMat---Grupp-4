@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.*?>
-<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.screens.main.Controller">
-    <fx:include source="../../components/toolbar/View.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-    <fx:include source="../../components/cart/View.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-    <Label layoutX="488.0" layoutY="78.0" text="Alla varor" />
-</AnchorPane>
+<VBox id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.screens.main.Controller">
+    <fx:include source="../../components/toolbar/View.fxml" VBox.vgrow="NEVER" />
+    <HBox maxHeight="1.7976931348623157E308" style="-fx-background-color: gray;" VBox.vgrow="ALWAYS">
+        <VBox prefWidth="200.0" HBox.hgrow="NEVER" />
+        <VBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" spacing="10.0" style="-fx-background-color: lightgray;" HBox.hgrow="ALWAYS">
+            <Label maxWidth="1.7976931348623157E308" style="-fx-font-size: 30;" text="Alla varor" VBox.vgrow="ALWAYS">
+            <padding>
+               <Insets left="50.0" />
+            </padding></Label>
+         <TextField maxWidth="500.0" VBox.vgrow="NEVER" />
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+        </VBox>
+<!--        Lämna maxHeight här, den funkar även fast intellij klagar-->
+        <fx:include maxHeight="Infinity" source="../../components/cart/View.fxml" HBox.hgrow="NEVER" />
+    </HBox>
+</VBox>
