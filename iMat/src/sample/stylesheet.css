@@ -10,6 +10,17 @@
     -green: #00900E;
 }
 
+/*
+.list-cell {
+    -fx-font-size: 1.5em;
+    -fx-background-color: primary1;
+}
+
+.list-cell:filled:focused {
+    -fx-background-color: primary2;
+}
+*/
+
 .side-panel {
     -fx-background-color: -primary2;
 }
