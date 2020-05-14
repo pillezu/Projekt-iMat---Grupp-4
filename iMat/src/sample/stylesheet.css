@@ -35,6 +35,10 @@
     -fx-background-color: -primary2;
 }
 
+.product-button {
+    -fx-background-color: -add-remove;
+}
+
 .side-panel-header {
     -fx-background-color: -primary1;
 }
