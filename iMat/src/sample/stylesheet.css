@@ -29,11 +29,13 @@
     -fx-opacity: 0;
 }
 
+
+
 .side-panel {
     -fx-background-color: -primary2;
 }
 
-.cart-header {
+.side-panel-header {
     -fx-background-color: -primary1;
 }
 
