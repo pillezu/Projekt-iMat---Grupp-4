@@ -5,11 +5,19 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
 <VBox id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../stylesheet.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.screens.main.Controller">
     <fx:include source="../../components/toolbar/View.fxml" VBox.vgrow="NEVER" />
     <HBox maxHeight="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" VBox.vgrow="ALWAYS">
-        <ListView fx:id="categoriesListView" prefHeight="200.0" prefWidth="200.0" styleClass="side-panel" HBox.hgrow="NEVER" VBox.vgrow="ALWAYS">
-        </ListView>
+      <VBox prefHeight="200.0" prefWidth="200.0">
+         <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" styleClass="side-panel-header" text="Kategorier" textAlignment="CENTER">
+            <font>
+               <Font size="29.0" />
+            </font>
+         </Label>
+
+          <ListView fx:id="categoriesListView" styleClass="side-panel" HBox.hgrow="NEVER" VBox.vgrow="ALWAYS" />
+      </VBox>
         <VBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" spacing="10.0" styleClass="center-stage" HBox.hgrow="ALWAYS">
             <Label maxWidth="1.7976931348623157E308" style="-fx-font-size: 30;" text="Alla varor" VBox.vgrow="ALWAYS">
                 <padding>
