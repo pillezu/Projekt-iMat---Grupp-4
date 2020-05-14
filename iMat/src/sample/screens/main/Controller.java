@@ -2,7 +2,6 @@ package sample.screens.main;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.ProductCategory;
@@ -33,5 +32,6 @@ public class Controller implements Initializable {
             System.out.println("index: " + index);
             System.out.println("category: " + categories[index]);
         });
+        categoriesListView.getSelectionModel().select(0);
     }
 }
