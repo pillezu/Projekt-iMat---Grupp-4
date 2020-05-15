@@ -31,6 +31,18 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        setupCategories();
+
+
+        for (Product product : dataHandler.getProducts()) {
+            ProductItem productItem = new ProductItem(product);
+            productItemMap.put(product.getName(), productItem);
+        }
+        productsFlowPane.toFront();
+        updateProducts();
+    }
+
+    private void setupCategories() {
         for (int i = 0; i < categories.length; i++) {
             ProductCategory category = categories[i];
             String name = category.toString()
@@ -44,16 +56,6 @@ public class Controller implements Initializable {
             System.out.println("category: " + categories[index]);
         });
         categoriesListView.getSelectionModel().select(0);
-
-
-
-        productsScrollPane.setFitToWidth(true);
-        for (Product product : dataHandler.getProducts()) {
-            ProductItem productItem = new ProductItem(product);
-            productItemMap.put(product.getName(), productItem);
-        }
-        productsFlowPane.toFront();
-        updateProducts();
     }
 
     private void updateProducts() {
