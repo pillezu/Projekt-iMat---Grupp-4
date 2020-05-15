@@ -63,3 +63,22 @@
 #background {
     -fx-background-color: -background2;
 }
+
+.accordion{
+    background-color: #5293a5;
+    color: #5293a5;
+    font-family: Trebuchet MS;
+    font-size: 10pt;
+    border: solid 1px Black;
+}
+
+
+.accordion > .titled-pane {
+    -fx-padding: 0 0 0.5em 0;
+    -fx-text-fill: #ffffff;
+    -fx-color-label-visible: #5293a5;
+}
+
+.accordion > .titled-pane > .title {
+    -fx-background-color: #5293a5;
+}
