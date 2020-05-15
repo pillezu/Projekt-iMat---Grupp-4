@@ -29,7 +29,6 @@ public class Controller implements Initializable {
         historyAccordion.getPanes().add(new HistoryItem(products, "12/04/2020", "onsdag", "5", "48 kr", this));
         historyAccordion.getPanes().add(new HistoryItem(products, "12/04/2020", "onsdag", "5", "48 kr", this));
         historyAccordion.getPanes().add(new HistoryItem(products, "12/04/2020", "onsdag", "5", "48 kr", this));
-        historyAccordion.getPanes().add(new HistoryItem(products, "12/04/2020", "fredag", "5", "48 kr", this));
 
         System.out.println(historyAccordion.getPanes().size());
     }
