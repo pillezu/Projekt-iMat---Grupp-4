@@ -20,7 +20,7 @@
                   <FlowPane prefHeight="338.0" prefWidth="864.0" />
                </content>
             </ScrollPane>
-            <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="110.0" text="Köp om">
+            <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="110.0" text="Köp om" styleClass="history-button">
                <HBox.margin>
                   <Insets left="25.0" top="300.0" />
                </HBox.margin>

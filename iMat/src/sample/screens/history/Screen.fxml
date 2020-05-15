@@ -20,7 +20,7 @@
          </Label>
          <ScrollPane fx:id="historyScrollPane" hbarPolicy="NEVER" prefHeight="890.0" prefWidth="1499.0" styleClass="center-stage">
             <content>
-               <FlowPane prefHeight="886.0" prefWidth="1266.0" styleClass="center-stage" vgap="4.0">
+               <FlowPane prefHeight="324.0" prefWidth="1266.0" styleClass="center-stage" vgap="4.0">
                   <children>
                      <Accordion fx:id="historyAccordion" />
                   </children></FlowPane>

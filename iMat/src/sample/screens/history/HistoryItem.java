@@ -16,7 +16,7 @@ public class HistoryItem extends TitledPane {
 
     private Controller parentController;
     private List<Product> historyProducts;
-    private String blankSpace = "                     ";
+    private String blankSpace = "\t\t";
     @FXML private TitledPane historyItemTitledPane;
 
     public HistoryItem(List<Product> products, String date, String day, String amountOfItems, String amountOfCost, Controller parentController){
@@ -30,7 +30,7 @@ public class HistoryItem extends TitledPane {
             throw new RuntimeException(exception);
         }
 
-        this.setText("       Datum: " + date + blankSpace + "Dag: " + day + blankSpace + "Antal varor: " +
+        this.setText("\t Datum: " + date + blankSpace + "Dag: " + day + blankSpace + "Antal varor: " +
                 amountOfItems + blankSpace + "Totalkostnad: " + amountOfCost);
 
         this.parentController = parentController;
