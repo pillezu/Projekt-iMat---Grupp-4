@@ -23,9 +23,12 @@
                 </padding>
             </Label>
             <TextField maxWidth="500.0" VBox.vgrow="NEVER" />
-            <ScrollPane hbarPolicy="NEVER" styleClass="center-stage">
+            <ScrollPane fx:id="productsScrollPane" fitToWidth="true" hbarPolicy="NEVER" styleClass="center-stage">
                 <content>
-                    <FlowPane fx:id="productsFlowPane" prefHeight="883.0" prefWidth="1499.0" prefWrapLength="100.0" styleClass="center-stage" vgap="4.0" />
+                    <FlowPane fx:id="productsFlowPane" hgap="4.0" prefHeight="883.0" prefWidth="1499.0" prefWrapLength="100.0" styleClass="center-stage" vgap="4.0">
+                  <padding>
+                     <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                  </padding></FlowPane>
                 </content>
             </ScrollPane>
             <padding>

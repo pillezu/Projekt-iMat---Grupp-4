@@ -3,8 +3,9 @@ package sample.screens.main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.FlowPane;
-import sample.screens.favorites.ProductItem;
+import sample.components.productitem.ProductItem;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
@@ -20,15 +21,29 @@ public class Controller implements Initializable {
     ProductCategory[] categories = ProductCategory.values();
 
     @FXML
-    ListView<String> categoriesListView;
+    private ListView<String> categoriesListView;
     @FXML
     private FlowPane productsFlowPane;
+    @FXML
+    private ScrollPane productsScrollPane;
 
     Map<String, ProductItem> productItemMap = new HashMap<>();
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        setupCategories();
+
+
+        for (Product product : dataHandler.getProducts()) {
+            ProductItem productItem = new ProductItem(product);
+            productItemMap.put(product.getName(), productItem);
+        }
+        productsFlowPane.toFront();
+        updateProducts();
+    }
+
+    private void setupCategories() {
         for (int i = 0; i < categories.length; i++) {
             ProductCategory category = categories[i];
             String name = category.toString()
@@ -42,15 +57,6 @@ public class Controller implements Initializable {
             System.out.println("category: " + categories[index]);
         });
         categoriesListView.getSelectionModel().select(0);
-
-
-
-        for (Product product : dataHandler.getProducts()) {
-            ProductItem productItem = new ProductItem(product);
-            productItemMap.put(product.getName(), productItem);
-        }
-        productsFlowPane.toFront();
-        updateProducts();
     }
 
     private void updateProducts() {
