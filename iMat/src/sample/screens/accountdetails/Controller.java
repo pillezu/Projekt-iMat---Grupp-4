@@ -5,16 +5,13 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -74,10 +71,11 @@ public class Controller implements Initializable {
 
         monthComboBox.getItems().addAll(1,2,3,4,5,6,7,8,9,10,11,12);
         monthComboBox.getSelectionModel().select("Månad");
+
         monthComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String newValue) {
-                //creditCard.setValidMonth(Integer.parseInt(newValue));
+                creditCard.setValidMonth(Integer.parseInt(newValue));
                 creditCard.setValidMonth(Integer.parseInt(newValue));
 
             }
