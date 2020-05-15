@@ -2,10 +2,8 @@ package sample;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
@@ -17,6 +15,9 @@ public class IMat extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        IMatDataHandler.getInstance().getShoppingCart().clear();
+
         Parent root = FXMLLoader.load(getClass().getResource("screens/main/Screen.fxml"));
         stage = primaryStage;
         primaryStage.setTitle("Hello World");

@@ -8,6 +8,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
+
+import java.util.List;
 
 public class AbstractProductItem extends AnchorPane {
 
@@ -34,8 +37,24 @@ public class AbstractProductItem extends AnchorPane {
 
         addButton.setOnMouseClicked(mouseEvent -> {
             System.out.println("Adding item");
-            dataHandler.getShoppingCart().addProduct(product);
+            ShoppingItem item = getCartItemIfExists();
+            if (item == null) {
+                dataHandler.getShoppingCart().addProduct(product);
+            } else {
+                item.setAmount(item.getAmount()+1);
+            }
+            nrProductsTextField.setText(""+item.getAmount());
         });
+    }
+
+    private ShoppingItem getCartItemIfExists() {
+        List<ShoppingItem> items = dataHandler.getShoppingCart().getItems();
+        for (ShoppingItem item : items) {
+            if (item.getProduct() == product) {
+                return item;
+            }
+        }
+        return null;
     }
 
 }
