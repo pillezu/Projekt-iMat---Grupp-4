@@ -3,6 +3,7 @@ package sample.screens.main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.FlowPane;
 import sample.screens.favorites.ProductItem;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -23,6 +24,7 @@ public class Controller implements Initializable {
     ListView<String> categoriesListView;
     @FXML
     private FlowPane productsFlowPane;
+    @FXML private ScrollPane productsScrollPane;
 
     Map<String, ProductItem> productItemMap = new HashMap<>();
 
@@ -45,6 +47,7 @@ public class Controller implements Initializable {
 
 
 
+        productsScrollPane.setFitToWidth(true);
         for (Product product : dataHandler.getProducts()) {
             ProductItem productItem = new ProductItem(product);
             productItemMap.put(product.getName(), productItem);
