@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1920.0" stylesheets="@../../stylesheet.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.screens.favorites.Controller">
+<VBox id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1920.0" stylesheets="@../../stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.screens.favorites.Controller">
    <fx:include source="../../components/toolbar/View.fxml" VBox.vgrow="NEVER" />
    <HBox maxHeight="1.7976931348623157E308" style="-fx-background-color: gray;">
       <VBox prefWidth="200.0" styleClass="side-panel" HBox.hgrow="NEVER" />
@@ -21,7 +21,7 @@
          <TextField maxWidth="500.0" promptText="Sök vara" VBox.vgrow="NEVER" />
          <ScrollPane hbarPolicy="NEVER" prefHeight="890.0" prefWidth="1499.0" styleClass="center-stage">
             <content>
-               <FlowPane fx:id="productsFlowPane" prefHeight="883.0" prefWidth="1499.0" styleClass="center-stage" vgap="4.0" />
+               <FlowPane fx:id="productsFlowPane" prefHeight="883.0" prefWidth="1499.0" prefWrapLength="100.0" styleClass="center-stage" vgap="4.0" />
             </content>
          </ScrollPane>
          <padding>

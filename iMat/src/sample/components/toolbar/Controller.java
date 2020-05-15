@@ -3,6 +3,7 @@ package sample.components.toolbar;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.ToolBar;
 import sample.IMat;
 
 import java.net.URL;
@@ -10,6 +11,8 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
+    @FXML
+    ToolBar toolbar;
     @FXML
     Hyperlink mainLink;
     @FXML
@@ -21,6 +24,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //toolbar.setPickOnBounds(false);
         mainLink.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/main/Screen.fxml"));
         favoritesLink.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/favorites/Screen.fxml"));
         historyLink.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/history/Screen.fxml"));
