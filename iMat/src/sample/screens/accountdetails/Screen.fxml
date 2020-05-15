@@ -28,7 +28,6 @@
                 <TextField fx:id="postnrTextField" layoutX="202.0" layoutY="284.0" prefHeight="38.0" prefWidth="205.0" />
                 <TextField fx:id="telephonenrTextField" layoutX="202.0" layoutY="343.0" prefHeight="38.0" prefWidth="657.0" />
                 <TextField fx:id="accountTextField" layoutX="202.0" layoutY="449.0" prefHeight="38.0" prefWidth="657.0" />
-                <TextField fx:id="cvcTextField" layoutX="202.0" layoutY="560.0" prefHeight="38.0" prefWidth="216.0" />
                 <Label fx:id="validLabel" layoutX="19.0" layoutY="511.0" prefHeight="27.0" prefWidth="163.0" text="Giltig tom(månad/år):">
                     <font>
                         <Font name="System Bold" size="18.0" />
@@ -36,10 +35,17 @@
                 </Label>
                 <ComboBox fx:id="monthComboBox" layoutX="202.0" layoutY="509.0" prefHeight="30.0" prefWidth="92.0" />
                 <ComboBox fx:id="yearComboBox" layoutX="324.0" layoutY="509.0" prefHeight="30.0" prefWidth="92.0" />
-            <RadioButton fx:id="mastercardRadioButton" layoutX="884.0" layoutY="533.0" mnemonicParsing="false" text="Master kort" />
-            <RadioButton layoutX="894.0" layoutY="588.0" mnemonicParsing="false" text="Visa  Kort" />
-                <Button fx:id="backButton" layoutX="22.0" layoutY="669.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="133.0" text="Button" />
-                <Button fx:id="saveButton" layoutX="913.0" layoutY="663.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="133.0" text="Button" />
+                <TextField fx:id="cvcTextField" layoutX="202.0" layoutY="560.0" prefHeight="38.0" prefWidth="216.0" />
+            <RadioButton fx:id="mastercardRadioButton" layoutX="884.0" layoutY="533.0" mnemonicParsing="false" text="Masterkort" />
+            <RadioButton layoutX="884.0" layoutY="588.0" mnemonicParsing="false" text="VisaKort" />
+                <Button fx:id="backButton" layoutX="22.0" layoutY="669.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="133.0" style="-fx-background-color: #5293A5#5293A5;">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+                <Button fx:id="saveButton" layoutX="913.0" layoutY="663.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="133.0" style="-fx-background-color: #00900E#00900E;">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
                 <Label fx:id="nameLabel" layoutX="100.0" layoutY="71.0" prefHeight="23.0" prefWidth="83.0" text="Förnamn:">
                     <font>
                         <Font name="System Bold" size="18.0" />
@@ -85,21 +91,31 @@
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-            <ImageView fitHeight="36.0" fitWidth="59.0" layoutX="1000.0" layoutY="524.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../Desktop/1200px-Mastercard-logo.svg.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="visacardRadioButton" fitHeight="36.0" fitWidth="59.0" layoutX="1004.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../Desktop/visacard.jpg" />
-               </image>
-            </ImageView>
-            <Label layoutX="884.0" layoutY="475.0" prefHeight="40.0" prefWidth="119.0" text="Välj din kort typ här">
+            <Label layoutX="884.0" layoutY="475.0" prefHeight="40.0" prefWidth="119.0" text="Välj ditt kort typ här">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
+            <Label fx:id="saveLabel" layoutX="950.0" layoutY="682.0" prefHeight="17.0" prefWidth="70.0" text="Spara" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="backLabel" layoutX="35.0" layoutY="679.0" prefHeight="40.0" prefWidth="107.0" text="Tillbaka till kassan" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="45.0" fitWidth="59.0" layoutX="974.0" layoutY="517.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/1200px-Mastercard-logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="70.0" layoutX="980.0" layoutY="577.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/visacard.png" />
+               </image>
+            </ImageView>
             </children>
         </AnchorPane>
     </children>
