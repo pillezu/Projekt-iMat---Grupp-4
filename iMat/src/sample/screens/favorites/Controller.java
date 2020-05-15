@@ -24,8 +24,10 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         for (Product product : dataHandler.getProducts()) {
-            ProductItem productItem = new ProductItem(product);
-            productItemMap.put(product.getName(), productItem);
+            if (dataHandler.isFavorite(product)) {
+                ProductItem productItem = new ProductItem(product);
+                productItemMap.put(product.getName(), productItem);
+            }
         }
         productsFlowPane.toFront();
         updateProducts();
@@ -35,7 +37,9 @@ public class Controller implements Initializable {
         productsFlowPane.getChildren().clear();
 
         for (Product product : dataHandler.getProducts()) {
-            productsFlowPane.getChildren().add(productItemMap.get(product.getName()));
+            if (dataHandler.isFavorite(product)) {
+                productsFlowPane.getChildren().add(productItemMap.get(product.getName()));
+            }
         }
 
     }

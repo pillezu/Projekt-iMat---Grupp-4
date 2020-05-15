@@ -29,14 +29,13 @@
     -fx-opacity: 0;
 }
 
-
+.round-button {
+    -fx-background-radius: 35px;
+    -fx-background-color: -add-remove;
+}
 
 .side-panel {
     -fx-background-color: -primary2;
-}
-
-.product-button {
-    -fx-background-color: -add-remove;
 }
 
 .side-panel-header {
