@@ -8,34 +8,34 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="1024.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="81.0" prefWidth="695.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="productImageView" fitHeight="105.0" fitWidth="134.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="productImageView" fitHeight="81.0" fitWidth="103.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resources/homeButton.png" />
          </image>
       </ImageView>
-      <Label fx:id="productNameLabel" layoutX="142.0" layoutY="29.0" prefHeight="51.0" prefWidth="177.0" text="\%Vara%">
+      <Label fx:id="productNameLabel" layoutX="122.0" layoutY="20.0" prefHeight="38.0" prefWidth="160.0" text="\%Vara%">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Button fx:id="removeButton" layoutX="548.0" layoutY="25.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="54.0" text="-">
+      <Button fx:id="removeButton" layoutX="358.0" layoutY="21.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="39.0" text="-">
          <font>
-            <Font size="24.0" />
+            <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="addButton" layoutX="704.0" layoutY="25.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="54.0" text="+">
+      <Button fx:id="addButton" layoutX="498.0" layoutY="21.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="39.0" text="+">
          <font>
-            <Font size="24.0" />
+            <Font size="16.0" />
          </font>
       </Button>
-      <Label fx:id="totalPriceLabel" alignment="CENTER" layoutX="868.0" layoutY="25.0" prefHeight="51.0" prefWidth="131.0" text="\%pris% kr">
+      <Label fx:id="priceLabel" alignment="CENTER" layoutX="584.0" layoutY="15.0" prefHeight="51.0" prefWidth="110.0" text="\%pris% kr">
          <font>
-            <Font size="19.0" />
+            <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="nrProductsTextField" alignment="CENTER" layoutX="626.0" layoutY="26.0" prefHeight="51.0" prefWidth="54.0" text="5">
+      <TextField fx:id="nrProductsTextField" alignment="CENTER" layoutX="423.0" layoutY="13.0" prefHeight="51.0" prefWidth="54.0" text="5">
          <font>
             <Font size="21.0" />
          </font>

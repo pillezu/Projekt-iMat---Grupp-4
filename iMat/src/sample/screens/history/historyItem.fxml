@@ -15,12 +15,12 @@
    <content>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <ScrollPane prefHeight="355.0" prefWidth="903.0">
+            <ScrollPane prefHeight="347.0" prefWidth="763.0">
                <content>
-                  <FlowPane prefHeight="338.0" prefWidth="864.0" />
+                  <FlowPane fx:id="historyFlowPane" prefHeight="338.0" prefWidth="741.0" />
                </content>
             </ScrollPane>
-            <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="110.0" text="Köp om" styleClass="history-button">
+            <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="110.0" styleClass="history-button" text="Köp om">
                <HBox.margin>
                   <Insets left="25.0" top="300.0" />
                </HBox.margin>

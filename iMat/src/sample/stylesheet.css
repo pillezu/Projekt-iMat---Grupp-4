@@ -81,3 +81,8 @@
 .accordion > .titled-pane > .title {
     -fx-background-color: #5293a5;
 }
+
+.history-button {
+    -fx-background-color: green;
+    -fx-text-fill: #FFFFFF;
+}
