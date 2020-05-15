@@ -21,97 +21,97 @@
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Label>
-                <TextField fx:id="nameTextField" layoutX="203.0" layoutY="62.0" prefHeight="38.0" prefWidth="657.0" />
-                <TextField fx:id="lastnameTextField" layoutX="203.0" layoutY="115.0" prefHeight="38.0" prefWidth="657.0" />
-                <TextField fx:id="epostTextField" layoutX="203.0" layoutY="170.0" prefHeight="38.0" prefWidth="657.0" />
-                <TextField fx:id="addressTextField" layoutX="202.0" layoutY="225.0" prefHeight="38.0" prefWidth="657.0" />
-                <TextField fx:id="postnrTextField" layoutX="202.0" layoutY="284.0" prefHeight="38.0" prefWidth="205.0" />
-                <TextField fx:id="telephonenrTextField" layoutX="202.0" layoutY="343.0" prefHeight="38.0" prefWidth="657.0" />
-                <TextField fx:id="accountTextField" layoutX="202.0" layoutY="449.0" prefHeight="38.0" prefWidth="657.0" />
-                <Label fx:id="validLabel" layoutX="19.0" layoutY="511.0" prefHeight="27.0" prefWidth="163.0" text="Giltig tom(månad/år):">
+                <TextField fx:id="nameTextField" layoutX="248.0" layoutY="64.0" prefHeight="38.0" prefWidth="657.0" />
+                <TextField fx:id="lastnameTextField" layoutX="248.0" layoutY="117.0" prefHeight="38.0" prefWidth="657.0" />
+                <TextField fx:id="epostTextField" layoutX="248.0" layoutY="172.0" prefHeight="38.0" prefWidth="657.0" />
+                <TextField fx:id="addressTextField" layoutX="248.0" layoutY="227.0" prefHeight="38.0" prefWidth="657.0" />
+                <TextField fx:id="postnrTextField" layoutX="248.0" layoutY="284.0" prefHeight="38.0" prefWidth="205.0" />
+                <TextField fx:id="telephonenrTextField" layoutX="248.0" layoutY="344.0" prefHeight="38.0" prefWidth="657.0" />
+                <TextField fx:id="accountTextField" layoutX="248.0" layoutY="450.0" prefHeight="38.0" prefWidth="657.0" />
+                <Label fx:id="validLabel" layoutX="19.0" layoutY="511.0" prefHeight="27.0" prefWidth="190.0" text="Giltig tom(månad/år):">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <ComboBox fx:id="monthComboBox" editable="true" layoutX="202.0" layoutY="509.0" prefHeight="30.0" prefWidth="92.0" />
-                <ComboBox fx:id="yearComboBox" editable="true" layoutX="324.0" layoutY="509.0" prefHeight="30.0" prefWidth="92.0" />
-                <TextField fx:id="cvcTextField" layoutX="202.0" layoutY="560.0" prefHeight="38.0" prefWidth="216.0" />
-            <RadioButton fx:id="mastercardRadioButton" layoutX="884.0" layoutY="533.0" mnemonicParsing="false" text="Masterkort" />
-            <RadioButton fx:id="visakortRadioButton" layoutX="884.0" layoutY="588.0" mnemonicParsing="false" text="VisaKort" />
-                <Button fx:id="backButton" layoutX="22.0" layoutY="669.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="133.0" style="-fx-background-color: #5293A5#5293A5;">
-               <font>
-                  <Font size="14.0" />
-               </font></Button>
-                <Button fx:id="saveButton" layoutX="913.0" layoutY="663.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="133.0" style="-fx-background-color: #00900E#00900E;">
+                <ComboBox fx:id="monthComboBox" editable="true" layoutX="248.0" layoutY="510.0" prefHeight="30.0" prefWidth="92.0" />
+                <ComboBox fx:id="yearComboBox" editable="true" layoutX="372.0" layoutY="510.0" prefHeight="30.0" prefWidth="92.0" />
+                <TextField fx:id="cvcTextField" layoutX="246.0" layoutY="561.0" prefHeight="38.0" prefWidth="216.0" />
+            <RadioButton fx:id="mastercardRadioButton" layoutX="963.0" layoutY="533.0" mnemonicParsing="false" text="Masterkort" />
+            <RadioButton fx:id="visakortRadioButton" layoutX="969.0" layoutY="589.0" mnemonicParsing="false" text="VisaKort" />
+                <Button fx:id="saveButton" layoutX="1165.0" layoutY="757.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="133.0" style="-fx-background-color: #00900E#00900E;">
                <font>
                   <Font size="18.0" />
+               </font></Button>
+                <Button fx:id="backButton" layoutX="18.0" layoutY="755.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="133.0" style="-fx-background-color: #5293A5#5293A5;">
+               <font>
+                  <Font size="14.0" />
                </font></Button>
                 <Label fx:id="nameLabel" layoutX="100.0" layoutY="71.0" prefHeight="23.0" prefWidth="83.0" text="Förnamn:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="lastnameLabel" layoutX="89.0" layoutY="124.0" prefHeight="23.0" prefWidth="92.0" text="Efternamn:">
+                <Label fx:id="lastnameLabel" layoutX="89.0" layoutY="124.0" prefHeight="23.0" prefWidth="113.0" text="Efternamn:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="epostaddressLabel" layoutX="53.0" layoutY="179.0" prefHeight="23.0" prefWidth="119.0" text="E-postaddress:">
+                <Label fx:id="epostaddressLabel" layoutX="53.0" layoutY="179.0" prefHeight="23.0" prefWidth="148.0" text="E-postaddress:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="addresslLabel" layoutX="100.0" layoutY="234.0" prefHeight="23.0" prefWidth="70.0" text="Address:">
+                <Label fx:id="addresslLabel" layoutX="100.0" layoutY="234.0" prefHeight="23.0" prefWidth="100.0" text="Address:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="postnrLabel" layoutX="69.0" layoutY="291.0" prefHeight="23.0" prefWidth="107.0" text="Postnummer:">
+                <Label fx:id="postnrLabel" layoutX="69.0" layoutY="291.0" prefHeight="23.0" prefWidth="133.0" text="Postnummer:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="telephonenrLabel" layoutX="47.0" layoutY="351.0" prefHeight="23.0" prefWidth="132.0" text="Telefonnummer:">
+                <Label fx:id="telephonenrLabel" layoutX="47.0" layoutY="351.0" prefHeight="23.0" prefWidth="157.0" text="Telefonnummer:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="accountLabel" layoutX="76.0" layoutY="457.0" prefHeight="17.0" prefWidth="113.0" text="Kontonummer:">
+                <Label fx:id="accountLabel" layoutX="76.0" layoutY="457.0" prefHeight="23.0" prefWidth="148.0" text="Kontonummer:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="cvcLabel" layoutX="132.0" layoutY="568.0" prefHeight="23.0" prefWidth="47.0" text="CVC:">
+                <Label fx:id="cvcLabel" layoutX="132.0" layoutY="568.0" prefHeight="23.0" prefWidth="58.0" text="CVC:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="305.0" layoutY="513.0" prefHeight="23.0" prefWidth="13.0" text="/">
+                <Label layoutX="351.0" layoutY="514.0" prefHeight="23.0" prefWidth="4.0" text="/">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-            <Label layoutX="884.0" layoutY="475.0" prefHeight="40.0" prefWidth="119.0" text="Välj ditt kort typ här">
+            <Label layoutX="986.0" layoutY="488.0" prefHeight="23.0" prefWidth="119.0" text="Välj ditt kort typ här">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="saveLabel" layoutX="950.0" layoutY="682.0" prefHeight="17.0" prefWidth="70.0" text="Spara" textFill="WHITE">
+            <Label fx:id="saveLabel" layoutX="1164.0" layoutY="759.0" prefHeight="57.0" prefWidth="133.0" text="            Spara" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="backLabel" layoutX="35.0" layoutY="679.0" prefHeight="40.0" prefWidth="107.0" text="Tillbaka till kassan" textFill="WHITE">
+            <Label fx:id="backLabel" layoutX="32.0" layoutY="768.0" prefHeight="40.0" prefWidth="107.0" text="Tillbaka till kassan" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="45.0" fitWidth="59.0" layoutX="974.0" layoutY="517.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="45.0" fitWidth="59.0" layoutX="1074.0" layoutY="519.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../resources/1200px-Mastercard-logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="70.0" layoutX="980.0" layoutY="577.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="40.0" fitWidth="70.0" layoutX="1084.0" layoutY="578.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../resources/visacard.png" />
                </image>
