@@ -3,10 +3,15 @@ package sample.screens.main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.FlowPane;
+import sample.screens.favorites.ProductItem;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -16,6 +21,10 @@ public class Controller implements Initializable {
 
     @FXML
     ListView<String> categoriesListView;
+    @FXML
+    private FlowPane productsFlowPane;
+
+    Map<String, ProductItem> productItemMap = new HashMap<>();
 
 
     @Override
@@ -33,5 +42,23 @@ public class Controller implements Initializable {
             System.out.println("category: " + categories[index]);
         });
         categoriesListView.getSelectionModel().select(0);
+
+
+
+        for (Product product : dataHandler.getProducts()) {
+            ProductItem productItem = new ProductItem(product);
+            productItemMap.put(product.getName(), productItem);
+        }
+        productsFlowPane.toFront();
+        updateProducts();
+    }
+
+    private void updateProducts() {
+        productsFlowPane.getChildren().clear();
+
+        for (Product product : dataHandler.getProducts()) {
+            productsFlowPane.getChildren().add(productItemMap.get(product.getName()));
+        }
+
     }
 }
