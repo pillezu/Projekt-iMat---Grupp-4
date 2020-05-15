@@ -23,7 +23,7 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         for (Product product : dataHandler.getProducts()) {
-            ProductItem productItem = new ProductItem(product, this);
+            ProductItem productItem = new ProductItem(product);
             productItemMap.put(product.getName(), productItem);
         }
         productsFlowPane.toFront();
