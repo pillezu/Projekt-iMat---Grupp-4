@@ -22,6 +22,7 @@ public class IMat extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.setMaximized(true);
+        stage.setResizable(false);
         primaryStage.setTitle("iMat");
         primaryStage.show();
     }

@@ -17,6 +17,7 @@ public class AbstractProductItem extends AnchorPane {
 
     @FXML protected ImageView productImageView;
     @FXML protected Label productNameLabel;
+    @FXML protected Label priceLabel;
     @FXML protected TextField nrProductsTextField;
     @FXML protected Button addButton;
     @FXML protected Button removeButton;
@@ -28,6 +29,7 @@ public class AbstractProductItem extends AnchorPane {
 
     protected void setup() {
         productNameLabel.setText(product.getName());
+        priceLabel.setText(product.getPrice() + " " + product.getUnit());
         productImageView.setImage(dataHandler.getFXImage(product));
 
         addButton.setOnMouseClicked(mouseEvent -> {
