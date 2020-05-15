@@ -1,4 +1,4 @@
-package sample.components.productitem;
+package sample.components.cartitem;
 
 import javafx.fxml.FXMLLoader;
 import sample.components.AbstractProductItem;
@@ -6,11 +6,11 @@ import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
 
-public class ProductItem extends AbstractProductItem {
+public class CartItem extends AbstractProductItem {
 
-    public ProductItem(Product product) {
+    public CartItem(Product product) {
         super(product);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductItem.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CartItem.fxml"));
         fxmlLoader.setController(this);
         fxmlLoader.setRoot(this);
 
