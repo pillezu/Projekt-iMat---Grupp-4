@@ -8,20 +8,20 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../stylesheet.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.screens.favorites.Controller">
+<VBox id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1920.0" stylesheets="@../../stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.screens.favorites.Controller">
    <fx:include source="../../components/toolbar/View.fxml" VBox.vgrow="NEVER" />
-   <HBox maxHeight="1.7976931348623157E308" style="-fx-background-color: gray;" VBox.vgrow="ALWAYS">
-      <VBox prefWidth="200.0" HBox.hgrow="NEVER" />
+   <HBox maxHeight="1.7976931348623157E308" style="-fx-background-color: gray;">
+      <VBox prefWidth="200.0" styleClass="side-panel" HBox.hgrow="NEVER" />
       <VBox id="background" alignment="CENTER" maxWidth="1.7976931348623157E308" prefWidth="200.0" spacing="10.0" HBox.hgrow="ALWAYS">
          <Label maxWidth="1.7976931348623157E308" prefHeight="46.0" prefWidth="1327.0" style="-fx-font-size: 30;" text="Favoriter" VBox.vgrow="ALWAYS">
             <padding>
                <Insets left="50.0" />
             </padding>
          </Label>
-         <TextField maxWidth="500.0" VBox.vgrow="NEVER" />
-         <ScrollPane id="background" hbarPolicy="NEVER" prefHeight="890.0" prefWidth="1499.0">
+         <TextField maxWidth="500.0" promptText="Sök vara" VBox.vgrow="NEVER" />
+         <ScrollPane hbarPolicy="NEVER" prefHeight="890.0" prefWidth="1499.0" styleClass="center-stage">
             <content>
-               <FlowPane id="background" fx:id="productsFlowPane" prefHeight="895.0" prefWidth="1499.0" />
+               <FlowPane fx:id="productsFlowPane" prefHeight="883.0" prefWidth="1499.0" prefWrapLength="100.0" styleClass="center-stage" vgap="4.0" />
             </content>
          </ScrollPane>
          <padding>

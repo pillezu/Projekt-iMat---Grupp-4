@@ -26,7 +26,7 @@ public class Controller implements Initializable {
             ProductItem productItem = new ProductItem(product, this);
             productItemMap.put(product.getName(), productItem);
         }
-
+        productsFlowPane.toFront();
         updateProducts();
     }
 
@@ -34,9 +34,7 @@ public class Controller implements Initializable {
         productsFlowPane.getChildren().clear();
 
         for (Product product : dataHandler.getProducts()) {
-            if (dataHandler.isFavorite(product)) {
-                productsFlowPane.getChildren().add(productItemMap.get(product.getName()));
-            }
+            productsFlowPane.getChildren().add(productItemMap.get(product.getName()));
         }
 
     }
