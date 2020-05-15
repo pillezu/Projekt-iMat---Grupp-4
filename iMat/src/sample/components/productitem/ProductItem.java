@@ -7,7 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import sample.screens.favorites.Controller;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 
@@ -18,14 +17,14 @@ public class ProductItem extends AnchorPane {
     private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
     private Product product;
-    private Controller parentController;
 
     @FXML private ImageView productImageView;
     @FXML private Label productNameLabel;
     @FXML private TextField nrProductsTextField;
+    @FXML private Button addButton;
     @FXML private Button removeButton;
 
-    public ProductItem(Product product, Controller controller) {
+    public ProductItem(Product product) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductItem.fxml"));
         fxmlLoader.setController(this);
         fxmlLoader.setRoot(this);
@@ -37,10 +36,15 @@ public class ProductItem extends AnchorPane {
         }
 
         this.product = product;
-        this.parentController = controller;
 
         productNameLabel.setText(product.getName());
         productImageView.setImage(dataHandler.getFXImage(product));
+
+        addButton.setOnMouseClicked(mouseEvent -> {
+            System.out.println("Adding item");
+            dataHandler.getShoppingCart().addProduct(product);
+        });
+
 
     }
 }

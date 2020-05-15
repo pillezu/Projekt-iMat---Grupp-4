@@ -9,18 +9,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" stylesheets="@../../stylesheet.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" stylesheets="@../../stylesheet.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="productImageView" fitHeight="84.0" fitWidth="100.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="productImageView" fitHeight="84.0" fitWidth="100.0" layoutX="58.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../.dat215/imat/images/product_33.jpg" />
+            <Image url="@/sample/resources/homeButton.png" />
          </image>
       </ImageView>
-      <Label fx:id="productNameLabel" layoutX="82.0" layoutY="88.0" text="Cola" textAlignment="CENTER">
+      <Label fx:id="productNameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="83.0" layoutY="88.0" text="Cola" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <Button layoutX="150.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" styleClass="product-button" text="+" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="addButton" layoutX="150.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" styleClass="product-button" text="+" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

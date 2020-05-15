@@ -5,7 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.FlowPane;
-import sample.screens.favorites.ProductItem;
+import sample.components.productitem.ProductItem;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
@@ -21,10 +21,11 @@ public class Controller implements Initializable {
     ProductCategory[] categories = ProductCategory.values();
 
     @FXML
-    ListView<String> categoriesListView;
+    private ListView<String> categoriesListView;
     @FXML
     private FlowPane productsFlowPane;
-    @FXML private ScrollPane productsScrollPane;
+    @FXML
+    private ScrollPane productsScrollPane;
 
     Map<String, ProductItem> productItemMap = new HashMap<>();
 
