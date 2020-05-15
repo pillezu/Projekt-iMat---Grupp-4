@@ -20,6 +20,7 @@ public class AbstractProductItem extends AnchorPane {
     @FXML protected TextField nrProductsTextField;
     @FXML protected Button addButton;
     @FXML protected Button removeButton;
+    @FXML protected ImageView favoriteImageView;
 
     public AbstractProductItem(Product product) {
         this.product = product;
@@ -34,4 +35,5 @@ public class AbstractProductItem extends AnchorPane {
             dataHandler.getShoppingCart().addProduct(product);
         });
     }
+
 }
