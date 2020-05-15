@@ -1,10 +1,17 @@
 package sample.screens.accountdetails;
 
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Callback;
+import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 import java.awt.*;
@@ -58,11 +65,38 @@ public class Controller implements Initializable {
     Button saveButton;
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
+    CreditCard creditCard= dataHandler.getCreditCard();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
+
+        monthComboBox.getItems().addAll(1,2,3,4,5,6,7,8,9,10,11,12);
+        monthComboBox.getSelectionModel().select("Månad");
+        monthComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String newValue) {
+                //creditCard.setValidMonth(Integer.parseInt(newValue));
+                creditCard.setValidMonth(Integer.parseInt(newValue));
+
+            }
+        });
+
+        yearComboBox.getItems().addAll(2021,2022,2023);
+        yearComboBox.getSelectionModel().select("År");
+        yearComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String newValue) {
+                creditCard.setValidYear(Integer.parseInt(newValue));
+
+            }
+        });
+
     }
+
     private class TextFieldListener implements ChangeListener<Boolean> {
 
         private javafx.scene.control.TextField textField;
@@ -75,16 +109,19 @@ public class Controller implements Initializable {
         @Override
         public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
             if(newValue){
-                System.out.println();
+                System.out.println(dataHandler);
                 System.out.println(textField);
 
             }
 
         }
     }
-
-
-
 }
+
+
+
+
+
+
 
 
