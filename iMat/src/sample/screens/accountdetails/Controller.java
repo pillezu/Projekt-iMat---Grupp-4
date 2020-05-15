@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 import se.chalmers.cse.dat216.project.CreditCard;
+import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 import java.net.URL;
@@ -67,6 +68,7 @@ public class Controller implements Initializable {
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     CreditCard creditCard= dataHandler.getCreditCard();
+    Customer customer=dataHandler.getCustomer();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -85,7 +87,7 @@ public class Controller implements Initializable {
             }
         });
 
-        yearComboBox.getItems().addAll(2021,2022,2023);
+        yearComboBox.getItems().addAll(2020,2021,2022,2023,2024);
         yearComboBox.getSelectionModel().select("År");
         yearComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
@@ -118,11 +120,16 @@ public class Controller implements Initializable {
             }
         });
 
+
+
     }
     public void backButton(){
 
     }
     public void saveButton(){
+
+
+
 
 
     }
