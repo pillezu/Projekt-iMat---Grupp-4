@@ -9,28 +9,28 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" stylesheets="@../../stylesheet.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="125.0" prefWidth="300.0" style="-fx-background-color: #ffffff;" stylesheets="@../../stylesheet.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="productImageView" fitHeight="84.0" fitWidth="100.0" layoutX="58.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="productImageView" fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@/sample/resources/homeButton.png" />
          </image>
       </ImageView>
-      <Label fx:id="productNameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="83.0" layoutY="88.0" text="Cola" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Label fx:id="productNameLabel" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="176.0" text="Cola" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="130.0">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <Button fx:id="addButton" layoutX="150.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" styleClass="product-button" text="+" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="addButton" layoutX="242.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" styleClass="product-button" text="+" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="removeButton" disable="true" layoutX="23.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" styleClass="product-button" text="-" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="removeButton" disable="true" layoutX="137.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" styleClass="product-button" text="-" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <TextField fx:id="nrProductsTextField" alignment="CENTER" layoutX="65.0" layoutY="128.0" prefHeight="26.0" prefWidth="67.0" text="0" />
+      <TextField fx:id="nrProductsTextField" alignment="CENTER" layoutX="169.0" layoutY="88.0" prefHeight="26.0" prefWidth="67.0" text="0" />
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
