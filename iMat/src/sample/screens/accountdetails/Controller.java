@@ -60,6 +60,10 @@ public class Controller implements Initializable {
     Button backButton;
     @FXML
     Button saveButton;
+    @FXML
+    RadioButton mastercardRadioButton;
+    @FXML
+    RadioButton visakortRadioButton;
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     CreditCard creditCard= dataHandler.getCreditCard();
@@ -92,6 +96,34 @@ public class Controller implements Initializable {
 
             }
         });
+        ToggleGroup difficultyToggleGroup = new ToggleGroup();
+
+        mastercardRadioButton.setToggleGroup(difficultyToggleGroup);
+
+        visakortRadioButton.setToggleGroup(difficultyToggleGroup);
+
+
+
+
+        difficultyToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+
+                if (difficultyToggleGroup.getSelectedToggle() != null) {
+                    RadioButton selected = (RadioButton) difficultyToggleGroup.getSelectedToggle();
+                    creditCard.setCardType(selected.getTypeSelector());
+
+                }
+            }
+        });
+
+    }
+    public void backButton(){
+
+    }
+    public void saveButton(){
+
 
     }
 
