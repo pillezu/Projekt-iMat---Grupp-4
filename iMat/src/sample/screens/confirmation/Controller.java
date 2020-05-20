@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    IMatDataHandler dataHandler = IMatDataHandler.getInstance();
+
 
     @FXML Label iMatLabel;
     @FXML ImageView homeImage;
@@ -31,8 +31,12 @@ public class Controller implements Initializable {
     RadioButton mastercardRadioButton;
     @FXML
     RadioButton visacardRadioButton;
+    @FXML
+    private Button ToFinish;
+    @FXML
+    private Button toCheckout;
 
-
+    IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     CreditCard creditCard= dataHandler.getCreditCard();
     Customer customer=dataHandler.getCustomer();
 
@@ -66,10 +70,8 @@ public class Controller implements Initializable {
         ToggleGroup difficultyToggleGroup = new ToggleGroup();
 
         mastercardRadioButton.setToggleGroup(difficultyToggleGroup);
-
         visacardRadioButton.setToggleGroup(difficultyToggleGroup);
-
-
+        ;
 
 
         difficultyToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
@@ -85,19 +87,11 @@ public class Controller implements Initializable {
             }
         });
 
-
-
-    }
-    public void backButton(){
+        ToFinish.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/finish/Screen.fxml"));
+        toCheckout.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/checkout/Screen.fxml"));
 
     }
-    public void saveButton(){
 
-
-
-
-
-    }
 
     private class TextFieldListener implements ChangeListener<Boolean> {
 
