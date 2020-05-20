@@ -21,13 +21,17 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        refreshShoppingCartList();
         cart.addShoppingCartListener(cartEvent -> {
-            productsFlowPane.getChildren().clear();
-
-            for (int i = cart.getItems().size()-1; i >= 0; i--) {
-                ShoppingItem item = cart.getItems().get(i);
-                productsFlowPane.getChildren().add(new CartItem(item.getProduct()));
-            }
+            refreshShoppingCartList();
         });
+    }
+
+    private void refreshShoppingCartList() {
+        productsFlowPane.getChildren().clear();
+        for (int i = cart.getItems().size()-1; i >= 0; i--) {
+            ShoppingItem item = cart.getItems().get(i);
+            productsFlowPane.getChildren().add(new CartItem(item.getProduct()));
+        }
     }
 }

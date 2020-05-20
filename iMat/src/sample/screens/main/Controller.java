@@ -5,14 +5,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.FlowPane;
+import sample.IMat;
 import sample.components.productitem.ProductItem;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
 
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -27,7 +26,6 @@ public class Controller implements Initializable {
     @FXML
     private ScrollPane productsScrollPane;
 
-    Map<String, ProductItem> productItemMap = new HashMap<>();
 
 
     @Override
@@ -35,13 +33,19 @@ public class Controller implements Initializable {
         setupCategories();
 
 
-        for (Product product : dataHandler.getProducts()) {
-            ProductItem productItem = new ProductItem(product);
-            productItemMap.put(product.getName(), productItem);
-        }
+        setupProductItems();
         productsFlowPane.toFront();
         updateProducts();
         IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(cartEvent -> updateProducts());
+    }
+
+    private void setupProductItems() {
+        if (IMat.productItemMap.size() == 0) {
+            for (Product product : dataHandler.getProducts()) {
+                ProductItem productItem = new ProductItem(product);
+                IMat.productItemMap.put(product.getName(), productItem);
+            }
+        }
     }
 
     private void setupCategories() {
@@ -64,7 +68,7 @@ public class Controller implements Initializable {
         productsFlowPane.getChildren().clear();
 
         for (Product product : dataHandler.getProducts()) {
-            productsFlowPane.getChildren().add(productItemMap.get(product.getName()));
+            productsFlowPane.getChildren().add(IMat.productItemMap.get(product.getName()));
         }
 
     }

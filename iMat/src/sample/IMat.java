@@ -5,16 +5,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.components.productitem.ProductItem;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 public class IMat extends Application {
     public static Stage stage;
+    public static Map<String, ProductItem> productItemMap = new HashMap<>();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
 
         IMatDataHandler.getInstance().getShoppingCart().clear();
 
@@ -26,6 +31,7 @@ public class IMat extends Application {
         stage.setResizable(false);
         primaryStage.setTitle("iMat");
         primaryStage.show();
+
     }
 
     public static void changeRoot(String fxmlPath) {
