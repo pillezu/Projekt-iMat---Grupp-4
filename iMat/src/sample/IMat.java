@@ -23,7 +23,7 @@ public class IMat extends Application {
 
         IMatDataHandler.getInstance().getShoppingCart().clear();
 
-        Parent root = FXMLLoader.load(getClass().getResource("screens/finish/Screen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("screens/main/Screen.fxml"));
         stage = primaryStage;
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 1920, 1080));
