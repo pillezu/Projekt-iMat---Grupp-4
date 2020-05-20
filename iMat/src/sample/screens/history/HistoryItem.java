@@ -13,28 +13,19 @@ import javafx.scene.layout.FlowPane;
 
 import java.io.IOException;
 import java.math.RoundingMode;
-import java.sql.Time;
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
 public class HistoryItem extends TitledPane {
 
-    IMatDataHandler datahandler = IMatDataHandler.getInstance();
 
-    private Controller parentController;
-    private List<Product> historyProducts;
     private String blankSpace = "\t\t";
     int amount = 0;
     @FXML private FlowPane historyFlowPane;
     @FXML private TitledPane historyItemTitledPane;
 
-    public HistoryItem(ShoppingCart products, Controller parentController){
+    public HistoryItem(ShoppingCart products){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("historyItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -60,8 +51,6 @@ public class HistoryItem extends TitledPane {
 
         this.setText("\t Datum: " + date + blankSpace + "Dag: " + day + blankSpace + "Antal varor: " +
                 amount + blankSpace + "Totalkostnad: " + totalCost + " kr");
-
-        this.parentController = parentController;
 
         for (ShoppingItem item : products.getItems()) {
             historyFlowPane.getChildren().add(new HorizontalProductItem(item));

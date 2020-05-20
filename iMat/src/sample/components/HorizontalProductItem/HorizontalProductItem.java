@@ -20,6 +20,7 @@ public class HorizontalProductItem extends AbstractProductItem {
 
 
     @FXML private Label totalPriceLabel;
+    @FXML private Label amountBought;
 
     public HorizontalProductItem(ShoppingItem product){
         super(product.getProduct());
@@ -36,15 +37,23 @@ public class HorizontalProductItem extends AbstractProductItem {
 
         setup();
 
-        dataHandler.getShoppingCart().addShoppingCartListener(cartEvent -> {
-            if (cartEvent.getShoppingItem().getProduct() == product.getProduct()) {
-                setNrProductsTextField(product);
-            }
-        });
+        setupShoppingCartListener();
 
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.CEILING);
 
-        totalPriceLabel.setText(df.format(product.getTotal()) + " kr");
+        amountBought.setText("Antal köpta: " + product.getAmount() + " " + product.getProduct().getUnitSuffix());
+
+        totalPriceLabel.setText("Totalpris: " + df.format(product.getTotal()) + " kr");
+    }
+
+    private void setupShoppingCartListener() {
+        dataHandler.getShoppingCart().addShoppingCartListener(cartEvent -> {
+            if (cartEvent.getShoppingItem().getProduct() == product) {
+                ShoppingItem item = getCartItemIfExists();
+                setNrProductsTextField(item);
+                setRemoveButtonDisabled(item);
+            }
+        });
     }
 }
