@@ -52,27 +52,27 @@
                   </AnchorPane>
                 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="682.0" prefWidth="1000.0">
                      <children>
-                        <Label fx:id="productNameLabel" layoutX="17.0" layoutY="17.0" text="Äpple">
+                        <Label fx:id="productNameLabel" layoutX="17.0" layoutY="17.0" text="Äpple" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="816.6">
                            <font>
                               <Font name="System Bold" size="60.0" />
                            </font>
                         </Label>
-                        <ImageView fx:id="favoriteImageView" fitHeight="66.0" fitWidth="105.0" layoutX="217.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="favoriteImageView" fitHeight="66.0" fitWidth="105.0" layoutX="217.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="217.0" AnchorPane.rightAnchor="705.2376251220703">
                            <image>
                               <Image url="@../../resources/favorit_tom.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="productNameLabel1" layoutX="17.0" layoutY="128.0" text="Ingredienser">
+                        <Label fx:id="productNameLabel1" layoutX="17.0" layoutY="113.0" text="Ingredienser">
                            <font>
                               <Font name="System Bold" size="45.0" />
                            </font>
                         </Label>
-                        <Label fx:id="productNameLabel11" layoutX="17.0" layoutY="347.0" text="Näringsvärde per 100g">
+                        <Label fx:id="productNameLabel11" layoutX="17.0" layoutY="334.0" text="Näringsvärde per 100g">
                            <font>
                               <Font name="System Bold" size="45.0" />
                            </font>
                         </Label>
-                        <Label fx:id="productNameLabel111" layoutX="17.0" layoutY="548.0" text="Kategorier">
+                        <Label fx:id="productNameLabel111" layoutX="17.0" layoutY="550.0" text="Kategorier">
                            <font>
                               <Font name="System Bold" size="45.0" />
                            </font>
@@ -82,16 +82,21 @@
                               <Font name="System Bold" size="25.0" />
                            </font>
                         </Button>
-                        <TextArea editable="false" layoutX="17.0" layoutY="191.0" prefHeight="158.0" prefWidth="951.0" styleClass="text-area" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. " wrapText="true">
+                        <TextArea editable="false" layoutX="17.0" layoutY="175.0" prefHeight="158.0" prefWidth="951.0" styleClass="text-area" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. " wrapText="true">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </TextArea>
-                        <TextArea editable="false" layoutX="10.0" layoutY="410.0" prefHeight="157.0" prefWidth="951.0" styleClass="text-area" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. " wrapText="true">
+                        <TextArea editable="false" layoutX="10.0" layoutY="397.0" prefHeight="157.0" prefWidth="951.0" styleClass="text-area" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. " wrapText="true">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </TextArea>
+                        <ImageView fx:id="closeImageView" fitHeight="63.0" fitWidth="50.0" layoutX="947.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resources/x-markpng.png" />
+                           </image>
+                        </ImageView>
                      </children></AnchorPane>
               </items>
             </SplitPane>

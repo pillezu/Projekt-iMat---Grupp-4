@@ -25,12 +25,15 @@ public class ProductDetail extends AnchorPane {
     @FXML SplitPane detailSplitePane;
     @FXML AnchorPane detailShadowAnchorpane;
     @FXML TextField nrProductsTextField;
+    @FXML  ImageView closeImageView;
 
     public void populateDetailView(Product product) {
 
         detailSplitePane.lookupAll(".split-pane-divider").stream().forEach(div -> div.setMouseTransparent(true));
 
         detailShadowAnchorpane.setOnMouseClicked(mouseEvent -> detailShadowAnchorpane.toBack());
+
+        closeImageView.setOnMouseClicked(mouseEvent -> detailShadowAnchorpane.toBack());
 
         productImageView.setImage(dataHandler.getFXImage(product));
         if(dataHandler.isFavorite(product)) {
