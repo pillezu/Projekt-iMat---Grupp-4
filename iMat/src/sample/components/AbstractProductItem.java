@@ -36,8 +36,15 @@ public class AbstractProductItem extends AnchorPane {
         productNameLabel.setText(product.getName());
         if(priceLabel != null){priceLabel.setText(product.getPrice() + " " + product.getUnit());}
         productImageView.setImage(dataHandler.getFXImage(product));
+        ShoppingItem item = getCartItemIfExists();
+        setNrProductsTextField(item);
+        setRemoveButtonDisabled(item);
+        setupButtons();
 
-        setNrProductsTextField();
+
+    }
+
+    private void setupButtons() {
         addButton.setOnMouseClicked(mouseEvent -> {
             ShoppingItem item = getCartItemIfExists();
             if (item == null) {
@@ -47,14 +54,27 @@ public class AbstractProductItem extends AnchorPane {
                 item.setAmount(item.getAmount()+1);
             }
             cart.fireShoppingCartChanged(item, true);
-
         });
-
-
+        removeButton.setOnMouseClicked(mouseEvent -> {
+            ShoppingItem item = getCartItemIfExists();
+            if (item == null) {
+                return;
+            } else {
+                if (item.getAmount() <= 1) {
+                    cart.removeItem(item);
+                } else {
+                    item.setAmount(item.getAmount()-1);
+                }
+            }
+            cart.fireShoppingCartChanged(item, false);
+        });
     }
 
-    protected void setNrProductsTextField() {
-        ShoppingItem item = getCartItemIfExists();
+    protected void setRemoveButtonDisabled(ShoppingItem item) {
+        removeButton.setDisable(item == null);
+    }
+
+    protected void setNrProductsTextField(ShoppingItem item) {
         double nrProducts = 0;
         if (item != null) {
             nrProducts = item.getAmount();
@@ -62,7 +82,7 @@ public class AbstractProductItem extends AnchorPane {
         nrProductsTextField.setText(""+nrProducts);
     }
 
-    private ShoppingItem getCartItemIfExists() {
+    protected ShoppingItem getCartItemIfExists() {
         List<ShoppingItem> items = dataHandler.getShoppingCart().getItems();
         for (ShoppingItem item : items) {
             if (item.getProduct() == product) {
