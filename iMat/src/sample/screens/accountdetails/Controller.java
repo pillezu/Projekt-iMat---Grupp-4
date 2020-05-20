@@ -120,22 +120,11 @@ public class Controller implements Initializable {
                 }
             }
         });
-
-
-
     }
 
-    public void saveContactAction (ActionEvent event){
-        nameTextField.getCharacters();
-        lastnameTextField.getCharacters();
-        epostTextField.getCharacters();
-        postnrTextField.getCharacters();
-        addressTextField.getCharacters();
 
 
-    }
-
-    private class TextFieldListener implements ChangeListener<Boolean> {
+    /*private class TextFieldListener implements ChangeListener<Boolean> {
 
         private javafx.scene.control.TextField textField;
 
@@ -154,6 +143,8 @@ public class Controller implements Initializable {
 
         }
     }
+    /*
+     */
 }
 
 
