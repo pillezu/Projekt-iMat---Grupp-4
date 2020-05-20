@@ -76,7 +76,7 @@ public class Controller implements Initializable {
 
 
         monthComboBox.getItems().addAll(1,2,3,4,5,6,7,8,9,10,11,12);
-        monthComboBox.getSelectionModel().select("Månad");
+        //monthComboBox.getSelectionModel().select("Månad");
 
         monthComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -88,7 +88,7 @@ public class Controller implements Initializable {
         });
 
         yearComboBox.getItems().addAll(2020,2021,2022,2023,2024);
-        yearComboBox.getSelectionModel().select("År");
+        //yearComboBox.getSelectionModel().select("År");
         yearComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
 

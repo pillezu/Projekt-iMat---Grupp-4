@@ -9,6 +9,8 @@ import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import sample.IMat;
+import se.chalmers.cse.dat216.project.CreditCard;
+import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 import java.net.URL;
@@ -26,13 +28,13 @@ public class Controller implements Initializable {
     @FXML
     Button btn1;
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-    }
-}
 
+
+}
+}
 
 
 
