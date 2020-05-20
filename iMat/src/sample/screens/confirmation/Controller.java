@@ -12,12 +12,13 @@ import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    IMatDataHandler dataHandler = IMatDataHandler.getInstance();
+
 
     @FXML Label iMatLabel;
     @FXML ImageView homeImage;
@@ -31,8 +32,12 @@ public class Controller implements Initializable {
     RadioButton mastercardRadioButton;
     @FXML
     RadioButton visacardRadioButton;
+    @FXML
+    private Button ToFinish;
+    @FXML
+    private Button toCheckout;
 
-
+    IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     CreditCard creditCard= dataHandler.getCreditCard();
     Customer customer=dataHandler.getCustomer();
 
@@ -66,10 +71,8 @@ public class Controller implements Initializable {
         ToggleGroup difficultyToggleGroup = new ToggleGroup();
 
         mastercardRadioButton.setToggleGroup(difficultyToggleGroup);
-
         visacardRadioButton.setToggleGroup(difficultyToggleGroup);
-
-
+        ;
 
 
         difficultyToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
@@ -84,22 +87,15 @@ public class Controller implements Initializable {
                 }
             }
         });
-
-
-
-    }
-    public void backButton(){
-
-    }
-    public void saveButton(){
-
-
-
-
+        ToFinish.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/finish/Screen.fxml"));
+        toCheckout.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/checkout/Screen.fxml"));
 
     }
 
-    private class TextFieldListener implements ChangeListener<Boolean> {
+
+
+
+    /*private class TextFieldListener implements ChangeListener<Boolean> {
 
         private javafx.scene.control.TextField textField;
 
@@ -118,6 +114,8 @@ public class Controller implements Initializable {
 
         }
     }
+    /*
+     */
 }
 
 

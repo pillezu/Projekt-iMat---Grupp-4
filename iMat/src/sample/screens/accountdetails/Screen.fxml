@@ -100,7 +100,7 @@
                </image>
             </ImageView>
             <Separator layoutX="14.0" layoutY="424.0" prefHeight="73.0" prefWidth="1913.0" />
-            <Button layoutX="1514.0" layoutY="669.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="131.0" style="-fx-background-color: #00900E#00900E;" text="Spara" textFill="WHITE">
+            <Button layoutX="1514.0" layoutY="669.0" mnemonicParsing="false" onAction="#saveContactAction" prefHeight="63.0" prefWidth="131.0" style="-fx-background-color: #00900E#00900E;" text="Spara" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

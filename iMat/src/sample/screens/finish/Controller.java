@@ -3,9 +3,6 @@ package sample.screens.finish;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 import sample.IMat;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
@@ -16,15 +13,17 @@ public class Controller implements Initializable {
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
-    @FXML Label iMatLabel;
-    @FXML ImageView homeImage;
-    @FXML VBox mainScreen;
-    @FXML Button btn1;
+    @FXML Button continueButton;
+    @FXML Button quitButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        btn1.setOnMouseClicked(mouseEvent -> {
-            IMat.changeRoot("History.fxml");
-        });
+        continueButton.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/main/Screen.fxml"));
+        quitButton.setOnMouseClicked(mouseEvent -> quit());
+    }
+
+    private void quit() {
+        dataHandler.shutDown();
+        System.exit(1);
     }
 }
