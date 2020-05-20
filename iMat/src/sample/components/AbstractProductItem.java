@@ -34,7 +34,7 @@ public class AbstractProductItem extends AnchorPane {
 
     protected void setup() {
         productNameLabel.setText(product.getName());
-        priceLabel.setText(product.getPrice() + " " + product.getUnit());
+        if(priceLabel != null){priceLabel.setText(product.getPrice() + " " + product.getUnit());}
         productImageView.setImage(dataHandler.getFXImage(product));
 
         setNrProductsTextField();
