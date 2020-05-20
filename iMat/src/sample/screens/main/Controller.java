@@ -36,7 +36,7 @@ public class Controller implements Initializable {
         setupProductItems();
         productsFlowPane.toFront();
         updateProducts();
-        IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(cartEvent -> updateProducts());
+        //IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(cartEvent -> updateProducts());
     }
 
     private void setupProductItems() {
@@ -68,7 +68,9 @@ public class Controller implements Initializable {
         productsFlowPane.getChildren().clear();
 
         for (Product product : dataHandler.getProducts()) {
-            productsFlowPane.getChildren().add(IMat.productItemMap.get(product.getName()));
+            ProductItem productItem = IMat.productItemMap.get(product.getName());
+            productItem.update();
+            productsFlowPane.getChildren().add(productItem);
         }
 
     }

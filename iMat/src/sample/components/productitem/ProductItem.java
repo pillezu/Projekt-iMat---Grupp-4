@@ -42,12 +42,27 @@ public class ProductItem extends AbstractProductItem {
         favoriteImageView.setOnMouseClicked(mouseEvent -> toggleFavorite());
     }
 
+    public void update() {
+        ShoppingItem item = getCartItemIfExists();
+        setNrProductsTextField(item);
+        setRemoveButtonDisabled(item);
+        updateFavoritesIcon();
+    }
+
     private Image getFavoriteImage() {
         return new Image(getClass().getClassLoader().getResourceAsStream("sample/resources/favorit.png"));
     }
 
     private Image getEmptyFavoriteImage() {
         return new Image(getClass().getClassLoader().getResourceAsStream("sample/resources/favorit_tom.png"));
+    }
+
+    private void updateFavoritesIcon() {
+        if (dataHandler.isFavorite(product)) {
+            favoriteImageView.setImage(getFavoriteImage());
+        } else {
+            favoriteImageView.setImage(getEmptyFavoriteImage());
+        }
     }
 
     public void toggleFavorite() {
