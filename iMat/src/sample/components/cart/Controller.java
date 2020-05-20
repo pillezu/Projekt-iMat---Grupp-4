@@ -22,10 +22,10 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cart.addShoppingCartListener(cartEvent -> {
-            System.out.println(cart.getItems());
             productsFlowPane.getChildren().clear();
 
-            for (ShoppingItem item : cart.getItems()) {
+            for (int i = cart.getItems().size()-1; i >= 0; i--) {
+                ShoppingItem item = cart.getItems().get(i);
                 productsFlowPane.getChildren().add(new CartItem(item.getProduct()));
             }
         });
