@@ -41,7 +41,6 @@ public class AbstractProductItem extends AnchorPane {
         setRemoveButtonDisabled(item);
         setupButtons();
 
-
     }
 
     private void setupButtons() {

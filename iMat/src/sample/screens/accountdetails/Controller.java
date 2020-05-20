@@ -18,63 +18,40 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    @FXML
-    TextField nameTextField;
-    @FXML
-    TextField lastnameTextField;
-    @FXML
-    TextField epostTextField;
-    @FXML
-    TextField addressTextField;
-    @FXML
-    TextField postnrTextField;
-    @FXML
-    TextField telephonenrTextField;
-    @FXML
-    TextField accountTextField;
-    @FXML
-    TextField cvcTextField;
-    @FXML
-    Label kontouppgiftLabel;
-    @FXML
-    Label nameLabel;
-    @FXML
-    Label lastnameLabel;
-    @FXML
-    Label epostaddressLabel;
-    @FXML
-    Label addresslLabel;
-    @FXML
-    Label postnrLabel;
-    @FXML
-    Label telephonenrLabel;
-    @FXML
-    Label accountLabel;
-    @FXML
-    Label cvcLabel;
-    @FXML
-    Label validLabel;
-    @FXML
-    ComboBox monthComboBox;
-    @FXML
-    ComboBox yearComboBox;
-    @FXML
-    Button backButton;
-    @FXML
-    Button saveButton;
-    @FXML
-    RadioButton mastercardRadioButton;
-    @FXML
-    RadioButton visakortRadioButton;
+
+    @FXML TextField nameTextField;
+    @FXML TextField lastnameTextField;
+    @FXML TextField epostTextField;
+    @FXML TextField addressTextField;
+    @FXML TextField postnrTextField;
+    @FXML TextField telephonenrTextField;
+    @FXML TextField accountTextField;
+    @FXML TextField cvcTextField;
+    @FXML Label kontouppgiftLabel;
+    @FXML Label nameLabel;
+    @FXML Label lastnameLabel;
+    @FXML Label epostaddressLabel;
+    @FXML Label addresslLabel;
+    @FXML Label postnrLabel;
+    @FXML Label telephonenrLabel;
+    @FXML Label accountLabel;
+    @FXML Label cvcLabel;
+    @FXML Label validLabel;
+    @FXML ComboBox monthComboBox;
+    @FXML ComboBox yearComboBox;
+    @FXML Button backButton;
+    @FXML Button saveButton;
+    @FXML RadioButton mastercardRadioButton;
+    @FXML RadioButton visakortRadioButton;
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
-    CreditCard creditCard= dataHandler.getCreditCard();
-    Customer customer=dataHandler.getCustomer();
+    CreditCard creditCard = dataHandler.getCreditCard();
+    Customer customer = dataHandler.getCustomer();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
+        nameTextField.setText(customer.getFirstName());
 
         monthComboBox.getItems().addAll(1,2,3,4,5,6,7,8,9,10,11,12);
         //monthComboBox.getSelectionModel().select("Månad");
@@ -84,7 +61,6 @@ public class Controller implements Initializable {
             public void changed(ObservableValue<? extends String> observableValue, String s, String newValue) {
                 creditCard.setValidMonth(Integer.parseInt(newValue));
                 creditCard.setValidMonth(Integer.parseInt(newValue));
-
             }
         });
 
@@ -122,7 +98,9 @@ public class Controller implements Initializable {
         });
     }
 
-
+    public void saveContactAction() {
+        customer.setFirstName(nameTextField.getText());
+    }
 
     /*private class TextFieldListener implements ChangeListener<Boolean> {
 
