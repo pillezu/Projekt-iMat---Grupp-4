@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import sample.components.AbstractProductItem;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 
@@ -29,7 +30,9 @@ public class ProductItem extends AbstractProductItem {
 
         dataHandler.getShoppingCart().addShoppingCartListener(cartEvent -> {
             if (cartEvent.getShoppingItem().getProduct() == product) {
-                setNrProductsTextField();
+                ShoppingItem item = getCartItemIfExists();
+                setNrProductsTextField(item);
+                setRemoveButtonDisabled(item);
             }
         });
 
@@ -39,12 +42,27 @@ public class ProductItem extends AbstractProductItem {
         favoriteImageView.setOnMouseClicked(mouseEvent -> toggleFavorite());
     }
 
+    public void update() {
+        ShoppingItem item = getCartItemIfExists();
+        setNrProductsTextField(item);
+        setRemoveButtonDisabled(item);
+        updateFavoritesIcon();
+    }
+
     private Image getFavoriteImage() {
         return new Image(getClass().getClassLoader().getResourceAsStream("sample/resources/favorit.png"));
     }
 
     private Image getEmptyFavoriteImage() {
         return new Image(getClass().getClassLoader().getResourceAsStream("sample/resources/favorit_tom.png"));
+    }
+
+    private void updateFavoritesIcon() {
+        if (dataHandler.isFavorite(product)) {
+            favoriteImageView.setImage(getFavoriteImage());
+        } else {
+            favoriteImageView.setImage(getEmptyFavoriteImage());
+        }
     }
 
     public void toggleFavorite() {

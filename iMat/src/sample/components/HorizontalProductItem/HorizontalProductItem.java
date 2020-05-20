@@ -12,6 +12,8 @@ import sample.components.AbstractProductItem;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 
 public class HorizontalProductItem extends AbstractProductItem {
@@ -19,8 +21,8 @@ public class HorizontalProductItem extends AbstractProductItem {
 
     @FXML private Label totalPriceLabel;
 
-    public HorizontalProductItem(Product product){
-        super(product);
+    public HorizontalProductItem(ShoppingItem product){
+        super(product.getProduct());
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("HorizontalProductItem.fxml"));
         fxmlLoader.setController(this);
@@ -33,5 +35,16 @@ public class HorizontalProductItem extends AbstractProductItem {
         }
 
         setup();
+
+        dataHandler.getShoppingCart().addShoppingCartListener(cartEvent -> {
+            if (cartEvent.getShoppingItem().getProduct() == product.getProduct()) {
+                setNrProductsTextField(product);
+            }
+        });
+
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.CEILING);
+
+        totalPriceLabel.setText(df.format(product.getTotal()) + " kr");
     }
 }

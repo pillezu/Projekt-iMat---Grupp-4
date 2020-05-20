@@ -2,7 +2,9 @@ package sample.components.cart;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
+import sample.IMat;
 import sample.components.cartitem.CartItem;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.ShoppingCart;
@@ -18,16 +20,24 @@ public class Controller implements Initializable {
 
     @FXML
     private FlowPane productsFlowPane;
+    @FXML
+    private Button checkoutButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        refreshShoppingCartList();
         cart.addShoppingCartListener(cartEvent -> {
-            productsFlowPane.getChildren().clear();
-
-            for (int i = cart.getItems().size()-1; i >= 0; i--) {
-                ShoppingItem item = cart.getItems().get(i);
-                productsFlowPane.getChildren().add(new CartItem(item.getProduct()));
-            }
+            refreshShoppingCartList();
         });
+
+        checkoutButton.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/checkout/Screen.fxml"));
+    }
+
+    private void refreshShoppingCartList() {
+        productsFlowPane.getChildren().clear();
+        for (int i = cart.getItems().size()-1; i >= 0; i--) {
+            ShoppingItem item = cart.getItems().get(i);
+            productsFlowPane.getChildren().add(new CartItem(item.getProduct()));
+        }
     }
 }
