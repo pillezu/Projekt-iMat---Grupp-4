@@ -98,3 +98,12 @@
     -fx-background-color: -fx-background;
 }
 
+.keep-shopping-button {
+    -fx-background-color: green;
+    -fx-background-radius: 20px;
+}
+
+.quit-button {
+    -fx-background-color: red;
+    -fx-background-radius: 20px;
+}
