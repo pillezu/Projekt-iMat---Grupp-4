@@ -41,6 +41,7 @@ public class Controller implements Initializable {
         }
         productsFlowPane.toFront();
         updateProducts();
+        IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(cartEvent -> updateProducts());
     }
 
     private void setupCategories() {

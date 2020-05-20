@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingCart;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
 public class AbstractProductItem extends AnchorPane {
 
     protected IMatDataHandler dataHandler = IMatDataHandler.getInstance();
+    private ShoppingCart cart = dataHandler.getShoppingCart();
 
     protected Product product;
 
@@ -35,16 +37,30 @@ public class AbstractProductItem extends AnchorPane {
         priceLabel.setText(product.getPrice() + " " + product.getUnit());
         productImageView.setImage(dataHandler.getFXImage(product));
 
+        setNrProductsTextField();
         addButton.setOnMouseClicked(mouseEvent -> {
             System.out.println("Adding item");
             ShoppingItem item = getCartItemIfExists();
             if (item == null) {
+                item = new ShoppingItem(product);
                 dataHandler.getShoppingCart().addProduct(product);
             } else {
                 item.setAmount(item.getAmount()+1);
             }
-            nrProductsTextField.setText(""+item.getAmount());
+            cart.fireShoppingCartChanged(item, true);
+
         });
+
+
+    }
+
+    protected void setNrProductsTextField() {
+        ShoppingItem item = getCartItemIfExists();
+        double nrProducts = 0;
+        if (item != null) {
+            nrProducts = item.getAmount();
+        }
+        nrProductsTextField.setText(""+nrProducts);
     }
 
     private ShoppingItem getCartItemIfExists() {

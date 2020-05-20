@@ -27,6 +27,12 @@ public class ProductItem extends AbstractProductItem {
 
         setup();
 
+        dataHandler.getShoppingCart().addShoppingCartListener(cartEvent -> {
+            if (cartEvent.getShoppingItem().getProduct() == product) {
+                setNrProductsTextField();
+            }
+        });
+
         if (dataHandler.isFavorite(product)) {
             favoriteImageView.setImage(getFavoriteImage());
         }
