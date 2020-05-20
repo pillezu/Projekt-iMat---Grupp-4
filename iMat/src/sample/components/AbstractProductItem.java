@@ -39,7 +39,6 @@ public class AbstractProductItem extends AnchorPane {
 
         setNrProductsTextField();
         addButton.setOnMouseClicked(mouseEvent -> {
-            System.out.println("Adding item");
             ShoppingItem item = getCartItemIfExists();
             if (item == null) {
                 item = new ShoppingItem(product);
