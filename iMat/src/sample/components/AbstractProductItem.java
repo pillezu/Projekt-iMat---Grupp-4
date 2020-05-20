@@ -71,7 +71,15 @@ public class AbstractProductItem extends AnchorPane {
     }
 
     protected void setRemoveButtonDisabled(ShoppingItem item) {
-        removeButton.setDisable(item == null);
+        boolean disabled = item==null;
+        // setDisable wont update the color the button status here for some reason
+        // so we always set it to true and then change the color manually.
+        removeButton.setDisable(false);
+        if (disabled) {
+            removeButton.setStyle("-fx-opacity: 0.5");
+        } else {
+            removeButton.setStyle("-fx-opacity: 1");
+        }
     }
 
     protected void setNrProductsTextField(ShoppingItem item) {

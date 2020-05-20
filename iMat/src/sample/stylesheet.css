@@ -33,6 +33,10 @@
     -fx-background-radius: 35px;
     -fx-background-color: -add-remove;
 }
+.round-button-disabled {
+    -fx-background-radius: 35px;
+    -fx-background-color: derive(-add-remove, -20%);
+}
 
 .side-panel {
     -fx-background-color: -primary2;
