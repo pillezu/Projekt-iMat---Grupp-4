@@ -13,22 +13,22 @@
             <Image url="@../../resources/homeButton.png" />
          </image>
       </ImageView>
-      <Label fx:id="productNameLabel" layoutX="132.0" layoutY="21.0" prefHeight="38.0" prefWidth="160.0" style="-fx-text-fill: ffffff;" text="\%Vara%">
+      <Label fx:id="productNameLabel" layoutX="132.0" layoutY="13.0" prefHeight="38.0" prefWidth="160.0" style="-fx-text-fill: ffffff;" text="\%Vara%">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Button fx:id="removeButton" layoutX="358.0" layoutY="21.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="39.0" styleClass="round-button" text="-">
+      <Button fx:id="removeButton" layoutX="358.0" layoutY="21.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="39.0" styleClass="round-button" text="-" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="addButton" layoutX="498.0" layoutY="21.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="39.0" styleClass="round-button" text="+">
+      <Button fx:id="addButton" layoutX="498.0" layoutY="21.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="39.0" styleClass="round-button" text="+" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Label fx:id="totalPriceLabel" alignment="CENTER" layoutX="584.0" layoutY="15.0" prefHeight="51.0" prefWidth="110.0" style="-fx-text-fill: ffffff;" text="\%pris% kr">
+      <Label fx:id="totalPriceLabel" alignment="CENTER" layoutX="587.0" layoutY="25.0" prefHeight="30.0" prefWidth="160.0" style="-fx-text-fill: ffffff;" text="\%pris% kr">
          <font>
             <Font size="17.0" />
          </font>
@@ -38,6 +38,11 @@
             <Font size="21.0" />
          </font>
       </TextField>
+      <Label fx:id="amountBought" layoutX="132.0" layoutY="49.0" prefHeight="30.0" prefWidth="149.0" style="-fx-text-fill: ffffff;" text="\%antal köpta%">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
    <padding>
       <Insets top="5.0" />
