@@ -12,6 +12,7 @@ import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -86,14 +87,15 @@ public class Controller implements Initializable {
                 }
             }
         });
-
         ToFinish.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/finish/Screen.fxml"));
         toCheckout.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/checkout/Screen.fxml"));
 
     }
 
 
-    private class TextFieldListener implements ChangeListener<Boolean> {
+
+
+    /*private class TextFieldListener implements ChangeListener<Boolean> {
 
         private javafx.scene.control.TextField textField;
 
@@ -112,6 +114,8 @@ public class Controller implements Initializable {
 
         }
     }
+    /*
+     */
 }
 
 
