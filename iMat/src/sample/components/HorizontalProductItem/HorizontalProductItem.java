@@ -36,6 +36,12 @@ public class HorizontalProductItem extends AbstractProductItem {
 
         setup();
 
+        dataHandler.getShoppingCart().addShoppingCartListener(cartEvent -> {
+            if (cartEvent.getShoppingItem().getProduct() == product.getProduct()) {
+                setNrProductsTextField(product);
+            }
+        });
+
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.CEILING);
 
