@@ -21,7 +21,7 @@
             </font>
          </Label>
 
-               <ListView fx:id="categoriesListView" styleClass="side-panel" HBox.hgrow="NEVER" VBox.vgrow="ALWAYS" />
+                                 <ListView fx:id="categoriesListView" styleClass="side-panel" HBox.hgrow="NEVER" VBox.vgrow="ALWAYS" />
       </VBox>
       <VBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" spacing="10.0" styleClass="center-stage" HBox.hgrow="ALWAYS">
          <Label maxWidth="1.7976931348623157E308" style="-fx-font-size: 30;" text="Favoriter" VBox.vgrow="ALWAYS">
