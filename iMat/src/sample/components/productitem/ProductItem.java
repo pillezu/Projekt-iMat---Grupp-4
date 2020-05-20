@@ -28,6 +28,15 @@ public class ProductItem extends AbstractProductItem {
 
         setup();
 
+        setupShoppingCartListener();
+
+        if (dataHandler.isFavorite(product)) {
+            favoriteImageView.setImage(getFavoriteImage());
+        }
+        favoriteImageView.setOnMouseClicked(mouseEvent -> toggleFavorite());
+    }
+
+    private void setupShoppingCartListener() {
         dataHandler.getShoppingCart().addShoppingCartListener(cartEvent -> {
             if (cartEvent.getShoppingItem().getProduct() == product) {
                 ShoppingItem item = getCartItemIfExists();
@@ -35,11 +44,6 @@ public class ProductItem extends AbstractProductItem {
                 setRemoveButtonDisabled(item);
             }
         });
-
-        if (dataHandler.isFavorite(product)) {
-            favoriteImageView.setImage(getFavoriteImage());
-        }
-        favoriteImageView.setOnMouseClicked(mouseEvent -> toggleFavorite());
     }
 
     public void update() {
