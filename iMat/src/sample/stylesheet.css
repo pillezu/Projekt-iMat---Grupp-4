@@ -86,3 +86,15 @@
     -fx-background-color: green;
     -fx-text-fill: #FFFFFF;
 }
+
+.shadowedpane {
+    -fx-background-color: rgba(0, 0, 0, 0.75);
+}
+.text-area .content {
+     -fx-background-color: -fx-background;
+}
+
+.text-area {
+    -fx-background-color: -fx-background;
+}
+
