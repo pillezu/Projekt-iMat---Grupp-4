@@ -2,6 +2,7 @@ package sample.components.productitem;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import sample.components.AbstractProductItem;
@@ -34,6 +35,8 @@ public class ProductItem extends AbstractProductItem {
             favoriteImageView.setImage(getFavoriteImage());
         }
         favoriteImageView.setOnMouseClicked(mouseEvent -> toggleFavorite());
+
+        Tooltip.install(favoriteImageView, new Tooltip("Lägg till som favoritvara"));
     }
 
     private void setupShoppingCartListener() {
