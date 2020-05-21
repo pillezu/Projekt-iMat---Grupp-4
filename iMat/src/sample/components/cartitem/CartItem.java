@@ -3,6 +3,7 @@ package sample.components.cartitem;
 import javafx.fxml.FXMLLoader;
 import sample.components.AbstractProductItem;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 
@@ -20,5 +21,10 @@ public class CartItem extends AbstractProductItem {
             throw new RuntimeException(e);
         }
         setup();
+    }
+
+    public void update() {
+        ShoppingItem item = getCartItemIfExists();
+        setNrProductsTextField(item);
     }
 }
