@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
@@ -54,6 +55,10 @@ public class AbstractProductItem extends AnchorPane {
     }
 
     private void setupButtons() {
+
+        Tooltip.install(addButton, new Tooltip("Lägg till en vara"));
+        Tooltip.install(removeButton, new Tooltip("Ta bort en vara"));
+
         addButton.setOnMouseClicked(mouseEvent -> {
             ShoppingItem item = getCartItemIfExists();
             if (item == null) {
@@ -83,7 +88,10 @@ public class AbstractProductItem extends AnchorPane {
             }
         });
         nrProductsTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            setNrProductsToTextField();
+            if (!newValue) {
+                // Lost focus -> save the result
+                setNrProductsToTextField();
+            }
         });
         nrProductsTextField.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode() == KeyCode.ENTER) {
