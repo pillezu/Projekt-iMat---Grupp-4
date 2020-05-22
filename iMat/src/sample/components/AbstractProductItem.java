@@ -88,7 +88,10 @@ public class AbstractProductItem extends AnchorPane {
             }
         });
         nrProductsTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            setNrProductsToTextField();
+            if (!newValue) {
+                // Lost focus -> save the result
+                setNrProductsToTextField();
+            }
         });
         nrProductsTextField.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode() == KeyCode.ENTER) {
