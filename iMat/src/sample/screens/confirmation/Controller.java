@@ -87,13 +87,16 @@ public class Controller implements Initializable {
                 }
             }
         });
-        ToFinish.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/finish/Screen.fxml"));
+        ToFinish.setOnMouseClicked(mouseEvent ->  toFinishClicked());//IMat.changeRoot("screens/finish/Screen.fxml"));
         toCheckout.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/checkout/Screen.fxml"));
 
     }
 
 
-
+    private void toFinishClicked(){
+        IMat.changeRoot("screens/finish/Screen.fxml");
+        dataHandler.placeOrder(true);
+    }
 
     /*private class TextFieldListener implements ChangeListener<Boolean> {
 

@@ -111,3 +111,11 @@
     -fx-background-color: red;
     -fx-background-radius: 20px;
 }
+
+.save-Button:hover {
+    -fx-background-color:rgba(0, 128, 0, 0.8);
+}
+
+.save-Button:pressed {
+    -fx-background-color: green;
+}

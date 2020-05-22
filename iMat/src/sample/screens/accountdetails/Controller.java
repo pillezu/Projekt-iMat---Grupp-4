@@ -48,47 +48,53 @@ public class Controller implements Initializable {
 
         showSavedContactInfo();
 
-        monthComboBox.getItems().addAll("Månad","1","2","3","4","5","6","7","8","9","10","11","12");
+        cvcTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                cvcTextField.setText(newValue.replaceAll("[^\\d.]", ""));
+            }
+        });
+
+        accountTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                accountTextField.setText(newValue.replaceAll("[^\\d.]", ""));
+            }
+        });
+
+        postnrTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                postnrTextField.setText(newValue.replaceAll("[^\\d.]", ""));
+            }
+        });
+
+        monthComboBox.getItems().addAll("1","2","3","4","5","6","7","8","9","10","11","12");
         if (creditCard.getValidMonth() == 0) {
-            monthComboBox.getSelectionModel().select("Månad");
+            monthComboBox.getSelectionModel().select(null);
         }
         else {
             monthComboBox.getSelectionModel().select(String.valueOf(creditCard.getValidMonth()));
         }
 
-        monthComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String newValue) {
-                if (!newValue.equals("Månad")) {
-                    creditCard.setValidMonth(Integer.parseInt(newValue));
-                }
-            }
-        });
 
-        yearComboBox.getItems().addAll("År","2020","2021","2022","2023","2024");
+        yearComboBox.getItems().addAll("2020","2021","2022","2023","2024");
         if  (creditCard.getValidYear() == 0) {
-            yearComboBox.getSelectionModel().select("År");
+            yearComboBox.getSelectionModel().select(null);
         }
         else {
             yearComboBox.getSelectionModel().select(String.valueOf(creditCard.getValidYear()));
         }
-        yearComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String newValue) {
-                if (!newValue.equals("År")) {
-                    creditCard.setValidYear(Integer.parseInt(newValue));
-                }
-            }
-        });
 
         ToggleGroup difficultyToggleGroup = new ToggleGroup();
         mastercardRadioButton.setToggleGroup(difficultyToggleGroup);
         visakortRadioButton.setToggleGroup(difficultyToggleGroup);
 
+        if (creditCard.getCardType().equals(mastercardRadioButton.getText())) {
+            mastercardRadioButton.setSelected(true);
+        }
+        else if (creditCard.getCardType().equals(visakortRadioButton.getText())) {
+            visakortRadioButton.setSelected(true);
+        }
 
         difficultyToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
 
@@ -108,8 +114,12 @@ public class Controller implements Initializable {
         telephonenrTextField.setText(customer.getPhoneNumber());
         postnrTextField.setText(customer.getPostCode());
         accountTextField.setText(creditCard.getCardNumber());
-        cvcTextField.setText(String.valueOf(creditCard.getVerificationCode()));
-
+        if (creditCard.getVerificationCode() == 0) {
+            cvcTextField.setText(null);
+        }
+        else {
+            cvcTextField.setText(String.valueOf(creditCard.getVerificationCode()));
+        }
     }
 
     public void saveContactAction() {
@@ -120,9 +130,14 @@ public class Controller implements Initializable {
         customer.setPhoneNumber(telephonenrTextField.getText());
         customer.setPostCode(postnrTextField.getText());
         creditCard.setValidYear(Integer.parseInt((String) yearComboBox.getSelectionModel().getSelectedItem()));
-        creditCard.setValidMonth(Integer.parseInt((String) yearComboBox.getSelectionModel().getSelectedItem()));
+        creditCard.setValidMonth(Integer.parseInt((String) monthComboBox.getSelectionModel().getSelectedItem()));
         creditCard.setCardNumber(accountTextField.getText());
-        creditCard.setVerificationCode(Integer.parseInt(cvcTextField.getText()));
+        if (cvcTextField.getText().equals("")) {
+            creditCard.setVerificationCode(0);
+        }
+        else {
+            creditCard.setVerificationCode(Integer.parseInt(cvcTextField.getText()));
+        }
     }
 
     /*private class TextFieldListener implements ChangeListener<Boolean> {
