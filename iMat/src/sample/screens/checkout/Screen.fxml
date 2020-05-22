@@ -111,10 +111,13 @@
                   </Label>
                </children>
             </VBox>
-            <Button fx:id="toConfirmationButton" minHeight="-Infinity" mnemonicParsing="false" prefHeight="150.0" prefWidth="320.0" styleClass="cart-checkout-button" text="Till Bekräftelse" VBox.vgrow="ALWAYS">
+            <Button fx:id="toConfirmationButton" minHeight="-Infinity" mnemonicParsing="false" prefHeight="150.0" prefWidth="320.0" styleClass="cart-checkout-button" text="Till Bekräftelse" textFill="WHITE" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <font>
+                  <Font size="31.0" />
+               </font>
             </Button>
          </children>
          <padding>

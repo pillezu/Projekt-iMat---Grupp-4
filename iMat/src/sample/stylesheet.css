@@ -38,6 +38,14 @@
     -fx-background-color: derive(-add-remove, -20%);
 }
 
+.round-button:hover {
+    -fx-background-color: rgba(250, 180, 45, 0.8);
+}
+
+.round-button:pressed {
+    -fx-background-color: -add-remove;
+}
+
 .side-panel {
     -fx-background-color: -primary2;
 }
@@ -47,6 +55,14 @@
 }
 
 .cart-checkout-button {
+    -fx-background-color: green;
+}
+
+.cart-checkout-button:hover {
+    -fx-background-color: rgba(0, 128, 0, 0.8);
+}
+
+.cart-checkout-button:pressed {
     -fx-background-color: green;
 }
 
