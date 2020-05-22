@@ -15,6 +15,7 @@ import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
 
@@ -51,8 +52,6 @@ public class Controller implements Initializable {
         searchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
             // Text changed
             searching = newValue.length() != 0;
-            CategoryManager.currentCategory = CategoryManager.FrontendCategory.ALLA_KATEGORIER;
-            categoriesListView.getSelectionModel().select(-1);
             updateProducts();
         });
         searchTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -102,20 +101,16 @@ public class Controller implements Initializable {
     private void updateProducts() {
         productsFlowPane.getChildren().clear();
 
+        List<Product> products = dataHandler.getProducts();
         if (searching) {
-            for (Product product : dataHandler.findProducts(searchTextField.getText())) {
+            products = dataHandler.findProducts(searchTextField.getText());
+        }
+        Set<ProductCategory> currentCategories = Set.of(CategoryManager.currentCategory.productCategories);
+        for (Product product : products) {
+            if (currentCategories.contains(product.getCategory())){
                 ProductItem productItem = IMat.productItemMap.get(product.getName());
                 productItem.update();
                 productsFlowPane.getChildren().add(productItem);
-            }
-        } else {
-            Set<ProductCategory> currentCategories = Set.of(CategoryManager.currentCategory.productCategories);
-            for (Product product : dataHandler.getProducts()) {
-                if (currentCategories.contains(product.getCategory())){
-                    ProductItem productItem = IMat.productItemMap.get(product.getName());
-                    productItem.update();
-                    productsFlowPane.getChildren().add(productItem);
-                }
             }
         }
     }
