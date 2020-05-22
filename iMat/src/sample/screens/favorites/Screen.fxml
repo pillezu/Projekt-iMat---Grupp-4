@@ -2,27 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
-
-<VBox id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.screens.favorites.Controller">
+<?import javafx.scene.layout.*?>
+<VBox id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../stylesheet.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.screens.favorites.Controller">
    <fx:include source="../../components/toolbar/View.fxml" VBox.vgrow="NEVER" />
    <HBox maxHeight="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" VBox.vgrow="ALWAYS">
-      <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0">
-         <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" styleClass="side-panel-header" text="Kategorier" textAlignment="CENTER">
-            <font>
-               <Font size="29.0" />
-            </font>
-         </Label>
-
-                                 <ListView fx:id="categoriesListView" styleClass="side-panel" HBox.hgrow="NEVER" VBox.vgrow="ALWAYS" />
-      </VBox>
       <VBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" spacing="10.0" styleClass="center-stage" HBox.hgrow="ALWAYS">
          <Label maxWidth="1.7976931348623157E308" style="-fx-font-size: 30;" text="Favoriter" VBox.vgrow="ALWAYS">
             <padding>
@@ -32,9 +17,9 @@
          <TextField maxWidth="500.0" VBox.vgrow="NEVER" />
          <ScrollPane fx:id="productsScrollPane" fitToWidth="true" hbarPolicy="NEVER" styleClass="center-stage">
             <content>
-               <FlowPane fx:id="productsFlowPane" hgap="4.0" prefHeight="883.0" prefWidth="1499.0" prefWrapLength="100.0" styleClass="center-stage" vgap="4.0">
+               <FlowPane fx:id="productsFlowPane" hgap="20.0" prefHeight="883.0" prefWidth="1499.0" prefWrapLength="100.0" styleClass="center-stage" vgap="20.0">
                   <padding>
-                     <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                   </padding>
                </FlowPane>
             </content>
