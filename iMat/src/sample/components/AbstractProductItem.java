@@ -20,7 +20,7 @@ public class AbstractProductItem extends AnchorPane {
     protected IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     private ShoppingCart cart = dataHandler.getShoppingCart();
 
-    protected Product product;
+    public Product product;
 
     @FXML
     protected ImageView productImageView;
