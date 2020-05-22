@@ -22,7 +22,7 @@
                     <Insets left="50.0" />
                 </padding>
             </Label>
-            <TextField maxWidth="500.0" VBox.vgrow="NEVER" />
+            <TextField fx:id="searchTextField" maxWidth="500.0" VBox.vgrow="NEVER" />
             <ScrollPane fx:id="productsScrollPane" fitToWidth="true" hbarPolicy="NEVER" styleClass="center-stage">
                 <content>
                     <FlowPane fx:id="productsFlowPane" hgap="20.0" prefHeight="883.0" prefWidth="1499.0" prefWrapLength="100.0" styleClass="center-stage" vgap="20.0">

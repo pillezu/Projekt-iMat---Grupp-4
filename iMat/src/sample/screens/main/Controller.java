@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.FlowPane;
 import sample.CategoryManager;
 import sample.IMat;
@@ -27,6 +29,10 @@ public class Controller implements Initializable {
     private FlowPane productsFlowPane;
     @FXML
     private ScrollPane productsScrollPane;
+    @FXML
+    private TextField searchTextField;
+
+    private boolean searching = false;
 
 
 
@@ -34,11 +40,31 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setupProductItems();
         setupCategories();
+        setupSearch();
 
 
         productsFlowPane.toFront();
         updateProducts();
-        //IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(cartEvent -> updateProducts());
+    }
+
+    private void setupSearch() {
+        searchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            // Text changed
+            searching = newValue.length() != 0;
+            CategoryManager.currentCategory = CategoryManager.FrontendCategory.ALLA_KATEGORIER;
+            categoriesListView.getSelectionModel().select(-1);
+            updateProducts();
+        });
+        searchTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                // Lost focus
+            }
+        });
+        searchTextField.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                // Enter pressed
+            }
+        });
     }
 
     private void setupProductItems() {
@@ -60,9 +86,14 @@ public class Controller implements Initializable {
         }
         categoriesListView.getSelectionModel().selectedIndexProperty().addListener((observableValue, oldNumber, newNumber) -> {
             int index = newNumber.intValue();
+            if (index == -1) {
+                return;
+            }
             CategoryManager.FrontendCategory category = categories[index];
             System.out.println("Selected category: " + category);
             CategoryManager.currentCategory = category;
+            searching = false;
+            searchTextField.setText("");
             updateProducts();
         });
         categoriesListView.getSelectionModel().select(0);
@@ -70,15 +101,22 @@ public class Controller implements Initializable {
 
     private void updateProducts() {
         productsFlowPane.getChildren().clear();
-        Set<ProductCategory> currentCategories = Set.of(CategoryManager.currentCategory.productCategories);
 
-        for (Product product : dataHandler.getProducts()) {
-            if (currentCategories.contains(product.getCategory())){
+        if (searching) {
+            for (Product product : dataHandler.findProducts(searchTextField.getText())) {
                 ProductItem productItem = IMat.productItemMap.get(product.getName());
                 productItem.update();
                 productsFlowPane.getChildren().add(productItem);
             }
+        } else {
+            Set<ProductCategory> currentCategories = Set.of(CategoryManager.currentCategory.productCategories);
+            for (Product product : dataHandler.getProducts()) {
+                if (currentCategories.contains(product.getCategory())){
+                    ProductItem productItem = IMat.productItemMap.get(product.getName());
+                    productItem.update();
+                    productsFlowPane.getChildren().add(productItem);
+                }
+            }
         }
-
     }
 }
