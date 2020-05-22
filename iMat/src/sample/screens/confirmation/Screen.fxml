@@ -20,7 +20,7 @@
         <fx:include source="../../components/toolbar/View.fxml" VBox.vgrow="NEVER" />
         <AnchorPane fx:id="confirmation" prefHeight="645.0" prefWidth="1637.0">
             <children>
-                <Rectangle fx:id="kontoSquare" arcHeight="5.0" arcWidth="5.0" fill="#59d3eb57" height="643.0" layoutX="38.0" layoutY="19.0" stroke="BLACK" strokeType="INSIDE" width="602.0" />
+                <Rectangle fx:id="accountSquare" arcHeight="5.0" arcWidth="5.0" fill="#3296a857" height="643.0" layoutX="38.0" layoutY="19.0" stroke="BLACK" strokeType="INSIDE" width="602.0" />
                 <Label alignment="CENTER" contentDisplay="CENTER" layoutX="94.0" layoutY="23.0" prefHeight="48.0" prefWidth="423.0" text="      Personuppgifter för köpet">
                     <font>
                         <Font name="System Bold" size="24.0" />
@@ -104,11 +104,11 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Button layoutX="50.0" layoutY="593.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="269.0" style="-fx-background-color: #5293A5; -fx-border-color: #005871;" text="Kom ihåg mina personuppgifter" textFill="WHITE">
+                <Button fx:id="saveButton" layoutX="50.0" layoutY="593.0" mnemonicParsing="false" onAction="#saveConfirmationtAction" prefHeight="40.0" prefWidth="269.0" style="-fx-background-color: #5293A5; -fx-border-color: #005871;" text="Kom ihåg mina personuppgifter" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Rectangle fx:id="recieptSquare" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="733.0" layoutX="694.0" layoutY="15.0" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeType="INSIDE" width="361.0">
+            <Rectangle fx:id="recieptSquare" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="733.0" layoutX="718.0" layoutY="14.0" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeType="INSIDE" width="414.0">
                <cursor>
                   <Cursor fx:constant="S_RESIZE" />
                </cursor>
@@ -116,22 +116,22 @@
                   <DropShadow />
                </effect>
             </Rectangle>
-            <Label layoutX="779.0" layoutY="603.0" prefHeight="23.0" prefWidth="111.0" text="Fraktkostnad:">
+            <Label layoutX="779.0" layoutY="662.0" prefHeight="23.0" prefWidth="111.0" text="Fraktkostnad:">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="779.0" layoutY="652.0" prefHeight="23.0" prefWidth="111.0" text="Totalsumman:">
+            <Label layoutX="779.0" layoutY="692.0" prefHeight="23.0" prefWidth="111.0" text="Totalsumman:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="1116.0" layoutY="79.0" prefHeight="214.0" prefWidth="176.0" text="Du kommer få varor hemkörda" wrapText="true" />
-            <Button fx:id="toCheckout" layoutX="38.0" layoutY="676.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="164.0" style="-fx-background-color: #5293A5 #5293A5; -fx-border-color: #005871 #005871;" text="Tillbaka till kassan" textFill="WHITE">
+            <Label layoutX="1201.0" layoutY="181.0" prefHeight="214.0" prefWidth="176.0" text="Du kommer få varor hemkörda" wrapText="true" />
+            <Button fx:id="toCheckout" layoutX="34.0" layoutY="688.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="164.0" style="-fx-background-color: #5293A5 #5293A5; -fx-border-color: #005871 #005871;" text="Tillbaka till kassan" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>
-            <Button fx:id="ToFinish" layoutX="1240.0" layoutY="673.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="164.0" style="-fx-background-color: #00900E#00900E;" text="Bekräfta köp" textFill="WHITE">
+            <Button fx:id="ToFinish" layoutX="1240.0" layoutY="663.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="164.0" style="-fx-background-color: #00900E#00900E;" text="Bekräfta köp" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>

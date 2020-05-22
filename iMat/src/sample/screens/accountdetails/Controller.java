@@ -5,6 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -42,6 +43,8 @@ public class Controller implements Initializable {
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     CreditCard creditCard = dataHandler.getCreditCard();
     Customer customer = dataHandler.getCustomer();
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -104,6 +107,8 @@ public class Controller implements Initializable {
                 }
             }
         });
+
+
     }
 
     private void showSavedContactInfo() {

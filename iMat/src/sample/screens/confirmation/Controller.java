@@ -5,14 +5,20 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import sample.IMat;
 import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.Product;
 
-import java.awt.event.ActionEvent;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -36,6 +42,29 @@ public class Controller implements Initializable {
     private Button ToFinish;
     @FXML
     private Button toCheckout;
+    @FXML
+     private Button saveButton;
+    @FXML
+    TextField NameTextField;
+    @FXML
+    TextField LastnameTextField;
+    @FXML
+    TextField epostadressTextField;
+    @FXML
+    TextField TelTextField;
+    @FXML
+    TextField AdressTextField;
+    @FXML
+    TextField PostkodTextField;
+    @FXML
+    TextField kortTextField;
+    @FXML
+    TextField cvcTextField;
+    @FXML
+    Rectangle accountSquare;
+    @FXML
+    AnchorPane confirmation;
+
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     CreditCard creditCard= dataHandler.getCreditCard();
@@ -87,16 +116,32 @@ public class Controller implements Initializable {
                 }
             }
         });
-        ToFinish.setOnMouseClicked(mouseEvent ->  toFinishClicked());//IMat.changeRoot("screens/finish/Screen.fxml"));
+        confirmation.toFront();
+
+        ToFinish.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/finish/Screen.fxml"));
         toCheckout.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/checkout/Screen.fxml"));
 
     }
+  public void saveConfirmationtAction(){
+      customer.setFirstName(NameTextField.getText());
+      customer.setLastName(LastnameTextField.getText());
+      customer.setAddress(AdressTextField.getText());
+      customer.setEmail(epostadressTextField.getText());
+      customer.setPhoneNumber(TelTextField.getText());
+      customer.setPostCode(PostkodTextField.getText());
+      creditCard.setValidYear(Integer.parseInt((String) yearComboBox.getSelectionModel().getSelectedItem()));
+      creditCard.setValidMonth(Integer.parseInt((String) monthComboBox.getSelectionModel().getSelectedItem()));
+      creditCard.setCardNumber(kortTextField.getText());
+      creditCard.setVerificationCode(Integer.parseInt(cvcTextField.getText()));
+      creditCard.setCardType(mastercardRadioButton.getTypeSelector());
+      creditCard.setCardType(visacardRadioButton.getTypeSelector());
 
-
-    private void toFinishClicked(){
-        IMat.changeRoot("screens/finish/Screen.fxml");
-        dataHandler.placeOrder(true);
     }
+}
+
+
+
+
 
     /*private class TextFieldListener implements ChangeListener<Boolean> {
 
@@ -119,7 +164,7 @@ public class Controller implements Initializable {
     }
     /*
      */
-}
+
 
 
 
