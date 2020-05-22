@@ -41,6 +41,7 @@ public class ProductItem extends AbstractProductItem {
 
     private void setupShoppingCartListener() {
         dataHandler.getShoppingCart().addShoppingCartListener(cartEvent -> {
+            if (cartEvent.getShoppingItem() == null) return;
             if (cartEvent.getShoppingItem().getProduct() == product) {
                 ShoppingItem item = getCartItemIfExists();
                 setNrProductsTextField(item);
