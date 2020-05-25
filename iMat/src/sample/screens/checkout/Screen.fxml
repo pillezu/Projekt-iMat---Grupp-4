@@ -37,8 +37,8 @@
          <children>
             <VBox minHeight="-Infinity" prefHeight="94.0" prefWidth="320.0" style="-fx-background-color: AFD8E3;">
                <children>
-                  <RadioButton mnemonicParsing="false" prefHeight="43.0" prefWidth="241.0" text="Hemkörning (75 kr)" />
-                  <RadioButton mnemonicParsing="false" prefHeight="43.0" prefWidth="241.0" text="Hämta själv (0 kr)" />
+                  <RadioButton fx:id="deliveryButton" mnemonicParsing="false" prefHeight="43.0" prefWidth="241.0" text="Hemkörning (75 kr)" />
+                  <RadioButton fx:id="pickupButton" mnemonicParsing="false" prefHeight="43.0" prefWidth="241.0" text="Hämta själv (0 kr)" />
                </children>
                <padding>
                   <Insets left="20.0" top="5.0" />
@@ -49,8 +49,8 @@
             </VBox>
             <VBox minHeight="-Infinity" prefHeight="94.0" prefWidth="100.0" style="-fx-background-color: AFD8E3;">
                <children>
-                  <RadioButton mnemonicParsing="false" prefHeight="43.0" prefWidth="241.0" text="Betala online (kort)" />
-                  <RadioButton mnemonicParsing="false" prefHeight="43.0" prefWidth="241.0" text="Betala kontant" />
+                  <RadioButton fx:id="payWithCardButton" mnemonicParsing="false" prefHeight="43.0" prefWidth="241.0" text="Betala online (kort)" />
+                  <RadioButton fx:id="payWithCashButton" mnemonicParsing="false" prefHeight="43.0" prefWidth="241.0" text="Betala kontant" />
                </children>
                <padding>
                   <Insets left="20.0" top="5.0" />
@@ -84,33 +84,82 @@
                   <Insets left="20.0" top="30.0" />
                </padding>
             </Label>
-            <VBox prefHeight="222.0" prefWidth="320.0" style="-fx-background-color: #5293A5;">
+            <HBox prefHeight="225.0" prefWidth="320.0">
                <children>
-                  <Label prefHeight="62.0" prefWidth="320.0" text="Antal varor: " textFill="WHITE">
-                     <padding>
-                        <Insets left="20.0" />
-                     </padding>
-                  </Label>
-                  <Label prefHeight="64.0" prefWidth="320.0" text="Varukostnad:" textFill="WHITE">
-                     <padding>
-                        <Insets left="20.0" />
-                     </padding>
-                  </Label>
-                  <Label prefHeight="59.0" prefWidth="320.0" text="Fraktkostnad:" textFill="WHITE">
-                     <padding>
-                        <Insets left="20.0" />
-                     </padding>
-                  </Label>
-                  <Label prefHeight="92.0" prefWidth="320.0" text="Totalkostnad:" textFill="WHITE">
-                     <padding>
-                        <Insets left="20.0" />
-                     </padding>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
+                  <VBox prefHeight="100.0" prefWidth="165.0" style="-fx-background-color: #5293A5;">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="200.0" text="Antal varor: " textFill="WHITE">
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="200.0" text="Varukostnad:" textFill="WHITE">
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="200.0" text="Fraktkostnad:" textFill="WHITE">
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" prefHeight="74.0" prefWidth="200.0" text="Totalkostnad:" textFill="WHITE">
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="100.0" prefWidth="156.0" style="-fx-background-color: #5293A5;">
+                     <children>
+                        <Label fx:id="amountLabel" alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="200.0" textFill="WHITE">
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="itemLabel" alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="200.0" textFill="WHITE">
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="deliveryLabel" alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="200.0" textFill="WHITE">
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="totalLabel" alignment="CENTER_RIGHT" prefHeight="74.0" prefWidth="200.0" textFill="WHITE">
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
+            </HBox>
             <Button fx:id="toConfirmationButton" minHeight="-Infinity" mnemonicParsing="false" prefHeight="150.0" prefWidth="320.0" styleClass="cart-checkout-button" text="Till Bekräftelse" textFill="WHITE" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets />
