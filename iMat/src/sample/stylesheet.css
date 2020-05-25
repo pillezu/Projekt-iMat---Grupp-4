@@ -66,6 +66,10 @@
     -fx-background-color: green;
 }
 
+.empty-cart-button {
+    -fx-background-color: -primary2;
+}
+
 .center-stage {
     -fx-background-color: background2;
 }
@@ -76,6 +80,10 @@
 }
 .save-Button{
   -fx-background-color: green;
+}
+.search-box {
+  -fx-background-color: -primary1;
+  -fx-background-radius: 15px;
 }
 
 

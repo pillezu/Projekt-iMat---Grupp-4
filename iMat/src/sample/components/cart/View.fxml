@@ -3,18 +3,27 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
-<VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="320.0" stylesheets="@../../stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.components.cart.Controller">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="320.0" stylesheets="@../../stylesheet.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.components.cart.Controller">
     <children>
-        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" styleClass="side-panel-header" text="Kundvagn" textAlignment="CENTER" textFill="WHITE">
-            <font>
-                <Font size="29.0" />
-            </font>
-        </Label>
+        <AnchorPane prefHeight="100.0" prefWidth="200.0" styleClass="side-panel-header">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" text="Kundvagn" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="69.0" AnchorPane.topAnchor="0.0">
+                <font>
+                    <Font size="29.0" />
+                </font>
+            </Label>
+            <Button fx:id="emptyCartButton" alignment="CENTER" contentDisplay="CENTER" layoutX="218.0" layoutY="21.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="88.0" styleClass="empty-cart-button" text="Töm kundvagn" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="21.0">
+                <font>
+                    <Font size="15.0" />
+                </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            </Button>
+
+        </AnchorPane>
         <!--      <ListView prefHeight="200.0" prefWidth="200.0" styleClass="side-panel" VBox.vgrow="ALWAYS" />-->
         <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0" styleClass="side-panel" VBox.vgrow="ALWAYS">
             <content>
@@ -22,8 +31,9 @@
             </content>
         </ScrollPane>
         <Button fx:id="checkoutButton" layoutX="74.0" layoutY="874.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="150.0" styleClass="cart-checkout-button" text="Till Kassan" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <font>
-            <Font size="31.0" />
-         </font></Button>
+            <font>
+                <Font size="31.0" />
+            </font>
+        </Button>
     </children>
 </VBox>
