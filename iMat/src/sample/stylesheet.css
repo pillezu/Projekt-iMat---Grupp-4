@@ -66,6 +66,10 @@
     -fx-background-color: green;
 }
 
+.empty-cart-button {
+    -fx-background-color: -primary2;
+}
+
 .center-stage {
     -fx-background-color: background2;
 }

@@ -2,14 +2,9 @@ package sample.components.HorizontalProductItem;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import sample.components.AbstractProductItem;
-import se.chalmers.cse.dat216.project.*;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 import java.math.RoundingMode;
@@ -49,7 +44,7 @@ public class HorizontalProductItem extends AbstractProductItem {
 
     private void setupShoppingCartListener() {
         dataHandler.getShoppingCart().addShoppingCartListener(cartEvent -> {
-            if (cartEvent.getShoppingItem().getProduct() == product) {
+            if (cartEvent.getShoppingItem() == null || cartEvent.getShoppingItem().getProduct() == product) {
                 ShoppingItem item = getCartItemIfExists();
                 setNrProductsTextField(item);
                 setRemoveButtonDisabled(item);
