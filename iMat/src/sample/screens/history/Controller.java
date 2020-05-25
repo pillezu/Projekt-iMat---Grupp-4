@@ -7,7 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
-import se.chalmers.cse.dat216.project.*;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.Order;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -40,7 +41,6 @@ public class Controller implements Initializable {
             historyAccordion.getPanes().add(item);
         }
 
-        clearOrdersButton.setOnMouseClicked(mouseEvent -> clearOrders());
     }
 
     private void clearOrders(){
