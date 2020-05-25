@@ -8,6 +8,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import sample.IMat;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingCart;
@@ -51,7 +52,34 @@ public class AbstractProductItem extends AnchorPane {
         setNrProductsTextField(item);
         setRemoveButtonDisabled(item);
         setupButtons();
+        setupTextField();
+        setupDetails();
 
+    }
+
+    private void setupDetails() {
+        productImageView.setOnMouseClicked(mouseEvent -> {
+            IMat.setDetails(product);
+        });
+    }
+
+    private void setupTextField() {
+        nrProductsTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                nrProductsTextField.setText(newValue.replaceAll("[^\\d.]", ""));
+            }
+        });
+        nrProductsTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                // Lost focus -> save the result
+                setNrProductsToTextField();
+            }
+        });
+        nrProductsTextField.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                setNrProductsToTextField();
+            }
+        });
     }
 
     private void setupButtons() {
@@ -81,22 +109,6 @@ public class AbstractProductItem extends AnchorPane {
                 }
             }
             cart.fireShoppingCartChanged(item, false);
-        });
-        nrProductsTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("\\d*")) {
-                nrProductsTextField.setText(newValue.replaceAll("[^\\d.]", ""));
-            }
-        });
-        nrProductsTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue) {
-                // Lost focus -> save the result
-                setNrProductsToTextField();
-            }
-        });
-        nrProductsTextField.setOnKeyPressed(keyEvent -> {
-            if (keyEvent.getCode() == KeyCode.ENTER) {
-                setNrProductsToTextField();
-            }
         });
     }
 

@@ -7,6 +7,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.StackPane;
 import sample.CategoryManager;
 import sample.IMat;
 import sample.components.productitem.ProductItem;
@@ -32,6 +33,8 @@ public class Controller implements Initializable {
     private ScrollPane productsScrollPane;
     @FXML
     private TextField searchTextField;
+    @FXML
+    private StackPane detailsStackPane;
 
     private boolean searching = false;
 
@@ -42,6 +45,7 @@ public class Controller implements Initializable {
         setupProductItems();
         setupCategories();
         setupSearch();
+        IMat.detailsStackPane = detailsStackPane;
 
 
         productsFlowPane.toFront();

@@ -2,11 +2,15 @@ package sample;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import sample.components.details.ProductDetail;
 import sample.components.productitem.ProductItem;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,6 +20,7 @@ import java.util.Map;
 public class IMat extends Application {
     public static Stage stage;
     public static Map<String, ProductItem> productItemMap = new HashMap<>();
+    public static StackPane detailsStackPane;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -57,5 +62,14 @@ public class IMat extends Application {
                 IMatDataHandler.getInstance().shutDown();
             }
         }));
+    }
+
+    public static void setDetails(Product product) {
+        if (detailsStackPane == null) {
+            return;
+        }
+
+        Node detail = new ProductDetail(product);
+        detailsStackPane.getChildren().add(detail);
     }
 }

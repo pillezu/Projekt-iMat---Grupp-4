@@ -1,6 +1,7 @@
 package sample.components.details;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
@@ -10,6 +11,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+
+import java.io.IOException;
 
 
 public class ProductDetail extends AnchorPane {
@@ -26,6 +29,20 @@ public class ProductDetail extends AnchorPane {
     @FXML AnchorPane detailShadowAnchorpane;
     @FXML TextField nrProductsTextField;
     @FXML  ImageView closeImageView;
+    private Product product;
+
+    public ProductDetail(Product product) {
+        this.product = product;
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DetailView.fxml"));
+        fxmlLoader.setController(this);
+        fxmlLoader.setRoot(this);
+
+        try{
+            fxmlLoader.load();
+        }catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public void populateDetailView(Product product) {
 
