@@ -3,6 +3,8 @@ package sample.screens.favorites;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.StackPane;
+import sample.IMat;
 import sample.components.productitem.ProductItem;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
@@ -19,6 +21,8 @@ public class Controller implements Initializable {
     Map<String, ProductItem> productItemMap = new HashMap<>();
 
     @FXML private FlowPane productsFlowPane;
+    @FXML
+    private StackPane detailsStackPane;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -31,6 +35,7 @@ public class Controller implements Initializable {
         }
         productsFlowPane.toFront();
         updateProducts();
+        IMat.detailsStackPane = detailsStackPane;
     }
 
     private void updateProducts() {
