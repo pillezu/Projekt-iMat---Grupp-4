@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
-
-<fx:root fx:id="historyItemTitledPane" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1100.0" styleClass="titled-pane" stylesheets="@../../stylesheet.css" text=" " type="javafx.scene.control.TitledPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="historyItemTitledPane" animated="false" maxHeight="-Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1800.0" styleClass="titled-pane" stylesheets="@../../stylesheet.css" text=" " type="javafx.scene.control.TitledPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <font>
       <Font size="18.0" />
    </font>
