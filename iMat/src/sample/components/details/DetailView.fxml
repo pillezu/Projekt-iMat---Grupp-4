@@ -1,127 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<fx:root type="javafx.scene.layout.AnchorPane" fx:id="detailShadowAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity"
-         minHeight="-Infinity"
-         minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="shadowedpane"
-         stylesheets="@../../stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1"
-         xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root fx:id="detailShadowAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="shadowedpane" stylesheets="@../../stylesheet.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <AnchorPane layoutX="289.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                    minWidth="-Infinity" prefHeight="687.0" prefWidth="1400.0"
-                    style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="200.0"
-                    AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="260.0" AnchorPane.topAnchor="200.0">
+        <AnchorPane layoutX="289.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1400.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="260.0" AnchorPane.topAnchor="200.0">
             <children>
-                <SplitPane fx:id="detailSplitPane" dividerPositions="0.2633457036825578" prefHeight="683.0"
-                           prefWidth="1403.0" style="-fx-background-color: #ffffff;">
+                <SplitPane fx:id="detailSplitPane" dividerPositions="0.2633457036825578" prefHeight="683.0" prefWidth="1403.0" style="-fx-background-color: #ffffff;">
                     <items>
-                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0"
-                                    prefHeight="685.0" prefWidth="400.0">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="685.0" prefWidth="400.0">
                             <children>
-                                <ImageView fx:id="productImageView" fitHeight="250.0" fitWidth="300.0"
-                                           layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fx:id="productImageView" fitHeight="250.0" fitWidth="300.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../../../../../../../.dat215/imat/images/product_1.jpg"/>
+                                        <Image url="@../../../../../../../../.dat215/imat/images/product_1.jpg" />
                                     </image>
                                 </ImageView>
                                 <Label layoutX="50.0" layoutY="300.0" text="Pris: ">
                                     <font>
-                                        <Font name="System Bold" size="27.0"/>
+                                        <Font name="System Bold" size="27.0" />
                                     </font>
                                 </Label>
-                                <Button fx:id="addButton" layoutX="272.0" layoutY="545.0" maxHeight="-Infinity"
-                                        maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                                        mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0"
-                                        style="-fx-background-radius: 100px;" styleClass="round-button" text="+"
-                                        textFill="WHITE">
+                                <Button fx:id="addButton" layoutX="272.0" layoutY="545.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 100px;" styleClass="round-button" text="+" textFill="WHITE">
                                     <font>
-                                        <Font name="System Bold" size="48.0"/>
+                                        <Font name="System Bold" size="48.0" />
                                     </font>
                                 </Button>
-                                <Button fx:id="removeButton" disable="true" layoutX="22.0" layoutY="543.0"
-                                        maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                                        minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0"
-                                        prefWidth="100.0" style="-fx-background-radius: 100px;"
-                                        styleClass="round-button" text="-" textFill="WHITE">
+                                <Button fx:id="removeButton" disable="true" layoutX="22.0" layoutY="543.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 100px;" styleClass="round-button" text="-" textFill="WHITE">
                                     <font>
-                                        <Font size="47.0"/>
+                                        <Font size="47.0" />
                                     </font>
                                 </Button>
-                                <TextField fx:id="nrProductsTextField" alignment="CENTER" layoutX="136.0"
-                                           layoutY="557.0" prefHeight="43.0" prefWidth="126.0" text="0">
+                                <TextField fx:id="nrProductsTextField" alignment="CENTER" layoutX="136.0" layoutY="557.0" prefHeight="43.0" prefWidth="126.0" text="0">
                                     <font>
-                                        <Font size="35.0"/>
+                                        <Font size="35.0" />
                                     </font>
                                 </TextField>
                                 <Label fx:id="priceLabel" layoutX="112.0" layoutY="301.0" text="kostnad">
                                     <font>
-                                        <Font size="27.0"/>
+                                        <Font size="27.0" />
                                     </font>
                                 </Label>
-                            </children>
-                        </AnchorPane>
-                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0"
-                                    prefHeight="682.0" prefWidth="1000.0">
-                            <children>
-                                <Label fx:id="productNameLabel" layoutX="17.0" layoutY="17.0" text="Äpple"
-                                       AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="816.6">
-                                    <font>
-                                        <Font name="System Bold" size="60.0"/>
-                                    </font>
-                                </Label>
-                                <ImageView fx:id="favoriteImageView" fitHeight="66.0" fitWidth="105.0"
-                                           layoutX="217.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true"
-                                           AnchorPane.leftAnchor="217.0" AnchorPane.rightAnchor="705.2376251220703">
+                                <ImageView fx:id="favoriteImageView" fitHeight="66.0" fitWidth="105.0" layoutX="160.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="157.4376251220703">
                                     <image>
-                                        <Image url="@../../resources/favorit_tom.png"/>
+                                        <Image url="@../../resources/favorit_tom.png" />
                                     </image>
                                 </ImageView>
+                        <Label layoutX="50.0" layoutY="365.0" text="Favorit:">
+                           <font>
+                              <Font name="System Bold" size="27.0" />
+                           </font>
+                        </Label>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="682.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="productNameLabel" layoutX="17.0" layoutY="17.0" prefHeight="88.0" prefWidth="900.0" text="Äpple" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="83.0">
+                                    <font>
+                                        <Font name="System Bold" size="60.0" />
+                                    </font>
+                                </Label>
                                 <Label fx:id="productNameLabel1" layoutX="17.0" layoutY="113.0" text="Ingredienser">
                                     <font>
-                                        <Font name="System Bold" size="45.0"/>
+                                        <Font name="System Bold" size="45.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="productNameLabel11" layoutX="17.0" layoutY="334.0"
-                                       text="Näringsvärde per 100g">
+                                <Label fx:id="productNameLabel11" layoutX="17.0" layoutY="334.0" text="Näringsvärde per 100g">
                                     <font>
-                                        <Font name="System Bold" size="45.0"/>
+                                        <Font name="System Bold" size="45.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="productNameLabel111" layoutX="17.0" layoutY="550.0" text="Kategorier">
+                                <Label fx:id="productNameLabel111" layoutX="17.0" layoutY="549.0" text="Kategori">
                                     <font>
-                                        <Font name="System Bold" size="45.0"/>
+                                        <Font name="System Bold" size="45.0" />
                                     </font>
                                 </Label>
-                                <Button fx:id="categoryButton" layoutX="22.0" layoutY="615.0"
-                                        mnemonicParsing="false" prefHeight="50.0" prefWidth="212.0"
-                                        styleClass="side-panel-header" text="Frukt" textFill="WHITE">
+                                <Button fx:id="categoryButton" layoutX="22.0" layoutY="615.0" mnemonicParsing="false" styleClass="side-panel-header" text="Frukt" textFill="WHITE">
                                     <font>
-                                        <Font name="System Bold" size="25.0"/>
+                                        <Font name="System Bold" size="25.0" />
                                     </font>
                                 </Button>
-                                <TextArea editable="false" layoutX="17.0" layoutY="175.0" prefHeight="158.0"
-                                          prefWidth="951.0" styleClass="text-area"
-                                          text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
-                                          wrapText="true">
+                                <TextArea editable="false" layoutX="17.0" layoutY="175.0" prefHeight="158.0" prefWidth="951.0" styleClass="text-area" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. " wrapText="true">
                                     <font>
-                                        <Font size="20.0"/>
+                                        <Font size="20.0" />
                                     </font>
                                 </TextArea>
-                                <TextArea editable="false" layoutX="10.0" layoutY="397.0" prefHeight="157.0"
-                                          prefWidth="951.0" styleClass="text-area"
-                                          text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
-                                          wrapText="true">
+                                <TextArea editable="false" layoutX="10.0" layoutY="397.0" prefHeight="157.0" prefWidth="951.0" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. " wrapText="true">
                                     <font>
-                                        <Font size="20.0"/>
+                                        <Font size="20.0" />
                                     </font>
                                 </TextArea>
-                                <ImageView fx:id="closeImageView" fitHeight="63.0" fitWidth="50.0" layoutX="947.0"
-                                           pickOnBounds="true" preserveRatio="true">
+                                <ImageView fx:id="closeImageView" fitHeight="63.0" fitWidth="50.0" layoutX="947.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../resources/x-markpng.png"/>
+                                        <Image url="@../../resources/x-markpng.png" />
                                     </image>
                                 </ImageView>
                             </children>

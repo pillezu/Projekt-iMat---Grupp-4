@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import sample.CategoryManager;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 
@@ -25,8 +26,9 @@ public class ProductDetail extends AnchorPane {
     @FXML Label productNameLabel;
     @FXML Button addButton;
     @FXML Button removeButton;
-    @FXML SplitPane detailSplitePane;
-    @FXML AnchorPane detailShadowAnchorpane;
+    @FXML Button categoryButton;
+    @FXML SplitPane detailSplitPane;
+    @FXML AnchorPane detailShadowAnchorPane;
     @FXML TextField nrProductsTextField;
     @FXML  ImageView closeImageView;
     private Product product;
@@ -42,15 +44,17 @@ public class ProductDetail extends AnchorPane {
         }catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        populateDetailView(product);
     }
 
     public void populateDetailView(Product product) {
 
-        detailSplitePane.lookupAll(".split-pane-divider").stream().forEach(div -> div.setMouseTransparent(true));
+        detailShadowAnchorPane.setOnMouseClicked(mouseEvent -> detailShadowAnchorPane.toBack());
 
-        detailShadowAnchorpane.setOnMouseClicked(mouseEvent -> detailShadowAnchorpane.toBack());
+        closeImageView.setOnMouseClicked(mouseEvent -> detailShadowAnchorPane.toBack());
 
-        closeImageView.setOnMouseClicked(mouseEvent -> detailShadowAnchorpane.toBack());
+        categoryButton.setText(product.getCategory().toString());
 
         productImageView.setImage(dataHandler.getFXImage(product));
         if(dataHandler.isFavorite(product)) {
