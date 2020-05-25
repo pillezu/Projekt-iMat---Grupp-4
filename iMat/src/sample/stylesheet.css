@@ -123,9 +123,25 @@
     -fx-background-radius: 20px;
 }
 
+.keep-shopping-button:hover {
+    -fx-background-color: rgba(0, 128, 0, 0.8);
+}
+
+.keep-shopping-button:pressed {
+    -fx-background-color: green;
+}
+
 .quit-button {
     -fx-background-color: red;
     -fx-background-radius: 20px;
+}
+
+.quit-button:hover {
+    -fx-background-color: rgba(255, 0, 0, 0.8);
+}
+
+.quit-button:pressed {
+    -fx-background-color: red;
 }
 
 .save-Button:hover {
@@ -134,4 +150,25 @@
 
 .save-Button:pressed {
     -fx-background-color: green;
+}
+
+.blue-button {
+    -fx-background-color: #5293A5;
+    -fx-border-color:  #005871;
+}
+
+.blue-button:hover {
+    -fx-background-color: rgba(82, 147, 165, 0.8);
+}
+
+.blue-button:pressed {
+    -fx-background-color: #5293A5;
+}
+
+.heart-image:hover {
+    -fx-opacity: 0.6;
+}
+
+.heart-image:pressed {
+    -fx-opacity: 1;
 }
