@@ -25,6 +25,8 @@ public class Controller implements Initializable {
     private FlowPane productsFlowPane;
     @FXML
     private Button checkoutButton;
+    @FXML
+    private Button emptyCartButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -34,6 +36,7 @@ public class Controller implements Initializable {
         });
 
         checkoutButton.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/checkout/Screen.fxml"));
+        emptyCartButton.setOnMouseClicked(mouseEvent -> cart.clear());
     }
 
     private void refreshShoppingCartList() {
