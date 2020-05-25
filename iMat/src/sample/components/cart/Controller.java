@@ -38,6 +38,12 @@ public class Controller implements Initializable {
 
     private void refreshShoppingCartList() {
         productsFlowPane.getChildren().clear();
+        if (cart.getItems().size() == 0) {
+            checkoutButton.setDisable(true);
+        }
+        else {
+            checkoutButton.setDisable(false);
+        }
         for (int i = cart.getItems().size()-1; i >= 0; i--) {
             ShoppingItem item = cart.getItems().get(i);
             CartItem cartItem;

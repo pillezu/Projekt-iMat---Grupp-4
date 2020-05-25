@@ -43,8 +43,13 @@ public class Controller implements Initializable {
     CreditCard creditCard = dataHandler.getCreditCard();
     Customer customer = dataHandler.getCustomer();
 
+    ToggleGroup cardgroup = new ToggleGroup();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+         visakortRadioButton.setToggleGroup(cardgroup);
+         mastercardRadioButton.setToggleGroup(cardgroup);
 
         showSavedContactInfo();
 
@@ -83,27 +88,6 @@ public class Controller implements Initializable {
             yearComboBox.getSelectionModel().select(String.valueOf(creditCard.getValidYear()));
         }
 
-        ToggleGroup difficultyToggleGroup = new ToggleGroup();
-        mastercardRadioButton.setToggleGroup(difficultyToggleGroup);
-        visakortRadioButton.setToggleGroup(difficultyToggleGroup);
-
-        if (creditCard.getCardType().equals(mastercardRadioButton.getText())) {
-            mastercardRadioButton.setSelected(true);
-        }
-        else if (creditCard.getCardType().equals(visakortRadioButton.getText())) {
-            visakortRadioButton.setSelected(true);
-        }
-
-        difficultyToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-            @Override
-            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-
-                if (difficultyToggleGroup.getSelectedToggle() != null) {
-                    RadioButton selected = (RadioButton) difficultyToggleGroup.getSelectedToggle();
-                    creditCard.setCardType(selected.getText());
-                }
-            }
-        });
     }
 
     private void showSavedContactInfo() {
@@ -119,6 +103,13 @@ public class Controller implements Initializable {
         }
         else {
             cvcTextField.setText(String.valueOf(creditCard.getVerificationCode()));
+        }
+
+        if (creditCard.getCardType().equals(mastercardRadioButton.getText())) {
+            mastercardRadioButton.setSelected(true);
+        }
+        else if (creditCard.getCardType().equals(visakortRadioButton.getText())) {
+            visakortRadioButton.setSelected(true);
         }
     }
 
@@ -137,6 +128,11 @@ public class Controller implements Initializable {
         }
         else {
             creditCard.setVerificationCode(Integer.parseInt(cvcTextField.getText()));
+        }
+
+        if (cardgroup.getSelectedToggle() != null) {
+            RadioButton selected = (RadioButton) cardgroup.getSelectedToggle();
+            creditCard.setCardType(selected.getText());
         }
     }
 
