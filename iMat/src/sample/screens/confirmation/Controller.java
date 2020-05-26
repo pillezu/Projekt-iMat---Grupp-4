@@ -18,7 +18,9 @@ import sample.IMat;
 import se.chalmers.cse.dat216.project.*;
 
 
+import java.math.RoundingMode;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class Controller implements Initializable {
@@ -61,20 +63,28 @@ public class Controller implements Initializable {
     AnchorPane confirmation;
     @FXML
     TextArea recieptTextArea;
+    @FXML
+     TextArea informationTextArea;
+    @FXML
+    Label deliveryLabel;
+    @FXML
+    Label totalLabel;
+    @FXML
+    Label itemLabel;
+    @FXML
+    Label itempriceLabel;
+
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     CreditCard creditCard= dataHandler.getCreditCard();
     Customer customer=dataHandler.getCustomer();
     private List<String>shopList=new ArrayList<>();
 
+    private int deliveryAmount=0;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        for (ShoppingItem shoppingItem : dataHandler.getShoppingCart().getItems()) {
-            recieptTextArea.appendText((shoppingItem.getProduct().getName() + "   "+" " + " antal: " +"  "+ shoppingItem.getAmount() + "    " + " pris:  " + "  "+shoppingItem.getTotal() + "    kr "));
-            recieptTextArea.appendText( "\n");
-
-
-        }
+        populateReceptTextArea();
         confirmation.toFront();
 
         cvcTextField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -153,6 +163,32 @@ public class Controller implements Initializable {
 
 
     }
+    private void populateReceptTextArea(){
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.CEILING);
+
+        for (ShoppingItem shoppingItem : dataHandler.getShoppingCart().getItems()) {
+            recieptTextArea.appendText((shoppingItem.getAmount() + " st"+"  " +shoppingItem.getProduct().getName() + "   "+" "  +"  " + "  "+shoppingItem.getTotal() + "    kr "));
+            recieptTextArea.appendText( "\n");
+
+            /*if(deliveryAmount!=0){
+                deliveryLabel.setText("  75" +"  kr");
+
+            }
+                 else{
+                     deliveryLabel.setText(deliveryAmount+ "  kr");
+
+
+                }
+                */
+             deliveryLabel.setText(deliveryAmount+" kr");
+
+            totalLabel.setText(df.format(dataHandler.getShoppingCart().getTotal()+ deliveryAmount)+ " kr");
+
+        }
+    }
+}
+
     /*public void format(String s){
         int from= recieptTextArea.getCaretPosition();
         int to= recieptTextArea.getLength()/2;
@@ -164,7 +200,7 @@ public class Controller implements Initializable {
 
 
 
-}
+
 
 
 

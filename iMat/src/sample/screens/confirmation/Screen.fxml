@@ -117,7 +117,6 @@
                   <DropShadow />
                </effect>
             </Rectangle>
-            <Label layoutX="1250.0" layoutY="175.0" prefHeight="214.0" prefWidth="117.0" text="Du kommer få varor hemkörda" wrapText="true" />
             <Button fx:id="ToFinish" layoutX="1298.0" layoutY="683.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="139.0" style="-fx-background-color: #00900E#00900E;" text="Bekräfta köp" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -131,6 +130,18 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
+            <Label layoutX="886.0" layoutY="628.0" prefHeight="23.0" prefWidth="109.0" text="Fraktkostnad:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="886.0" layoutY="667.0" text="Totalkostnad:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="deliveryLabel" layoutX="1039.0" layoutY="631.0" prefHeight="25.0" prefWidth="83.0" text="Label" />
+            <Label fx:id="totalLabel" layoutX="1039.0" layoutY="667.0" prefHeight="17.0" prefWidth="54.0" text="Label" />
             </children>
         </AnchorPane>
     </children>
