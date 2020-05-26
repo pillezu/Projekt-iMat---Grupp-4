@@ -62,6 +62,7 @@ public class Controller implements Initializable {
         payWithCardButton.setToggleGroup(paymentToggleGroup);
         payWithCashButton.setToggleGroup(paymentToggleGroup);
 
+
         deliveryToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
 
             @Override
@@ -71,6 +72,7 @@ public class Controller implements Initializable {
         });
 
         toConfirmationButton.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/confirmation/Screen.fxml"));
+        Tooltip.install(toConfirmationButton, new Tooltip("Gå vidare till bekräftelse av köp"));
 
         updateCartInfo();
 

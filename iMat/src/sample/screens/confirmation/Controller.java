@@ -18,6 +18,7 @@ import sample.IMat;
 import se.chalmers.cse.dat216.project.*;
 
 
+import javax.tools.Tool;
 import java.net.URL;
 import java.util.*;
 
@@ -132,27 +133,25 @@ public class Controller implements Initializable {
         });
 
 
-
-
-
         ToFinish.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/finish/Screen.fxml"));
         toCheckout.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/checkout/Screen.fxml"));
+
+        Tooltip.install(ToFinish, new Tooltip("Bekräfta köp"));
+        Tooltip.install(toCheckout, new Tooltip("Gå tillbaka till kassan"));
     }
   public void saveConfirmationtAction(){
 
         customer.setFirstName(NameTextField.getText());
-      customer.setLastName(LastnameTextField.getText());
-      customer.setAddress(AdressTextField.getText());
-      customer.setEmail(epostadressTextField.getText());
-      customer.setPhoneNumber(TelTextField.getText());
-      customer.setPostCode(PostkodTextField.getText());
+        customer.setLastName(LastnameTextField.getText());
+        customer.setAddress(AdressTextField.getText());
+        customer.setEmail(epostadressTextField.getText());
+        customer.setPhoneNumber(TelTextField.getText());
+        customer.setPostCode(PostkodTextField.getText());
 
-      creditCard.setValidYear(Integer.parseInt((String) yearComboBox.getSelectionModel().getSelectedItem()));
-      creditCard.setValidMonth(Integer.parseInt((String) monthComboBox.getSelectionModel().getSelectedItem()));
-      creditCard.setCardNumber(kortTextField.getText());
-      creditCard.setVerificationCode(Integer.parseInt(cvcTextField.getText()));
-
-
+        creditCard.setValidYear(Integer.parseInt((String) yearComboBox.getSelectionModel().getSelectedItem()));
+        creditCard.setValidMonth(Integer.parseInt((String) monthComboBox.getSelectionModel().getSelectedItem()));
+        creditCard.setCardNumber(kortTextField.getText());
+        creditCard.setVerificationCode(Integer.parseInt(cvcTextField.getText()));
     }
 
     /*public String formatRecep(List shopList ){

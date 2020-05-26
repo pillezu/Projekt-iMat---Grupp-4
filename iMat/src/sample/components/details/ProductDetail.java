@@ -2,10 +2,7 @@ package sample.components.details;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.SplitPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -13,6 +10,7 @@ import sample.CategoryManager;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 
+import javax.tools.Tool;
 import java.io.IOException;
 
 
@@ -53,8 +51,9 @@ public class ProductDetail extends AnchorPane {
         detailShadowAnchorPane.setOnMouseClicked(mouseEvent -> detailShadowAnchorPane.toBack());
 
         closeImageView.setOnMouseClicked(mouseEvent -> detailShadowAnchorPane.toBack());
-
+        Tooltip.install(closeImageView, new Tooltip("Stäng detaltjvyn"));
         categoryButton.setText(product.getCategory().toString());
+        Tooltip.install(categoryButton, new Tooltip("Gå till kategori"));
 
         productImageView.setImage(dataHandler.getFXImage(product));
         if(dataHandler.isFavorite(product)) {
@@ -65,9 +64,13 @@ public class ProductDetail extends AnchorPane {
         }
 
         favoriteImageView.setOnMouseClicked(mouseEvent -> toggleFavorite(product));
+        Tooltip.install(favoriteImageView, new Tooltip("Lägg till/ta bort som favorit"));
 
         priceLabel.setText(product.getPrice() + product.getUnit());
         productNameLabel.setText(product.getName());
+
+        Tooltip.install(addButton, new Tooltip("Lägg till vara i varukorg"));
+        Tooltip.install(removeButton, new Tooltip("Ta bort vara från varukorg"));
     }
 
     private Image getFavoriteImage() {

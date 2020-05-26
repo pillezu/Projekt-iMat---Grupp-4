@@ -3,6 +3,7 @@ package sample.components.cart;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.FlowPane;
 import sample.IMat;
 import sample.components.cartitem.CartItem;
@@ -36,7 +37,10 @@ public class Controller implements Initializable {
         });
 
         checkoutButton.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/checkout/Screen.fxml"));
+        Tooltip.install(checkoutButton, new Tooltip("Gå vidare till kassan"));
+
         emptyCartButton.setOnMouseClicked(mouseEvent -> cart.clear());
+        Tooltip.install(emptyCartButton, new Tooltip("Töm hela varukorgen"));
     }
 
     private void refreshShoppingCartList() {

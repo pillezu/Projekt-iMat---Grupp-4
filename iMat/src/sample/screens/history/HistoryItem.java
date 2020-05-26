@@ -50,8 +50,6 @@ public class HistoryItem extends TitledPane {
             totalPrice += item.getTotal();
         }
 
-
-
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.CEILING);
         String totalCost = df.format(totalPrice);

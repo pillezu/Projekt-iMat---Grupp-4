@@ -36,7 +36,7 @@ public class ProductItem extends AbstractProductItem {
         }
         favoriteImageView.setOnMouseClicked(mouseEvent -> toggleFavorite());
 
-        Tooltip.install(favoriteImageView, new Tooltip("Lägg till som favoritvara"));
+        Tooltip.install(favoriteImageView, new Tooltip("Lägg till/ta bort som favorit"));
     }
 
     private void setupShoppingCartListener() {
