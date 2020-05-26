@@ -19,10 +19,10 @@
 <VBox id="background" fx:id="mainScreen" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.screens.confirmation.Controller">
     <children>
         <fx:include source="../../components/toolbar/View.fxml" VBox.vgrow="NEVER" />
-        <AnchorPane fx:id="confirmation" prefHeight="1037.0" prefWidth="1800.0" style="-fx-background-color: #ffffff;" stylesheets="@../../stylesheet.css">
+        <AnchorPane fx:id="confirmation" prefHeight="1037.0" prefWidth="1800.0">
             <children>
                 <Rectangle fx:id="accountSquare" arcHeight="5.0" arcWidth="5.0" fill="#3296a857" height="636.0" layoutX="56.0" layoutY="39.0" stroke="BLACK" strokeType="INSIDE" width="690.0" AnchorPane.leftAnchor="56.0" />
-                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="255.0" layoutY="46.0" prefHeight="33.0" prefWidth="423.0" text="      Personuppgifter för köpet">
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="181.0" layoutY="46.0" prefHeight="33.0" prefWidth="423.0" text="      Personuppgifter för köpet">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>
@@ -105,13 +105,10 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Button fx:id="saveButton" layoutX="71.0" layoutY="612.0" mnemonicParsing="false" onAction="#saveConfirmationtAction" prefHeight="54.0" styleClass="blue-button" text="Kom ihåg mina personuppgifter" textFill="WHITE">
+                <Button fx:id="saveButton" layoutX="71.0" layoutY="612.0" mnemonicParsing="false" onAction="#saveConfirmationtAction" prefHeight="54.0" prefWidth="284.0" style="-fx-background-color: #5293A5; -fx-border-color: #005871;" text="Kom ihåg mina personuppgifter" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
+                  <Font size="18.0" />
+               </font></Button>
             <Rectangle fx:id="recieptSquare" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="732.0" layoutX="823.0" layoutY="27.0" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeType="INSIDE" width="387.0">
                <cursor>
                   <Cursor fx:constant="S_RESIZE" />
@@ -121,21 +118,18 @@
                </effect>
             </Rectangle>
             <Label layoutX="1250.0" layoutY="175.0" prefHeight="214.0" prefWidth="117.0" text="Du kommer få varor hemkörda" wrapText="true" />
-            <Button fx:id="ToFinish" layoutX="1298.0" layoutY="683.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="139.0" style="-fx-background-radius: 0px;" styleClass="keep-shopping-button" text="Bekräfta köp" textFill="WHITE">
+            <Button fx:id="ToFinish" layoutX="1298.0" layoutY="683.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="139.0" style="-fx-background-color: #00900E#00900E;" text="Bekräfta köp" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Button>
+            <TextArea fx:id="recieptTextArea" editable="false" layoutX="823.0" layoutY="30.0" prefHeight="726.0" prefWidth="387.0" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></TextArea>
+            <Button fx:id="toCheckout" layoutX="16.0" layoutY="702.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="170.0" style="-fx-background-color: #5293A5 #5293A5; -fx-border-color: #005871 #005871;" text="Tillbaka till kassan" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <TextArea fx:id="recieptTextArea" editable="false" layoutX="823.0" layoutY="30.0" prefHeight="726.0" prefWidth="387.0" wrapText="true" />
-            <Button fx:id="toCheckout" layoutX="16.0" layoutY="702.0" mnemonicParsing="false" prefHeight="54.0" styleClass="blue-button" text="Tillbaka till kassan" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Button>
             </children>
         </AnchorPane>

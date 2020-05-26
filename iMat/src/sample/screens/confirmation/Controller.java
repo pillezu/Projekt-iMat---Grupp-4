@@ -18,7 +18,6 @@ import sample.IMat;
 import se.chalmers.cse.dat216.project.*;
 
 
-import javax.tools.Tool;
 import java.net.URL;
 import java.util.*;
 
@@ -71,7 +70,10 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         for (ShoppingItem shoppingItem : dataHandler.getShoppingCart().getItems()) {
-            recieptTextArea.setText((shoppingItem.getProduct().getName() + "   ") + " antal: " + shoppingItem.getAmount() + "    " + " pris:  " + shoppingItem.getTotal() + "    kr ");
+            recieptTextArea.appendText((shoppingItem.getProduct().getName() + "   "+" " + " antal: " +"  "+ shoppingItem.getAmount() + "    " + " pris:  " + "  "+shoppingItem.getTotal() + "    kr "));
+            recieptTextArea.appendText( "\n");
+
+
         }
         confirmation.toFront();
 
@@ -132,35 +134,35 @@ public class Controller implements Initializable {
             }
         });
 
-
         ToFinish.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/finish/Screen.fxml"));
         toCheckout.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/checkout/Screen.fxml"));
-
-        Tooltip.install(ToFinish, new Tooltip("Bekräfta köp"));
-        Tooltip.install(toCheckout, new Tooltip("Gå tillbaka till kassan"));
     }
   public void saveConfirmationtAction(){
 
         customer.setFirstName(NameTextField.getText());
-        customer.setLastName(LastnameTextField.getText());
-        customer.setAddress(AdressTextField.getText());
-        customer.setEmail(epostadressTextField.getText());
-        customer.setPhoneNumber(TelTextField.getText());
-        customer.setPostCode(PostkodTextField.getText());
+      customer.setLastName(LastnameTextField.getText());
+      customer.setAddress(AdressTextField.getText());
+      customer.setEmail(epostadressTextField.getText());
+      customer.setPhoneNumber(TelTextField.getText());
+      customer.setPostCode(PostkodTextField.getText());
 
-        creditCard.setValidYear(Integer.parseInt((String) yearComboBox.getSelectionModel().getSelectedItem()));
-        creditCard.setValidMonth(Integer.parseInt((String) monthComboBox.getSelectionModel().getSelectedItem()));
-        creditCard.setCardNumber(kortTextField.getText());
-        creditCard.setVerificationCode(Integer.parseInt(cvcTextField.getText()));
+      creditCard.setValidYear(Integer.parseInt((String) yearComboBox.getSelectionModel().getSelectedItem()));
+      creditCard.setValidMonth(Integer.parseInt((String) monthComboBox.getSelectionModel().getSelectedItem()));
+      creditCard.setCardNumber(kortTextField.getText());
+      creditCard.setVerificationCode(Integer.parseInt(cvcTextField.getText()));
+
+
     }
+    /*public void format(String s){
+        int from= recieptTextArea.getCaretPosition();
+        int to= recieptTextArea.getLength()/2;
+        recieptTextArea.selectRange(from,to);
 
-    /*public String formatRecep(List shopList ){
-        String text= "";
-        for(int i=0;i<shopList.size();i++){
-            text=text + String.valueOf(shopList.get(i)) +  "\n";
-        }
-       return text;
-    */
+    }
+    /*
+     */
+
+
 
 }
 

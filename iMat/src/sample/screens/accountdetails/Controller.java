@@ -113,7 +113,7 @@ public class Controller implements Initializable {
         }
     }
 
-    public void saveContactAction() {
+    /*public void saveContactAction() {
         customer.setFirstName(nameTextField.getText());
         customer.setLastName(lastnameTextField.getText());
         customer.setAddress(addressTextField.getText());
@@ -135,6 +135,8 @@ public class Controller implements Initializable {
             creditCard.setCardType(selected.getText());
         }
     }
+    /*
+     */
 
     /*private class TextFieldListener implements ChangeListener<Boolean> {
 
