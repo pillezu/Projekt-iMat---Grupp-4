@@ -30,10 +30,6 @@ public class IMat extends Application {
 
         dataHandler.getShoppingCart().clear();
 
-        for (Product product : dataHandler.getProducts()) {
-            System.out.println(product.getUnitSuffix());
-        }
-
         Parent root = FXMLLoader.load(getClass().getResource("screens/main/Screen.fxml"));
         stage = primaryStage;
         primaryStage.setTitle("Hello World");
