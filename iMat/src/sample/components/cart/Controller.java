@@ -3,6 +3,7 @@ package sample.components.cart;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.FlowPane;
 import sample.IMat;
@@ -28,12 +29,18 @@ public class Controller implements Initializable {
     private Button checkoutButton;
     @FXML
     private Button emptyCartButton;
+    @FXML
+    private Label numItemsLabel;
+    @FXML
+    private Label totalPriceLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         refreshShoppingCartList();
+        setLabelTexts();
         cart.addShoppingCartListener(cartEvent -> {
             refreshShoppingCartList();
+            setLabelTexts();
         });
 
         checkoutButton.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/checkout/Screen.fxml"));
@@ -41,6 +48,20 @@ public class Controller implements Initializable {
 
         emptyCartButton.setOnMouseClicked(mouseEvent -> cart.clear());
         Tooltip.install(emptyCartButton, new Tooltip("Töm hela kundvagnen"));
+
+    }
+
+    private void setLabelTexts() {
+        numItemsLabel.setText(getNumItems() + " varor");
+        totalPriceLabel.setText(cart.getTotal() + " kr");
+    }
+
+    private int getNumItems() {
+        int numItems = 0;
+        for (ShoppingItem item : cart.getItems()) {
+            numItems += item.getAmount();
+        }
+        return numItems;
     }
 
     private void refreshShoppingCartList() {
