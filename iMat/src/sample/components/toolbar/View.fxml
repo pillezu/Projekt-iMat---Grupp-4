@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.text.Font?>
+
 <ToolBar fx:id="toolbar" styleClass="toolbar" stylesheets="@../../stylesheet.css" viewOrder="-10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.components.toolbar.Controller">
     <items>
         <ImageView fx:id="homeImage" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
