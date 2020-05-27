@@ -3,38 +3,36 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.*?>
-<StackPane fx:id="detailsStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-           prefHeight="1080.0" prefWidth="1920.0"
-           xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="sample.screens.favorites.Controller" stylesheets="@../../stylesheet.css">
-   <VBox id="background" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity"
-         prefHeight="0" prefWidth="0">
-    <fx:include source="../../components/toolbar/View.fxml" VBox.vgrow="NEVER"/>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="detailsStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.screens.favorites.Controller">
+   <VBox id="background" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0" prefWidth="0">
+    <fx:include source="../../components/toolbar/View.fxml" VBox.vgrow="NEVER" />
     <HBox maxHeight="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" VBox.vgrow="ALWAYS">
-        <VBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" spacing="10.0" styleClass="center-stage"
-              HBox.hgrow="ALWAYS">
-            <Label maxWidth="1.7976931348623157E308" style="-fx-font-size: 30;" text="Favoriter" VBox.vgrow="ALWAYS">
+        <VBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" spacing="10.0" styleClass="center-stage" HBox.hgrow="ALWAYS">
+            <Label maxWidth="1.7976931348623157E308" style="-fx-font-size: 30;" text="Favoritvaror" VBox.vgrow="ALWAYS">
                 <padding>
-                    <Insets left="50.0"/>
+                    <Insets left="50.0" />
                 </padding>
             </Label>
             <ScrollPane fx:id="productsScrollPane" fitToWidth="true" hbarPolicy="NEVER" styleClass="center-stage">
                 <content>
-                    <FlowPane fx:id="productsFlowPane" hgap="20.0" prefHeight="883.0" prefWidth="1499.0"
-                              prefWrapLength="100.0" styleClass="center-stage" vgap="20.0">
+                    <FlowPane fx:id="productsFlowPane" hgap="20.0" prefHeight="883.0" prefWidth="1499.0" prefWrapLength="100.0" styleClass="center-stage" vgap="20.0">
                         <padding>
-                            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                         </padding>
                     </FlowPane>
                 </content>
             </ScrollPane>
             <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
         </VBox>
         <!--        Lämna maxHeight här, den funkar även fast intellij klagar-->
-        <fx:include maxHeight="Infinity" source="../../components/cart/View.fxml" HBox.hgrow="ALWAYS"/>
+        <fx:include maxHeight="Infinity" source="../../components/cart/View.fxml" HBox.hgrow="ALWAYS" />
     </HBox>
 </VBox>
 </StackPane>

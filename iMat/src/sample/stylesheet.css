@@ -10,6 +10,10 @@
     -green: #00900E;
 }
 
+@font-face{
+    src:url("resources/AvenirBook.ttf");
+}
+
 .list-cell {
     -fx-font-size: 1.5em;
     -fx-background-color: -primary2;
