@@ -71,7 +71,7 @@ public class HistoryItem extends TitledPane {
 
         redoPurchaseButton.setOnMouseClicked(mouseEvent -> redoPurchase());
 
-        Tooltip.install(redoPurchaseButton, new Tooltip("Töm befintlig varukorg och lägg till dessa varor")); 
+        Tooltip.install(redoPurchaseButton, new Tooltip("Töm befintlig varukorg och lägg till dessa varor"));
 
 
     }
