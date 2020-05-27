@@ -16,6 +16,7 @@ public class CheckoutProductItem extends AbstractProductItem {
 
     @FXML private Label totalPriceLabel;
     @FXML private Label itemPriceLabel;
+    @FXML private Label inCartLabel;
 
     public CheckoutProductItem(ShoppingItem product){
         super(product.getProduct());
@@ -39,7 +40,8 @@ public class CheckoutProductItem extends AbstractProductItem {
 
 
         totalPriceLabel.setText("Totalpris: " + df.format(product.getTotal()) + " kr");
-        itemPriceLabel.setText("Styckpris: " + df.format(product.getProduct().getPrice()) + " kr");
+        itemPriceLabel.setText("Pris: " + df.format(product.getProduct().getPrice()) + " kr/" + product.getProduct().getUnitSuffix());
+        inCartLabel.setText("I Varukorg: " + product.getAmount() + " " + product.getProduct().getUnitSuffix());
     }
 
     private void setupShoppingCartListener() {
@@ -61,7 +63,8 @@ public class CheckoutProductItem extends AbstractProductItem {
             totalPriceLabel.setText("Totalpris: " + df.format(0.0) + " kr");
         } else {
             totalPriceLabel.setText("Totalpris: " + df.format(item.getTotal()) + " kr");
-            itemPriceLabel.setText("Styckpris: " + df.format(item.getProduct().getPrice()) + " kr");
+            itemPriceLabel.setText("Pris: " + df.format(item.getProduct().getPrice()) + " kr/" + item.getProduct().getUnitSuffix());
+            inCartLabel.setText("I Varukorg: " + item.getAmount() + " " + item.getProduct().getUnitSuffix());
         }
     }
 }
