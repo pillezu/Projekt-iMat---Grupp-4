@@ -6,18 +6,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
+import sample.DeliverySummaryManager;
 import sample.IMat;
-import sample.components.HorizontalProductItem.HorizontalProductItem;
 import sample.components.checkoutProductItem.CheckoutProductItem;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.ShoppingCart;
-import se.chalmers.cse.dat216.project.ShoppingCartListener;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
-import java.awt.event.ItemListener;
 import java.math.RoundingMode;
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -34,6 +33,8 @@ public class Controller implements Initializable {
     @FXML private RadioButton pickupButton;
     @FXML private RadioButton payWithCardButton;
     @FXML private RadioButton payWithCashButton;
+    @FXML private Label deliverySummaryLabel;
+    @FXML private DatePicker datePicker;
 
 
     private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
@@ -76,7 +77,48 @@ public class Controller implements Initializable {
 
         updateCartInfo();
 
+        deliveryToggleGroup.selectedToggleProperty().addListener((observableValue, toggle, t1) -> {
+            updateDeliverySummary();
+        });
+        paymentToggleGroup.selectedToggleProperty().addListener((observableValue, toggle, t1) -> {
+            updateDeliverySummary();
+        });
+        datePicker.valueProperty().addListener((observableValue, textField, t1) -> {
+            updateDeliverySummary();
+        });
+
+        datePicker.setValue(LocalDate.now().plusDays(1));
+
+        updateDeliverySummary();
+
     }
+
+    private void updateDeliverySummary() {
+        DeliverySummaryManager.date = datePicker.getValue().toString();
+
+        if (deliveryToggleGroup.getSelectedToggle() == null) {
+            DeliverySummaryManager.deliveryType = null;
+        } else {
+            if (deliveryToggleGroup.getSelectedToggle().equals(deliveryButton)) {
+                DeliverySummaryManager.deliveryType = DeliverySummaryManager.DeliveryType.DELIVERY;
+            } else {
+                DeliverySummaryManager.deliveryType = DeliverySummaryManager.DeliveryType.PICKUP;
+            }
+        }
+
+        if (paymentToggleGroup.getSelectedToggle() == null) {
+            DeliverySummaryManager.paymentType = null;
+        } else {
+            if (paymentToggleGroup.getSelectedToggle().equals(payWithCardButton)) {
+                DeliverySummaryManager.paymentType = DeliverySummaryManager.PaymentType.ONLINE;
+            } else {
+                DeliverySummaryManager.paymentType = DeliverySummaryManager.PaymentType.IN_PERSON;
+            }
+        }
+        deliverySummaryLabel.setText(DeliverySummaryManager.getDeliverySummary());
+        toConfirmationButton.setDisable(!DeliverySummaryManager.allSelectionsMade());
+    }
+
 
     private int itemAmount(){
         int amount = 0;
