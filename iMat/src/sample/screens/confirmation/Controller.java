@@ -79,8 +79,12 @@ public class Controller implements Initializable {
     Customer customer=dataHandler.getCustomer();
     private List<String>shopList=new ArrayList<>();
 
-    private int deliveryAmount;
+    private int deliveryAmount=0;
     private ToggleGroup deliveryToggleGroup = new ToggleGroup();
+    ToggleGroup deliveryButton= new ToggleGroup();
+    private ToggleGroup datepicker = new ToggleGroup();
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -113,6 +117,9 @@ public class Controller implements Initializable {
         else {
             monthComboBox.getSelectionModel().select(String.valueOf(creditCard.getValidMonth()));
         }
+        //monthComboBox.setSelectionModel(DeliverySummaryManager.date.matches());
+
+
 
 
         yearComboBox.getItems().addAll("2020","2021","2022","2023","2024");
@@ -122,6 +129,7 @@ public class Controller implements Initializable {
         else {
             yearComboBox.getSelectionModel().select(String.valueOf(creditCard.getValidYear()));
         }
+
 
         ToggleGroup difficultyToggleGroup = new ToggleGroup();
         masterCardRadioButton.setToggleGroup(difficultyToggleGroup);
@@ -157,6 +165,8 @@ public class Controller implements Initializable {
 
         summaryLabel.setText(DeliverySummaryManager.getDeliverySummary());
 
+
+
     }
   public void saveConfirmationtAction(){
 
@@ -181,20 +191,29 @@ public class Controller implements Initializable {
         for (ShoppingItem shoppingItem : dataHandler.getShoppingCart().getItems()) {
             recieptTextArea.appendText((shoppingItem.getAmount() + " st"+"  " +shoppingItem.getProduct().getName() + "   "+" "  +"  " + "  "+shoppingItem.getTotal() + "    kr "));
             recieptTextArea.appendText( "\n");
-        }
 
-                if(deliveryToggleGroup.getSelectedToggle()!=null){
 
-                    deliveryLabel.setText(String.valueOf(deliveryToggleGroup.getSelectedToggle())+ "  kr");
 
-                }
 
-                totalLabel.setText(df.format(dataHandler.getShoppingCart().getTotal()+ deliveryAmount)+ " kr");
+            if(DeliverySummaryManager.deliveryType==DeliverySummaryManager.DeliveryType.DELIVERY){
+
+            deliveryAmount=75;
+            }
+            else{
+                deliveryAmount=0;
+
+            }
+            deliveryLabel.setText(deliveryAmount+ " kr");
+
+        totalLabel.setText(df.format(dataHandler.getShoppingCart().getTotal()+ deliveryAmount)+ " kr");
 
 
 
 }
+    }
 }
+
+
 
 
     /*public void format(String s){
