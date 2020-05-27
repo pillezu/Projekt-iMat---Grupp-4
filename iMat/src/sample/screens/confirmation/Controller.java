@@ -143,7 +143,10 @@ public class Controller implements Initializable {
             }
         });
 
-        ToFinish.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/finish/Screen.fxml"));
+        ToFinish.setOnMouseClicked(mouseEvent -> {
+            dataHandler.getShoppingCart().clear();
+            IMat.changeRoot("screens/finish/Screen.fxml");
+        });
         toCheckout.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/checkout/Screen.fxml"));
 
         Tooltip.install(ToFinish, new Tooltip("Genomför köp"));
