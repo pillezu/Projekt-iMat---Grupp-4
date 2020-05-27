@@ -144,6 +144,7 @@ public class Controller implements Initializable {
         });
 
         ToFinish.setOnMouseClicked(mouseEvent -> {
+            dataHandler.placeOrder();
             dataHandler.getShoppingCart().clear();
             IMat.changeRoot("screens/finish/Screen.fxml");
         });
