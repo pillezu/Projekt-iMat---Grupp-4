@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.TitledPane;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import sample.components.HorizontalProductItem.HorizontalProductItem;
@@ -69,6 +70,8 @@ public class HistoryItem extends TitledPane {
 
 
         redoPurchaseButton.setOnMouseClicked(mouseEvent -> redoPurchase());
+
+        Tooltip.install(redoPurchaseButton, new Tooltip("Töm befintlig varukorg och lägg till dessa varor")); 
 
 
     }
