@@ -80,28 +80,26 @@ public class ProductDetail extends AbstractProductItem {
 
     private void goToCategory() {
         detailShadowAnchorPane.toBack();
-        for (CategoryManager.FrontendCategory category : CategoryManager.FrontendCategory.values()) {
-            for (ProductCategory productCategory : category.productCategories) {
-                if (product.getCategory() == productCategory) {
-                    CategoryManager.currentCategory = category;
-                    return;
-                }
-            }
-        }
+        CategoryManager.FrontendCategory category = getFrontEndCategory();
+        CategoryManager.goToCategory(category);
     }
 
-    private void showCategory() {
+    private CategoryManager.FrontendCategory getFrontEndCategory() {
         CategoryManager.FrontendCategory[] categories = CategoryManager.FrontendCategory.values();
         for (int i = 1; i < categories.length; i++) {
             CategoryManager.FrontendCategory category = categories[i];
             ProductCategory[] productCategories = category.productCategories;
             for (int j = 0; j < productCategories.length; j++) {
                 if (product.getCategory() == productCategories[j]) {
-                    categoryButton.setText(categories[i].toString().replace("_", " "));
-                    return;
+                    return categories[i];
                 }
             }
         }
+        throw new RuntimeException("Category does not exist");
+    }
+
+    private void showCategory() {
+        categoryButton.setText(getFrontEndCategory().toString().replace("_", " "));
     }
 
 }

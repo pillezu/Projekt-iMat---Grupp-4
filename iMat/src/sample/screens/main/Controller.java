@@ -46,6 +46,7 @@ public class Controller implements Initializable {
         setupCategories();
         setupSearch();
         IMat.detailsStackPane = detailsStackPane;
+        CategoryManager.categoriesListView = categoriesListView;
 
 
         productsFlowPane.toFront();

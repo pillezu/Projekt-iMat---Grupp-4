@@ -1,6 +1,9 @@
 package sample;
 
+import javafx.scene.control.ListView;
 import se.chalmers.cse.dat216.project.ProductCategory;
+
+import java.util.Arrays;
 
 import static se.chalmers.cse.dat216.project.ProductCategory.*;
 
@@ -30,6 +33,13 @@ import static se.chalmers.cse.dat216.project.ProductCategory.*;
  */
 public class CategoryManager {
     public static FrontendCategory currentCategory = FrontendCategory.ALLA_KATEGORIER;
+    public static ListView<String> categoriesListView;
+
+    public static void goToCategory(FrontendCategory category) {
+        int index = Arrays.asList(FrontendCategory.values()).indexOf(category);
+        categoriesListView.getSelectionModel().select(index);
+    }
+
     public enum FrontendCategory {
         ALLA_KATEGORIER(ProductCategory.values()),
         FRUKT_OCH_BÄR(new ProductCategory[]{
