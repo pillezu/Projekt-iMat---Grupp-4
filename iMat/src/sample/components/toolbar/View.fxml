@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToolBar?>
@@ -13,24 +15,54 @@
             <image>
                 <Image url="@/sample/resources/homeButton.png" />
             </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </ImageView>
         <Label fx:id="iMatLabel" prefHeight="30.0" prefWidth="92.0" text="IMat" textFill="WHITE">
             <font>
                 <Font size="36.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Label>
         <Hyperlink fx:id="mainLink" text="Alla varor" textFill="WHITE">
          <font>
             <Font size="18.0" />
-         </font></Hyperlink>
+         </font>
+         <padding>
+            <Insets right="50.0" />
+         </padding></Hyperlink>
+      <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/heart.png" />
+         </image>
+      </ImageView>
         <Hyperlink fx:id="favoritesLink" text="Favoritvaror" textFill="WHITE">
          <font>
             <Font size="18.0" />
-         </font></Hyperlink>
+         </font>
+         <padding>
+            <Insets right="50.0" />
+         </padding></Hyperlink>
+      <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/historik.png" />
+         </image>
+      </ImageView>
         <Hyperlink fx:id="historyLink" text="Mina tidigare köp" textFill="WHITE">
          <font>
             <Font size="18.0" />
-         </font></Hyperlink>
+         </font>
+         <padding>
+            <Insets right="50.0" />
+         </padding></Hyperlink>
+      <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/user.png" />
+         </image>
+      </ImageView>
         <Hyperlink fx:id="accountDetailsLink" text="Kontouppgifter" textFill="WHITE">
          <font>
             <Font size="18.0" />

@@ -21,8 +21,7 @@ public class Controller implements Initializable {
     Map<String, ProductItem> productItemMap = new HashMap<>();
 
     @FXML private FlowPane productsFlowPane;
-    @FXML
-    private StackPane detailsStackPane;
+    @FXML private StackPane detailsStackPane;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
