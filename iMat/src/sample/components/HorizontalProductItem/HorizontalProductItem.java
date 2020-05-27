@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import sample.components.AbstractProductItem;
+import se.chalmers.cse.dat216.project.ShoppingCart;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
@@ -51,4 +52,5 @@ public class HorizontalProductItem extends AbstractProductItem {
             }
         });
     }
+
 }

@@ -29,6 +29,10 @@
     -fx-opacity: 0;
 }
 
+.tabLink {
+    -fx-font-size:20;
+}
+
 .round-button {
     -fx-background-radius: 135px;
     -fx-background-color: -add-remove;

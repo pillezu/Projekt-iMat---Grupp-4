@@ -21,6 +21,7 @@ public class IMat extends Application {
     public static Stage stage;
     public static Map<String, ProductItem> productItemMap = new HashMap<>();
     public static StackPane detailsStackPane;
+    public static String openScreenPath = "screens/main/Screen.fxml";
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -42,6 +43,7 @@ public class IMat extends Application {
     public static void changeRoot(String fxmlPath) {
         System.out.println("Changing root to: " + fxmlPath);
         try {
+            openScreenPath = fxmlPath;
             URL location = IMat.class.getResource(fxmlPath);
             Parent root = FXMLLoader.load(location);
             System.out.println(root);

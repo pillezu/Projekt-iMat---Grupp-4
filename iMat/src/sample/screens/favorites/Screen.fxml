@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.*?>
 <StackPane fx:id="detailsStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
            prefHeight="1080.0" prefWidth="1920.0"
@@ -20,7 +19,6 @@
                     <Insets left="50.0"/>
                 </padding>
             </Label>
-            <TextField maxWidth="500.0" VBox.vgrow="NEVER"/>
             <ScrollPane fx:id="productsScrollPane" fitToWidth="true" hbarPolicy="NEVER" styleClass="center-stage">
                 <content>
                     <FlowPane fx:id="productsFlowPane" hgap="20.0" prefHeight="883.0" prefWidth="1499.0"

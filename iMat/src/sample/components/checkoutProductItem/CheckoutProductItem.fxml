@@ -9,16 +9,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="81.0" prefWidth="918.0" style="-fx-background-color: #97BEC9; -fx-border-color: 918F92;" stylesheets="@../../stylesheet.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="81.0" prefWidth="1075.0" style="-fx-background-color: #97BEC9; -fx-border-color: 918F92;" stylesheets="@../../stylesheet.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <ImageView fx:id="productImageView" fitHeight="112.0" fitWidth="112.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../resources/homeButton.png" />
             </image>
         </ImageView>
-        <Label fx:id="productNameLabel" layoutX="137.0" layoutY="21.0" prefHeight="38.0" prefWidth="160.0" style="-fx-text-fill: ffffff;" text="\%Vara%">
+        <Label fx:id="productNameLabel" layoutX="131.0" layoutY="21.0" prefHeight="38.0" prefWidth="220.0" style="-fx-text-fill: ffffff;" text="\%Vara%">
             <font>
-                <Font size="26.0" />
+                <Font size="20.0" />
             </font>
         </Label>
         <Button fx:id="removeButton" layoutX="358.0" layoutY="21.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="39.0" styleClass="round-button" text="-" textFill="WHITE">
@@ -44,7 +44,7 @@
                 <Font size="21.0" />
             </font>
         </TextField>
-      <Label fx:id="totalPriceLabel" layoutX="776.0" layoutY="27.0" prefHeight="26.0" prefWidth="133.0" text="\%totalPris%" textFill="WHITE">
+      <Label fx:id="totalPriceLabel" layoutX="876.0" layoutY="27.0" prefHeight="26.0" prefWidth="133.0" text="\%totalPris%" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
