@@ -3,13 +3,10 @@ package sample.components.details;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.CategoryManager;
-import sample.IMat;
 import sample.components.AbstractProductItem;
-import sample.screens.main.Controller;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
@@ -23,7 +20,6 @@ public class ProductDetail extends AbstractProductItem {
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
     @FXML ImageView productImageView;
-    @FXML ImageView favoriteImageView;
     @FXML Label priceLabel;
     @FXML Label productNameLabel;
     @FXML Button addButton;
@@ -75,16 +71,6 @@ public class ProductDetail extends AbstractProductItem {
         Tooltip.install(categoryButton, new Tooltip("Gå till kategori"));
 
         productImageView.setImage(dataHandler.getFXImage(product));
-        if(dataHandler.isFavorite(product)) {
-            favoriteImageView.setImage(getFavoriteImage());
-        }
-        else {
-            favoriteImageView.setImage(getEmptyFavoriteImage());
-        }
-
-        favoriteImageView.setOnMouseClicked(mouseEvent -> toggleFavorite(product));
-        Tooltip.install(favoriteImageView, new Tooltip("Lägg till/ta bort som favorit"));
-
         priceLabel.setText(product.getPrice() + product.getUnit());
         productNameLabel.setText(product.getName());
 
@@ -94,46 +80,26 @@ public class ProductDetail extends AbstractProductItem {
 
     private void goToCategory() {
         detailShadowAnchorPane.toBack();
-        for (CategoryManager.FrontendCategory category : CategoryManager.FrontendCategory.values()) {
-            for (ProductCategory productCategory : category.productCategories) {
-                if (product.getCategory() == productCategory) {
-                    CategoryManager.currentCategory = category;
-                    return;
-                }
-            }
-        }
+        CategoryManager.FrontendCategory category = getFrontEndCategory();
+        CategoryManager.goToCategory(category);
     }
 
-    private void showCategory() {
+    private CategoryManager.FrontendCategory getFrontEndCategory() {
         CategoryManager.FrontendCategory[] categories = CategoryManager.FrontendCategory.values();
         for (int i = 1; i < categories.length; i++) {
             CategoryManager.FrontendCategory category = categories[i];
             ProductCategory[] productCategories = category.productCategories;
             for (int j = 0; j < productCategories.length; j++) {
                 if (product.getCategory() == productCategories[j]) {
-                    categoryButton.setText(categories[i].toString().replace("_", " "));
-                    return;
+                    return categories[i];
                 }
             }
         }
+        throw new RuntimeException("Category does not exist");
     }
 
-    private Image getFavoriteImage() {
-        return new Image(getClass().getClassLoader().getResourceAsStream("sample/resources/favorit.png"));
+    private void showCategory() {
+        categoryButton.setText(getFrontEndCategory().toString().replace("_", " "));
     }
 
-    private Image getEmptyFavoriteImage() {
-        return new Image(getClass().getClassLoader().getResourceAsStream("sample/resources/favorit_tom.png"));
-    }
-
-    public void toggleFavorite(Product product) {
-        if (dataHandler.isFavorite(product)) {
-            favoriteImageView.setImage(getEmptyFavoriteImage());
-            dataHandler.removeFavorite(product);
-        }
-        else {
-            favoriteImageView.setImage(getFavoriteImage());
-            dataHandler.addFavorite(product);
-        }
-    }
 }

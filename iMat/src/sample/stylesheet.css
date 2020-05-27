@@ -135,9 +135,9 @@
 }
 
 .keep-shopping-button {
-    -fx-background-color: green;
-    -fx-background-radius: 20px;
-}
+     -fx-background-color: green;
+     -fx-background-radius: 20px;
+ }
 
 .keep-shopping-button:hover {
     -fx-background-color: rgba(0, 128, 0, 0.8);
@@ -188,3 +188,45 @@
 .heart-image:pressed {
     -fx-opacity: 1;
 }
+
+.ToFinish-Button{
+    -fx-background-color: -green;
+ }
+
+.ToFinish-Button:hover {
+    -fx-background-color: rgba(0, 128, 0, 0.8);
+}
+
+.ToFinish-Button:pressed {
+    -fx-background-color: green;
+}
+.back-tocheckaout{
+     -fx-background-color: #5293A5;
+    -fx-border-color:  #005871;
+    }
+
+ .back-tocheckaout:hover{
+ -fx-background-color: rgba(82, 147, 165, 0.8);
+ }
+.back-tocheckaout:pressed{
+ -fx-background-color: #5293A5;
+ }
+ .saveConfirmation{
+      -fx-background-color: #5293A5;
+     -fx-border-color:  #005871;
+     }
+
+  .saveConfirmation:hover{
+  -fx-background-color: rgba(82, 147, 165, 0.8);
+  }
+ .saveConfirmation:pressed{
+  -fx-background-color: #5293A5;
+  }
+
+
+
+
+
+
+
+

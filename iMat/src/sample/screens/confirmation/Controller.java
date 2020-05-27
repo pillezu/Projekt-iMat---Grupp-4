@@ -2,10 +2,12 @@ package sample.screens.confirmation;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import sample.DeliverySummaryManager;
@@ -77,7 +79,7 @@ public class Controller implements Initializable {
     Customer customer=dataHandler.getCustomer();
     private List<String>shopList=new ArrayList<>();
 
-    private int deliveryAmount=0;
+    private int deliveryAmount;
     private ToggleGroup deliveryToggleGroup = new ToggleGroup();
 
     @Override
@@ -154,6 +156,7 @@ public class Controller implements Initializable {
         Tooltip.install(toCheckout, new Tooltip("Gå tillbaka till kassan"));
 
         summaryLabel.setText(DeliverySummaryManager.getDeliverySummary());
+
     }
   public void saveConfirmationtAction(){
 
@@ -179,18 +182,18 @@ public class Controller implements Initializable {
             recieptTextArea.appendText((shoppingItem.getAmount() + " st"+"  " +shoppingItem.getProduct().getName() + "   "+" "  +"  " + "  "+shoppingItem.getTotal() + "    kr "));
             recieptTextArea.appendText( "\n");
         }
-            if(deliveryToggleGroup.getSelectedToggle()!= null){
-                deliveryAmount = (deliveryToggleGroup.getSelectedToggle().equals(deliveryLabel)) ? 75 : 0;
-                deliveryLabel.setText(deliveryAmount+ " kr");
 
-            }
+                if(deliveryToggleGroup.getSelectedToggle()!=null){
 
-            //deliveryLabel.setText(deliveryAmount+ "  kr");
+                    deliveryLabel.setText(String.valueOf(deliveryToggleGroup.getSelectedToggle())+ "  kr");
 
-            totalLabel.setText(df.format(dataHandler.getShoppingCart().getTotal()+ deliveryAmount)+ " kr");
+                }
+
+                totalLabel.setText(df.format(dataHandler.getShoppingCart().getTotal()+ deliveryAmount)+ " kr");
 
 
-    }
+
+}
 }
 
 

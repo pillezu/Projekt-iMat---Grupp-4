@@ -35,8 +35,6 @@ public class AbstractProductItem extends AnchorPane {
     protected Button addButton;
     @FXML
     protected Button removeButton;
-    @FXML
-    protected ImageView favoriteImageView;
     protected boolean canOpenDetailsView = true;
 
     public AbstractProductItem(Product product) {
