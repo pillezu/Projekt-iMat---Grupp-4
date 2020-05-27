@@ -18,6 +18,7 @@ import sample.IMat;
 import se.chalmers.cse.dat216.project.*;
 
 
+import javax.tools.Tool;
 import java.math.RoundingMode;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -146,6 +147,9 @@ public class Controller implements Initializable {
 
         ToFinish.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/finish/Screen.fxml"));
         toCheckout.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/checkout/Screen.fxml"));
+
+        Tooltip.install(ToFinish, new Tooltip("Genomför köp"));
+        Tooltip.install(toCheckout, new Tooltip("Gå tillbaks till kassan"));
     }
   public void saveConfirmationtAction(){
 

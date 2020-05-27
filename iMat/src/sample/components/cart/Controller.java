@@ -40,7 +40,7 @@ public class Controller implements Initializable {
         Tooltip.install(checkoutButton, new Tooltip("Gå vidare till kassan"));
 
         emptyCartButton.setOnMouseClicked(mouseEvent -> cart.clear());
-        Tooltip.install(emptyCartButton, new Tooltip("Töm hela varukorgen"));
+        Tooltip.install(emptyCartButton, new Tooltip("Töm hela kundvagnen"));
     }
 
     private void refreshShoppingCartList() {
