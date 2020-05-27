@@ -7,7 +7,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.CategoryManager;
+import sample.IMat;
 import sample.components.AbstractProductItem;
+import sample.screens.main.Controller;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
@@ -62,16 +64,9 @@ public class ProductDetail extends AbstractProductItem {
 
     public void populateDetailView(Product product) {
 
-        CategoryManager.FrontendCategory[] categories = CategoryManager.FrontendCategory.values();
-        for (int i = 0; i < categories.length - 1; i++) {
-            CategoryManager.FrontendCategory category = categories[i];
-            ProductCategory[] productCategories = category.productCategories;
-            for (int j = 0; j < productCategories.length - 1; j++) {
-                if (product.getCategory() == productCategories[j]) {
-                    categoryButton.setText(categories[i].toString().replace("_", " "));
-                }
-            }
-        }
+        showCategory();
+
+        categoryButton.setOnMouseClicked(mouseEvent -> goToCategory());
 
         detailShadowAnchorPane.setOnMouseClicked(mouseEvent -> detailShadowAnchorPane.toBack());
 
@@ -93,8 +88,34 @@ public class ProductDetail extends AbstractProductItem {
         priceLabel.setText(product.getPrice() + product.getUnit());
         productNameLabel.setText(product.getName());
 
-        Tooltip.install(addButton, new Tooltip("Lägg till vara i varukorg"));
-        Tooltip.install(removeButton, new Tooltip("Ta bort vara från varukorg"));
+        Tooltip.install(addButton, new Tooltip("Lägg till vara i kundvagnen"));
+        Tooltip.install(removeButton, new Tooltip("Ta bort vara från kundvagnen"));
+    }
+
+    private void goToCategory() {
+        detailShadowAnchorPane.toBack();
+        for (CategoryManager.FrontendCategory category : CategoryManager.FrontendCategory.values()) {
+            for (ProductCategory productCategory : category.productCategories) {
+                if (product.getCategory() == productCategory) {
+                    CategoryManager.currentCategory = category;
+                    return;
+                }
+            }
+        }
+    }
+
+    private void showCategory() {
+        CategoryManager.FrontendCategory[] categories = CategoryManager.FrontendCategory.values();
+        for (int i = 1; i < categories.length; i++) {
+            CategoryManager.FrontendCategory category = categories[i];
+            ProductCategory[] productCategories = category.productCategories;
+            for (int j = 0; j < productCategories.length; j++) {
+                if (product.getCategory() == productCategories[j]) {
+                    categoryButton.setText(categories[i].toString().replace("_", " "));
+                    return;
+                }
+            }
+        }
     }
 
     private Image getFavoriteImage() {
