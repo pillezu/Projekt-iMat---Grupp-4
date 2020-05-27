@@ -52,16 +52,13 @@ public class HistoryItem extends TitledPane {
         String date = (sdf.format(order.getDate()));
         String day = getDay(order.getDate().getDay());
 
-        for (ShoppingItem item : order.getItems()){
-            amount = amount + (int)item.getAmount();
-            totalPrice += item.getTotal();
-        }
+        amount = order.getItems().size();
 
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.CEILING);
         String totalCost = df.format(totalPrice);
 
-        this.setText("\t Datum: " + date + blankSpace + "Dag: " + day + blankSpace + "Antal varor: " +
+        this.setText("\t Datum: " + date + blankSpace + "Dag: " + day + blankSpace + "Antal unika varor: " +
                 amount + blankSpace + "Totalkostnad: " + totalCost + " kr");
 
         for (ShoppingItem item : order.getItems()) {

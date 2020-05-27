@@ -138,11 +138,7 @@ public class Controller implements Initializable {
 
 
     private int itemAmount(){
-        int amount = 0;
-        for (ShoppingItem item : dataHandler.getShoppingCart().getItems()){
-            amount += (int)item.getAmount();
-        }
-        return amount;
+        return dataHandler.getShoppingCart().getItems().size();
     }
 
     private void updateCartInfo(){

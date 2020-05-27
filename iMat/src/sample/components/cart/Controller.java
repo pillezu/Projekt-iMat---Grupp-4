@@ -52,7 +52,7 @@ public class Controller implements Initializable {
     }
 
     private void setLabelTexts() {
-        numItemsLabel.setText(getNumItems() + " varor");
+        numItemsLabel.setText(getNumItems() + " unika varor");
         totalPriceLabel.setText(getTotal() + " kr");
     }
 
@@ -64,11 +64,11 @@ public class Controller implements Initializable {
     }
 
     private int getNumItems() {
-        int numItems = 0;
+        /*int numItems = 0;
         for (ShoppingItem item : cart.getItems()) {
             numItems += item.getAmount();
-        }
-        return numItems;
+        }*/
+        return dataHandler.getShoppingCart().getItems().size();
     }
 
     private void refreshShoppingCartList() {
