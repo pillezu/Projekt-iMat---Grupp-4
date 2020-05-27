@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Accordion;
+import javafx.scene.control.Button;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
@@ -26,8 +27,11 @@ public class HistoryItem extends TitledPane {
     private String blankSpace = "\t\t";
     int amount = 0;
     double totalPrice;
+    Order order;
+    IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     @FXML private FlowPane historyFlowPane;
     @FXML private TitledPane historyItemTitledPane;
+    @FXML private Button redoPurchaseButton;
 
     public HistoryItem(Order order){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("historyItem.fxml"));
@@ -39,6 +43,8 @@ public class HistoryItem extends TitledPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+
+        this.order = order;
 
         LocalDate localDate = LocalDate.now();
         SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd  hh:mm");
@@ -62,6 +68,16 @@ public class HistoryItem extends TitledPane {
         }
 
 
+        redoPurchaseButton.setOnMouseClicked(mouseEvent -> redoPurchase());
+
+
+    }
+
+    private void redoPurchase(){
+        dataHandler.getShoppingCart().clear();
+        for (ShoppingItem item : this.order.getItems()){
+            dataHandler.getShoppingCart().addItem(new ShoppingItem(item.getProduct(), item.getAmount()));
+        }
     }
 
     String getDay(int day){
