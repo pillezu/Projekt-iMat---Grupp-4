@@ -22,6 +22,7 @@ public class ProductDetail extends AbstractProductItem {
     @FXML ImageView productImageView;
     @FXML Label priceLabel;
     @FXML Label productNameLabel;
+    @FXML Label ecoLabel;
     @FXML Button addButton;
     @FXML Button removeButton;
     @FXML Button categoryButton;
@@ -73,6 +74,9 @@ public class ProductDetail extends AbstractProductItem {
         productImageView.setImage(dataHandler.getFXImage(product));
         priceLabel.setText(product.getPrice() + product.getUnit());
         productNameLabel.setText(product.getName());
+        if (product.isEcological()) {
+            ecoLabel.setText("Ja");
+        }
 
         Tooltip.install(addButton, new Tooltip("Lägg till vara i kundvagnen"));
         Tooltip.install(removeButton, new Tooltip("Ta bort vara från kundvagnen"));

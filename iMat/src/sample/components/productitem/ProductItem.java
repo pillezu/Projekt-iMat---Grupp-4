@@ -14,6 +14,7 @@ import java.io.IOException;
 public class ProductItem extends AbstractProductItem {
 
     @FXML private ImageView favoriteImageView;
+    @FXML private ImageView ecoImageView;
 
     public ProductItem(Product product) {
         super(product);
@@ -35,6 +36,10 @@ public class ProductItem extends AbstractProductItem {
             favoriteImageView.setImage(getFavoriteImage());
         }
         favoriteImageView.setOnMouseClicked(mouseEvent -> toggleFavorite());
+
+        if (product.isEcological()) {
+            ecoImageView.setVisible(true);
+        }
 
         Tooltip.install(favoriteImageView, new Tooltip("Lägg till/ta bort som favorit"));
     }
