@@ -113,7 +113,7 @@ public class Controller implements Initializable {
         }
     }
 
-    /*public void saveContactAction() {
+    public void saveContactAction() {
         customer.setFirstName(nameTextField.getText());
         customer.setLastName(lastnameTextField.getText());
         customer.setAddress(addressTextField.getText());

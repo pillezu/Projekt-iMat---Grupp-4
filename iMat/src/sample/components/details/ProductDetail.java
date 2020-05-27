@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import sample.CategoryManager;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ProductCategory;
 
 import javax.tools.Tool;
 import java.io.IOException;
@@ -48,11 +49,21 @@ public class ProductDetail extends AnchorPane {
 
     public void populateDetailView(Product product) {
 
+        CategoryManager.FrontendCategory[] categories = CategoryManager.FrontendCategory.values();
+        for (int i = 0; i < categories.length - 1; i++) {
+            CategoryManager.FrontendCategory category = categories[i];
+            ProductCategory[] productCategories = category.productCategories;
+            for (int j = 0; j < productCategories.length - 1; j++) {
+                if (product.getCategory() == productCategories[j]) {
+                    categoryButton.setText(categories[i].toString().replace("_", " "));
+                }
+            }
+        }
+
         detailShadowAnchorPane.setOnMouseClicked(mouseEvent -> detailShadowAnchorPane.toBack());
 
         closeImageView.setOnMouseClicked(mouseEvent -> detailShadowAnchorPane.toBack());
         Tooltip.install(closeImageView, new Tooltip("Stäng detaltjvyn"));
-        categoryButton.setText(product.getCategory().toString());
         Tooltip.install(categoryButton, new Tooltip("Gå till kategori"));
 
         productImageView.setImage(dataHandler.getFXImage(product));

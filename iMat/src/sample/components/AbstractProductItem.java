@@ -84,8 +84,8 @@ public class AbstractProductItem extends AnchorPane {
 
     private void setupButtons() {
 
-        Tooltip.install(addButton, new Tooltip("Lägg till vara i varukorgen"));
-        Tooltip.install(removeButton, new Tooltip("Ta bort vara från varukorgen"));
+        Tooltip.install(addButton, new Tooltip("Lägg till vara i kundvagnen"));
+        Tooltip.install(removeButton, new Tooltip("Ta bort vara från kundvagnen"));
 
         addButton.setOnMouseClicked(mouseEvent -> {
             ShoppingItem item = getCartItemIfExists();
