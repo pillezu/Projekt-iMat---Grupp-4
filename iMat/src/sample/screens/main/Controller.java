@@ -98,6 +98,7 @@ public class Controller implements Initializable {
             CategoryManager.currentCategory = category;
             searching = false;
             searchTextField.setText("");
+
             updateProducts();
         });
         categoriesListView.getSelectionModel().select(0);
@@ -118,5 +119,6 @@ public class Controller implements Initializable {
                 productsFlowPane.getChildren().add(productItem);
             }
         }
+        productsScrollPane.setVvalue(0);
     }
 }
