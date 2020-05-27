@@ -98,6 +98,7 @@ public class Controller implements Initializable {
             CategoryManager.currentCategory = category;
             searching = false;
             searchTextField.setText("");
+            productsScrollPane.setVvalue(0);
             updateProducts();
         });
         categoriesListView.getSelectionModel().select(0);
