@@ -7,15 +7,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.CategoryManager;
+import sample.components.AbstractProductItem;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
-import javax.tools.Tool;
 import java.io.IOException;
 
 
-public class ProductDetail extends AnchorPane {
+public class ProductDetail extends AbstractProductItem {
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
@@ -30,10 +31,9 @@ public class ProductDetail extends AnchorPane {
     @FXML AnchorPane detailShadowAnchorPane;
     @FXML TextField nrProductsTextField;
     @FXML  ImageView closeImageView;
-    private Product product;
 
     public ProductDetail(Product product) {
-        this.product = product;
+        super(product);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DetailView.fxml"));
         fxmlLoader.setController(this);
         fxmlLoader.setRoot(this);
@@ -45,6 +45,19 @@ public class ProductDetail extends AnchorPane {
         }
 
         populateDetailView(product);
+        canOpenDetailsView = false;
+        setup();
+        setupShoppingCartListener();
+    }
+
+    private void setupShoppingCartListener() {
+        dataHandler.getShoppingCart().addShoppingCartListener(cartEvent -> {
+            if (cartEvent.getShoppingItem() == null || cartEvent.getShoppingItem().getProduct() == product) {
+                ShoppingItem item = getCartItemIfExists();
+                setNrProductsTextField(item);
+                setRemoveButtonDisabled(item);
+            }
+        });
     }
 
     public void populateDetailView(Product product) {

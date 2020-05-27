@@ -37,6 +37,7 @@ public class AbstractProductItem extends AnchorPane {
     protected Button removeButton;
     @FXML
     protected ImageView favoriteImageView;
+    protected boolean canOpenDetailsView = true;
 
     public AbstractProductItem(Product product) {
         this.product = product;
@@ -58,6 +59,7 @@ public class AbstractProductItem extends AnchorPane {
     }
 
     private void setupDetails() {
+        if (!canOpenDetailsView) return;
         productImageView.setOnMouseClicked(mouseEvent -> {
             IMat.setDetails(product);
         });

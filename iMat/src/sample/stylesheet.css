@@ -30,11 +30,11 @@
 }
 
 .round-button {
-    -fx-background-radius: 35px;
+    -fx-background-radius: 135px;
     -fx-background-color: -add-remove;
 }
 .round-button-disabled {
-    -fx-background-radius: 35px;
+    -fx-background-radius: 135px;
     -fx-background-color: derive(-add-remove, -20%);
 }
 
