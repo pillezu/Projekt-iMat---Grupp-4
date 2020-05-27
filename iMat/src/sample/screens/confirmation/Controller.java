@@ -1,13 +1,8 @@
 package sample.screens.confirmation;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import sample.DeliverySummaryManager;
@@ -20,18 +15,13 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 import java.math.RoundingMode;
 import java.net.URL;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
 
-
-    @FXML Label iMatLabel;
-    @FXML ImageView homeImage;
-    @FXML VBox mainScreen;
-    @FXML Button btn1;
+    @FXML
+    VBox mainScreen;
     @FXML
     ComboBox monthComboBox;
     @FXML
@@ -45,19 +35,19 @@ public class Controller implements Initializable {
     @FXML
     private Button toCheckout;
     @FXML
-    TextField NameTextField;
+    TextField nameTextField;
     @FXML
-    TextField LastnameTextField;
+    TextField lastnameTextField;
     @FXML
-    TextField epostadressTextField;
+    TextField epostAdressTextField;
     @FXML
-    TextField TelTextField;
+    TextField telTextField;
     @FXML
-    TextField AdressTextField;
+    TextField adressTextField;
     @FXML
-    TextField PostkodTextField;
+    TextField postNrTextField;
     @FXML
-    TextField kortTextField;
+    TextField cardTextField;
     @FXML
     TextField cvcTextField;
     @FXML
@@ -73,83 +63,50 @@ public class Controller implements Initializable {
     Label summaryLabel;
 
 
-
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
-    CreditCard creditCard= dataHandler.getCreditCard();
-    Customer customer=dataHandler.getCustomer();
-    private List<String>shopList=new ArrayList<>();
-
-    private int deliveryAmount=0;
-    private ToggleGroup deliveryToggleGroup = new ToggleGroup();
-    ToggleGroup deliveryButton= new ToggleGroup();
-    private ToggleGroup datepicker = new ToggleGroup();
-
+    CreditCard creditCard = dataHandler.getCreditCard();
+    Customer customer = dataHandler.getCustomer();
+    ToggleGroup cardToggleGroup = new ToggleGroup();
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        populateReceptTextArea();
+        populateReceiptTextArea();
         confirmation.toFront();
 
 
         cvcTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == null) return;
             if (!newValue.matches("\\d*")) {
-                cvcTextField.setText(newValue.replaceAll("[^\\d.]", ""));
+                cvcTextField.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
 
-        kortTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+        cardTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == null) return;
             if (!newValue.matches("\\d*")) {
-                kortTextField.setText(newValue.replaceAll("[^\\d.]", ""));
+                cardTextField.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
 
-        PostkodTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+        postNrTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == null) return;
             if (!newValue.matches("\\d*")) {
-                PostkodTextField.setText(newValue.replaceAll("[^\\d.]", ""));
+                postNrTextField.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
 
-        monthComboBox.getItems().addAll("1","2","3","4","5","6","7","8","9","10","11","12");
-        if (creditCard.getValidMonth() == 0) {
-            monthComboBox.getSelectionModel().select(null);
-        }
-        else {
-            monthComboBox.getSelectionModel().select(String.valueOf(creditCard.getValidMonth()));
-        }
-        //monthComboBox.setSelectionModel(DeliverySummaryManager.date.matches());
+        monthComboBox.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12");
+        yearComboBox.getItems().addAll("2020", "2021", "2022", "2023", "2024");
 
+        masterCardRadioButton.setToggleGroup(cardToggleGroup);
+        visaCardRadioButton.setToggleGroup(cardToggleGroup);
 
+        cardToggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
 
-
-        yearComboBox.getItems().addAll("2020","2021","2022","2023","2024");
-        if  (creditCard.getValidYear() == 0) {
-            yearComboBox.getSelectionModel().select(null);
-        }
-        else {
-            yearComboBox.getSelectionModel().select(String.valueOf(creditCard.getValidYear()));
-        }
-
-
-        ToggleGroup difficultyToggleGroup = new ToggleGroup();
-        masterCardRadioButton.setToggleGroup(difficultyToggleGroup);
-        visaCardRadioButton.setToggleGroup(difficultyToggleGroup);
-
-        if (creditCard.getCardType().equals(masterCardRadioButton.getText())) {
-            masterCardRadioButton.setSelected(true);
-        }
-        else if (creditCard.getCardType().equals(visaCardRadioButton.getText())) {
-            visaCardRadioButton.setSelected(true);
-        }
-
-        difficultyToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-            @Override
-            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-
-                if (difficultyToggleGroup.getSelectedToggle() != null) {
-                    RadioButton selected = (RadioButton) difficultyToggleGroup.getSelectedToggle();
-                    creditCard.setCardType(selected.getText());
-                }
+            if (cardToggleGroup.getSelectedToggle() != null) {
+                RadioButton selected = (RadioButton) cardToggleGroup.getSelectedToggle();
+                creditCard.setCardType(selected.getText());
             }
         });
 
@@ -165,99 +122,105 @@ public class Controller implements Initializable {
 
         summaryLabel.setText(DeliverySummaryManager.getDeliverySummary());
 
+        showSavedContactInfo();
+        makeIrrelevantInfoDisabled();
+        checkMissingInformation();
+    }
 
+    private void checkMissingInformation() {
 
     }
-  public void saveConfirmationtAction(){
 
-        customer.setFirstName(NameTextField.getText());
-      customer.setLastName(LastnameTextField.getText());
-      customer.setAddress(AdressTextField.getText());
-      customer.setEmail(epostadressTextField.getText());
-      customer.setPhoneNumber(TelTextField.getText());
-      customer.setPostCode(PostkodTextField.getText());
-
-      creditCard.setValidYear(Integer.parseInt((String) yearComboBox.getSelectionModel().getSelectedItem()));
-      creditCard.setValidMonth(Integer.parseInt((String) monthComboBox.getSelectionModel().getSelectedItem()));
-      creditCard.setCardNumber(kortTextField.getText());
-      creditCard.setVerificationCode(Integer.parseInt(cvcTextField.getText()));
-
-
+    private void makeIrrelevantInfoDisabled() {
+        if (DeliverySummaryManager.deliveryType == DeliverySummaryManager.DeliveryType.PICKUP) {
+            adressTextField.setDisable(true);
+            postNrTextField.setDisable(true);
+        }
+        if (DeliverySummaryManager.paymentType == DeliverySummaryManager.PaymentType.IN_PERSON) {
+            cardTextField.setDisable(true);
+            cvcTextField.setDisable(true);
+            monthComboBox.setDisable(true);
+            yearComboBox.setDisable(true);
+            masterCardRadioButton.setDisable(true);
+            visaCardRadioButton.setDisable(true);
+        }
     }
-    private void populateReceptTextArea(){
+
+    private void showSavedContactInfo() {
+        nameTextField.setText(customer.getFirstName());
+        lastnameTextField.setText(customer.getLastName());
+        adressTextField.setText(customer.getAddress());
+        epostAdressTextField.setText(customer.getEmail());
+        telTextField.setText(customer.getPhoneNumber());
+        postNrTextField.setText(customer.getPostCode());
+        cardTextField.setText(creditCard.getCardNumber());
+        if (creditCard.getVerificationCode() == 0) {
+            cvcTextField.setText(null);
+        }
+        else {
+            cvcTextField.setText(String.valueOf(creditCard.getVerificationCode()));
+        }
+
+        if (creditCard.getCardType() != null) {
+            if (creditCard.getCardType().equals(masterCardRadioButton.getText())) {
+                masterCardRadioButton.setSelected(true);
+            } else if (creditCard.getCardType().equals(visaCardRadioButton.getText())) {
+                visaCardRadioButton.setSelected(true);
+            }
+        } else {
+            cardToggleGroup.selectToggle(null);
+        }
+
+        if (creditCard.getValidMonth() == 0) {
+            monthComboBox.getSelectionModel().select(null);
+        } else {
+            monthComboBox.getSelectionModel().select(String.valueOf(creditCard.getValidMonth()));
+        }
+
+        if (creditCard.getValidYear() == 0) {
+            yearComboBox.getSelectionModel().select(null);
+        } else {
+            yearComboBox.getSelectionModel().select(String.valueOf(creditCard.getValidYear()));
+        }
+    }
+
+    public void saveConfirmationAction() {
+
+        customer.setFirstName(nameTextField.getText());
+        customer.setLastName(lastnameTextField.getText());
+        customer.setAddress(adressTextField.getText());
+        customer.setEmail(epostAdressTextField.getText());
+        customer.setPhoneNumber(telTextField.getText());
+        customer.setPostCode(postNrTextField.getText());
+
+        creditCard.setValidYear(Integer.parseInt((String) yearComboBox.getSelectionModel().getSelectedItem()));
+        creditCard.setValidMonth(Integer.parseInt((String) monthComboBox.getSelectionModel().getSelectedItem()));
+        creditCard.setCardNumber(cardTextField.getText());
+
+        try {
+            creditCard.setVerificationCode(Integer.parseInt(cvcTextField.getText()));
+        } catch (NumberFormatException e) {
+            creditCard.setVerificationCode(0);
+        }
+    }
+
+    private void populateReceiptTextArea() {
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.CEILING);
 
         for (ShoppingItem shoppingItem : dataHandler.getShoppingCart().getItems()) {
-            recieptTextArea.appendText((shoppingItem.getAmount() + " st"+"  " +shoppingItem.getProduct().getName() + "   "+" "  +"  " + "  "+shoppingItem.getTotal() + "    kr "));
-            recieptTextArea.appendText( "\n");
+            recieptTextArea.appendText((shoppingItem.getAmount() + " st" + "  " + shoppingItem.getProduct().getName() + "   " + " " + "  " + "  " + shoppingItem.getTotal() + "    kr "));
+            recieptTextArea.appendText("\n");
 
-
-
-
-            if(DeliverySummaryManager.deliveryType==DeliverySummaryManager.DeliveryType.DELIVERY){
-
-            deliveryAmount=75;
+            int deliveryAmount;
+            if (DeliverySummaryManager.deliveryType == DeliverySummaryManager.DeliveryType.DELIVERY) {
+                deliveryAmount = 75;
+            } else {
+                deliveryAmount = 0;
             }
-            else{
-                deliveryAmount=0;
+            deliveryLabel.setText(deliveryAmount + " kr");
 
-            }
-            deliveryLabel.setText(deliveryAmount+ " kr");
-
-        totalLabel.setText(df.format(dataHandler.getShoppingCart().getTotal()+ deliveryAmount)+ " kr");
-
-
-
-}
-    }
-}
-
-
-
-
-    /*public void format(String s){
-        int from= recieptTextArea.getCaretPosition();
-        int to= recieptTextArea.getLength()/2;
-        recieptTextArea.selectRange(from,to);
-
-    }
-    /*
-     */
-
-
-
-
-
-
-
-
-
-
-    /*private class TextFieldListener implements ChangeListener<Boolean> {
-
-        private javafx.scene.control.TextField textField;
-
-
-        public TextFieldListener(javafx.scene.control.TextField textField){
-            this.textField = textField;
-        }
-
-        @Override
-        public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-            if(newValue){
-                System.out.println(dataHandler);
-                System.out.println(textField);
-
-            }
-
+            totalLabel.setText(df.format(dataHandler.getShoppingCart().getTotal() + deliveryAmount) + " kr");
         }
     }
-    /*
-     */
-
-
-
-
-
-
+}

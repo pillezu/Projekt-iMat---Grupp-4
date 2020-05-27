@@ -1,7 +1,5 @@
 package sample.screens.accountdetails;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -131,7 +129,7 @@ public class Controller implements Initializable {
         creditCard.setValidYear(Integer.parseInt((String) yearComboBox.getSelectionModel().getSelectedItem()));
         creditCard.setValidMonth(Integer.parseInt((String) monthComboBox.getSelectionModel().getSelectedItem()));
         creditCard.setCardNumber(accountTextField.getText());
-        if (cvcTextField.getText().equals("")) {
+        if (cvcTextField.getText() == null || cvcTextField.getText().equals("")) {
             creditCard.setVerificationCode(0);
         }
         else {
