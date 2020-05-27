@@ -57,7 +57,11 @@ public class CheckoutProductItem extends AbstractProductItem {
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.CEILING);
 
-        totalPriceLabel.setText("Totalpris: " + df.format(item.getTotal()) + " kr");
-        itemPriceLabel.setText("Styckpris: " + df.format(item.getProduct().getPrice()) + " kr");
+        if (item == null) {
+            totalPriceLabel.setText("Totalpris: " + df.format(0.0) + " kr");
+        } else {
+            totalPriceLabel.setText("Totalpris: " + df.format(item.getTotal()) + " kr");
+            itemPriceLabel.setText("Styckpris: " + df.format(item.getProduct().getPrice()) + " kr");
+        }
     }
 }
