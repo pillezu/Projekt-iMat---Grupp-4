@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox id="background" fx:id="mainScreen" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.screens.accountdetails.Controller">
+<VBox id="background" fx:id="mainScreen" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.screens.accountdetails.Controller">
     <children>
         <fx:include source="../../components/toolbar/View.fxml" VBox.vgrow="NEVER" />
         <AnchorPane fx:id="accountDetails" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="615.0" prefWidth="924.0" style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS">
@@ -30,52 +30,52 @@
                 <TextField fx:id="postnrTextField" layoutX="471.0" layoutY="328.0" prefHeight="40.0" prefWidth="227.0" />
                 <TextField fx:id="telephonenrTextField" layoutX="471.0" layoutY="396.0" prefHeight="40.0" prefWidth="657.0" />
                 <TextField fx:id="accountTextField" layoutX="471.0" layoutY="505.0" prefHeight="40.0" prefWidth="657.0" />
-                <Label fx:id="validLabel" alignment="CENTER_RIGHT" layoutX="260.0" layoutY="588.0" prefHeight="27.0" prefWidth="165.0" text="Giltig tom(månad/år):">
+                <Label fx:id="validLabel" alignment="CENTER_RIGHT" layoutX="215.0" layoutY="590.0" prefHeight="27.0" prefWidth="250.0" text="Giltig tom(månad/år):">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
                 <ComboBox fx:id="monthComboBox" editable="true" layoutX="471.0" layoutY="581.0" prefHeight="40.0" prefWidth="92.0" />
                 <ComboBox fx:id="yearComboBox" editable="true" layoutX="606.0" layoutY="581.0" prefHeight="40.0" prefWidth="92.0" />
-                <TextField fx:id="cvcTextField" layoutX="467.0" layoutY="651.0" prefHeight="40.0" prefWidth="227.0" />
+                <TextField fx:id="cvcTextField" layoutX="471.0" layoutY="651.0" prefHeight="40.0" prefWidth="227.0" />
             <RadioButton fx:id="mastercardRadioButton" layoutX="1285.0" layoutY="559.0" mnemonicParsing="false" text="Masterkort" />
-            <RadioButton fx:id="visakortRadioButton" layoutX="1291.0" layoutY="624.0" mnemonicParsing="false" text="Visakort" />
-                <Label fx:id="nameLabel" alignment="CENTER_RIGHT" layoutX="328.0" layoutY="72.0" prefHeight="23.0" prefWidth="83.0" text="Förnamn:">
+            <RadioButton fx:id="visakortRadioButton" layoutX="1285.0" layoutY="624.0" mnemonicParsing="false" text="Visakort" />
+                <Label fx:id="nameLabel" alignment="CENTER_RIGHT" layoutX="215.0" layoutY="68.0" prefHeight="23.0" prefWidth="250.0" text="Förnamn:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="lastnameLabel" alignment="CENTER_RIGHT" layoutX="324.0" layoutY="141.0" prefHeight="23.0" prefWidth="113.0" text="Efternamn:">
+                <Label fx:id="lastnameLabel" alignment="CENTER_RIGHT" layoutX="215.0" layoutY="141.0" prefHeight="23.0" prefWidth="250.0" text="Efternamn:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="epostaddressLabel" alignment="CENTER_RIGHT" layoutX="296.0" layoutY="206.0" prefHeight="23.0" prefWidth="148.0" text="E-postaddress:">
+                <Label fx:id="epostaddressLabel" alignment="CENTER_RIGHT" layoutX="215.0" layoutY="206.0" prefHeight="23.0" prefWidth="250.0" text="E-postaddress:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="addresslLabel" alignment="CENTER_RIGHT" layoutX="342.0" layoutY="274.0" prefHeight="23.0" prefWidth="77.0" text="Address:">
+                <Label fx:id="addresslLabel" alignment="CENTER_RIGHT" layoutX="215.0" layoutY="274.0" prefHeight="23.0" prefWidth="250.0" text="Address:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="postnrLabel" alignment="CENTER_RIGHT" layoutX="313.0" layoutY="336.0" prefHeight="23.0" prefWidth="133.0" text="Postnummer:">
+                <Label fx:id="postnrLabel" alignment="CENTER_RIGHT" layoutX="215.0" layoutY="336.0" prefHeight="23.0" prefWidth="250.0" text="Postnummer:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="telephonenrLabel" alignment="CENTER_RIGHT" layoutX="291.0" layoutY="405.0" prefHeight="23.0" prefWidth="157.0" text="Telefonnummer:">
+                <Label fx:id="telephonenrLabel" alignment="CENTER_RIGHT" layoutX="215.0" layoutY="405.0" prefHeight="23.0" prefWidth="250.0" text="Telefonnummer:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="accountLabel" alignment="CENTER_RIGHT" layoutX="304.0" layoutY="514.0" prefHeight="23.0" prefWidth="131.0" text="Kontonummer:">
+                <Label fx:id="accountLabel" alignment="CENTER_RIGHT" layoutX="215.0" layoutY="514.0" prefHeight="23.0" prefWidth="250.0" text="Kontonummer:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="cvcLabel" alignment="CENTER_RIGHT" layoutX="380.0" layoutY="661.0" prefHeight="23.0" prefWidth="48.0" text="CVC:">
+                <Label fx:id="cvcLabel" alignment="CENTER_RIGHT" layoutX="215.0" layoutY="661.0" prefHeight="23.0" prefWidth="250.0" text="CVC:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
@@ -85,7 +85,7 @@
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-            <Label layoutX="1301.0" layoutY="503.0" prefHeight="23.0" prefWidth="119.0" text="Välj ditt kort typ här">
+            <Label layoutX="1285.0" layoutY="502.0" prefHeight="23.0" prefWidth="142.0" text="Välj typ av kort">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -95,19 +95,24 @@
                   <Image url="@../../resources/1200px-Mastercard-logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="70.0" layoutX="1383.0" layoutY="613.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="40.0" fitWidth="70.0" layoutX="1378.0" layoutY="613.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../resources/visacard.png" />
                </image>
             </ImageView>
             <Separator layoutX="14.0" layoutY="424.0" prefHeight="73.0" prefWidth="1913.0" />
-            <Button layoutX="1514.0" layoutY="661.0" mnemonicParsing="false" onAction="#saveContactAction" prefHeight="81.0" prefWidth="157.0" style="-fx-background-radius: 0;" styleClass="keep-shopping-button" stylesheets="@../../stylesheet.css" text="Spara" textFill="WHITE">
+            <Button fx:id="saveButton" layoutX="1514.0" layoutY="669.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="157.0" style="-fx-background-radius: 0;" styleClass="keep-shopping-button" stylesheets="@../../stylesheet.css" text="Spara" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+            </Button>
+            <Button fx:id="cardTypeButton" layoutX="1285.0" layoutY="669.0" mnemonicParsing="false" styleClass="blue-button" stylesheets="@../../stylesheet.css" text="Ta bort val av korttyp" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
             </Button>
             </children>
         </AnchorPane>

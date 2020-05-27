@@ -34,8 +34,8 @@ public class Controller implements Initializable {
     @FXML Label validLabel;
     @FXML ComboBox monthComboBox;
     @FXML ComboBox yearComboBox;
-    @FXML Button backButton;
     @FXML Button saveButton;
+    @FXML Button cardTypeButton;
     @FXML RadioButton mastercardRadioButton;
     @FXML RadioButton visakortRadioButton;
 
@@ -50,6 +50,9 @@ public class Controller implements Initializable {
 
          visakortRadioButton.setToggleGroup(cardgroup);
          mastercardRadioButton.setToggleGroup(cardgroup);
+
+         saveButton.setOnMouseClicked(mouseEvent -> saveContactAction());
+         cardTypeButton.setOnMouseClicked(mouseEvent -> removeCardTypeChoice());
 
         showSavedContactInfo();
 
@@ -105,12 +108,17 @@ public class Controller implements Initializable {
             cvcTextField.setText(String.valueOf(creditCard.getVerificationCode()));
         }
 
-        if (creditCard.getCardType().equals(mastercardRadioButton.getText())) {
-            mastercardRadioButton.setSelected(true);
+        if (creditCard.getCardType() != null) {
+            if (creditCard.getCardType().equals(mastercardRadioButton.getText())) {
+                mastercardRadioButton.setSelected(true);
+            } else if (creditCard.getCardType().equals(visakortRadioButton.getText())) {
+                visakortRadioButton.setSelected(true);
+            }
         }
-        else if (creditCard.getCardType().equals(visakortRadioButton.getText())) {
-            visakortRadioButton.setSelected(true);
+        else {
+            cardgroup.selectToggle(null);
         }
+
     }
 
     public void saveContactAction() {
@@ -134,9 +142,16 @@ public class Controller implements Initializable {
             RadioButton selected = (RadioButton) cardgroup.getSelectedToggle();
             creditCard.setCardType(selected.getText());
         }
+        else {
+            cardgroup.getSelectedToggle();
+            creditCard.setCardType(null);
+        }
     }
-    /*
-     */
+
+    private void removeCardTypeChoice() {
+
+        cardgroup.selectToggle(null);
+    }
 
     /*private class TextFieldListener implements ChangeListener<Boolean> {
 
