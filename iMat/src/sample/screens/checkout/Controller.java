@@ -128,7 +128,12 @@ public class Controller implements Initializable {
             }
         }
         deliverySummaryLabel.setText(DeliverySummaryManager.getDeliverySummary());
-        toConfirmationButton.setDisable(!DeliverySummaryManager.allSelectionsMade());
+        setToConfirmationButtonDisable();
+        dataHandler.getShoppingCart().addShoppingCartListener(cartEvent -> setToConfirmationButtonDisable());
+    }
+
+    private void setToConfirmationButtonDisable() {
+        toConfirmationButton.setDisable(!DeliverySummaryManager.allSelectionsMade() || dataHandler.getShoppingCart().getItems().size() == 0);
     }
 
 
