@@ -142,7 +142,7 @@
             </Label>
             <Label fx:id="deliveryLabel" layoutX="1039.0" layoutY="631.0" prefHeight="25.0" prefWidth="83.0" text="Label" />
             <Label fx:id="totalLabel" layoutX="1039.0" layoutY="667.0" prefHeight="17.0" prefWidth="54.0" text="Label" />
-            <TextArea layoutX="1245.0" layoutY="46.0" prefHeight="515.0" prefWidth="236.0" />
+            <Label fx:id="summaryLabel" layoutX="1242.0" layoutY="204.0" prefHeight="412.0" prefWidth="207.0" text="Label" />
             </children>
         </AnchorPane>
     </children>

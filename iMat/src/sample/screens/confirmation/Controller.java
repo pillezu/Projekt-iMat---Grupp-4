@@ -64,12 +64,14 @@ public class Controller implements Initializable {
     AnchorPane confirmation;
     @FXML
     TextArea recieptTextArea;
-    @FXML
-     TextArea informationTextArea;
+
     @FXML
     Label deliveryLabel;
     @FXML
     Label totalLabel;
+    @FXML
+    Label summaryLabel;
+
 
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
