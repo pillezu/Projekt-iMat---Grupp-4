@@ -53,7 +53,14 @@ public class Controller implements Initializable {
 
     private void setLabelTexts() {
         numItemsLabel.setText(getNumItems() + " varor");
-        totalPriceLabel.setText(cart.getTotal() + " kr");
+        totalPriceLabel.setText(getTotal() + " kr");
+    }
+
+
+    private Double getTotal() {
+        Double total = cart.getTotal();
+        total = Math.round(total*100.0)/100.0;
+        return total;
     }
 
     private int getNumItems() {
