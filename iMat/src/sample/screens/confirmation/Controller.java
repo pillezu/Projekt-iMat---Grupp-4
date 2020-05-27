@@ -70,10 +70,6 @@ public class Controller implements Initializable {
     Label deliveryLabel;
     @FXML
     Label totalLabel;
-    @FXML
-    Label itemLabel;
-    @FXML
-    Label itempriceLabel;
 
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
@@ -82,11 +78,13 @@ public class Controller implements Initializable {
     private List<String>shopList=new ArrayList<>();
 
     private int deliveryAmount=0;
+    private ToggleGroup deliveryToggleGroup = new ToggleGroup();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         populateReceptTextArea();
         confirmation.toFront();
+
 
         cvcTextField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\d*")) {
@@ -149,7 +147,7 @@ public class Controller implements Initializable {
         toCheckout.setOnMouseClicked(mouseEvent -> IMat.changeRoot("screens/checkout/Screen.fxml"));
 
         Tooltip.install(ToFinish, new Tooltip("Genomför köp"));
-        Tooltip.install(toCheckout, new Tooltip("Gå tillbaks till kassan"));
+        Tooltip.install(toCheckout, new Tooltip("Gå tillbaka till kassan"));
     }
   public void saveConfirmationtAction(){
 
@@ -174,24 +172,21 @@ public class Controller implements Initializable {
         for (ShoppingItem shoppingItem : dataHandler.getShoppingCart().getItems()) {
             recieptTextArea.appendText((shoppingItem.getAmount() + " st"+"  " +shoppingItem.getProduct().getName() + "   "+" "  +"  " + "  "+shoppingItem.getTotal() + "    kr "));
             recieptTextArea.appendText( "\n");
-
-            /*if(deliveryAmount!=0){
-                deliveryLabel.setText("  75" +"  kr");
+        }
+            if(deliveryToggleGroup.getSelectedToggle()!= null){
+                deliveryAmount = (deliveryToggleGroup.getSelectedToggle().equals(deliveryLabel)) ? 75 : 0;
+                deliveryLabel.setText(deliveryAmount+ " kr");
 
             }
-                 else{
-                     deliveryLabel.setText(deliveryAmount+ "  kr");
 
-
-                }
-                */
-             deliveryLabel.setText(deliveryAmount+" kr");
+            //deliveryLabel.setText(deliveryAmount+ "  kr");
 
             totalLabel.setText(df.format(dataHandler.getShoppingCart().getTotal()+ deliveryAmount)+ " kr");
 
-        }
+
     }
 }
+
 
     /*public void format(String s){
         int from= recieptTextArea.getCaretPosition();

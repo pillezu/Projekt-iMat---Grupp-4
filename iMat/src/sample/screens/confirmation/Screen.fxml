@@ -105,7 +105,7 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Button fx:id="saveButton" layoutX="71.0" layoutY="612.0" mnemonicParsing="false" onAction="#saveConfirmationtAction" prefHeight="54.0" prefWidth="284.0" style="-fx-background-color: #5293A5; -fx-border-color: #005871;" text="Kom ihåg mina personuppgifter" textFill="WHITE">
+                <Button fx:id="saveButton" layoutX="71.0" layoutY="612.0" mnemonicParsing="false" onAction="#saveConfirmationtAction" prefHeight="54.0" prefWidth="288.0" style="-fx-background-color: #5293A5; -fx-border-color: #005871;" text="Kom ihåg mina personuppgifter" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Button>
@@ -125,14 +125,14 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></TextArea>
-            <Button fx:id="toCheckout" layoutX="16.0" layoutY="702.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="170.0" style="-fx-background-color: #5293A5 #5293A5; -fx-border-color: #005871 #005871;" text="Tillbaka till kassan" textFill="WHITE">
+            <Button fx:id="toCheckout" layoutX="16.0" layoutY="702.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: #5293A5 #5293A5; -fx-border-color: #005871 #005871;" text="Tillbaka till kassan" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
             <Label layoutX="886.0" layoutY="628.0" prefHeight="23.0" prefWidth="109.0" text="Fraktkostnad:">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Label layoutX="886.0" layoutY="667.0" text="Totalkostnad:">
@@ -142,6 +142,7 @@
             </Label>
             <Label fx:id="deliveryLabel" layoutX="1039.0" layoutY="631.0" prefHeight="25.0" prefWidth="83.0" text="Label" />
             <Label fx:id="totalLabel" layoutX="1039.0" layoutY="667.0" prefHeight="17.0" prefWidth="54.0" text="Label" />
+            <TextArea layoutX="1245.0" layoutY="46.0" prefHeight="515.0" prefWidth="236.0" />
             </children>
         </AnchorPane>
     </children>
