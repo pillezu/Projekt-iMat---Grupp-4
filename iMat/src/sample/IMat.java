@@ -22,12 +22,17 @@ public class IMat extends Application {
     public static Map<String, ProductItem> productItemMap = new HashMap<>();
     public static StackPane detailsStackPane;
     public static String openScreenPath = "screens/main/Screen.fxml";
+    public static IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
 
-        IMatDataHandler.getInstance().getShoppingCart().clear();
+        dataHandler.getShoppingCart().clear();
+
+        for (Product product : dataHandler.getProducts()) {
+            System.out.println(product.getUnitSuffix());
+        }
 
         Parent root = FXMLLoader.load(getClass().getResource("screens/main/Screen.fxml"));
         stage = primaryStage;
@@ -61,7 +66,7 @@ public class IMat extends Application {
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override
             public void run() {
-                IMatDataHandler.getInstance().shutDown();
+                dataHandler.shutDown();
             }
         }));
     }

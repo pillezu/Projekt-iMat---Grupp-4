@@ -78,6 +78,7 @@ public class AbstractProductItem extends AnchorPane {
         nrProductsTextField.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode() == KeyCode.ENTER) {
                 setNrProductsToTextField();
+                productNameLabel.requestFocus();
             }
         });
     }
@@ -94,7 +95,7 @@ public class AbstractProductItem extends AnchorPane {
                 dataHandler.getShoppingCart().addProduct(product);
             } else {
                 if (item.getAmount() < 100) {
-                    item.setAmount(item.getAmount() + 1);
+                    item.setAmount(formatNumProducts(item.getAmount() + 1));
                 }
             }
             cart.fireShoppingCartChanged(item, true);
@@ -107,7 +108,7 @@ public class AbstractProductItem extends AnchorPane {
                 if (item.getAmount() <= 1) {
                     cart.removeItem(item);
                 } else {
-                    item.setAmount(item.getAmount() - 1);
+                    item.setAmount(formatNumProducts(item.getAmount() - 1));
                 }
             }
             cart.fireShoppingCartChanged(item, false);
@@ -137,11 +138,29 @@ public class AbstractProductItem extends AnchorPane {
         cart.fireShoppingCartChanged(item, true);
     }
 
-    private Double parseNumProducts(String nrProductsString) {
+    private double parseNumProducts(String nrProductsString) {
         Double nrProducts = Double.valueOf(nrProductsString);
-        nrProducts = Math.round(nrProducts*100.0)/100.0;
+        return formatNumProducts(nrProducts);
+    }
+
+    private double formatNumProducts(double nrProducts) {
+        if (canBuyFractions()) {
+            nrProducts = Math.round(nrProducts*100.0)/100.0;
+        } else {
+            nrProducts = Double.valueOf(Math.round(nrProducts));
+        }
         nrProducts = Math.min(nrProducts, 100);
         return nrProducts;
+    }
+
+    private boolean canBuyFractions() {
+        switch (product.getUnitSuffix()) {
+            case "kg":
+            case "l":
+                return true;
+            default:
+                return false;
+        }
     }
 
     protected void setRemoveButtonDisabled(ShoppingItem item) {
@@ -161,7 +180,11 @@ public class AbstractProductItem extends AnchorPane {
         if (item != null) {
             nrProducts = item.getAmount();
         }
-        nrProductsTextField.setText("" + nrProducts);
+        if (canBuyFractions()){
+            nrProductsTextField.setText("" + nrProducts);
+        } else {
+            nrProductsTextField.setText("" + (int) nrProducts);
+        }
     }
 
     protected ShoppingItem getCartItemIfExists() {
