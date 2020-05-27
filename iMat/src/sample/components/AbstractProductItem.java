@@ -95,7 +95,9 @@ public class AbstractProductItem extends AnchorPane {
                 item = new ShoppingItem(product);
                 dataHandler.getShoppingCart().addProduct(product);
             } else {
-                item.setAmount(item.getAmount() + 1);
+                if (item.getAmount() < 100) {
+                    item.setAmount(item.getAmount() + 1);
+                }
             }
             cart.fireShoppingCartChanged(item, true);
         });
@@ -117,7 +119,7 @@ public class AbstractProductItem extends AnchorPane {
     private void setNrProductsToTextField() {
         double nrProducts = 0;
         try {
-            nrProducts = Double.valueOf(nrProductsTextField.getText());
+            nrProducts = parseNumProducts(nrProductsTextField.getText());
         } catch (NumberFormatException e) {
         }
         ShoppingItem item = getCartItemIfExists();
@@ -135,6 +137,13 @@ public class AbstractProductItem extends AnchorPane {
         }
 
         cart.fireShoppingCartChanged(item, true);
+    }
+
+    private Double parseNumProducts(String nrProductsString) {
+        Double nrProducts = Double.valueOf(nrProductsString);
+        nrProducts = Math.round(nrProducts*100.0)/100.0;
+        nrProducts = Math.min(nrProducts, 100);
+        return nrProducts;
     }
 
     protected void setRemoveButtonDisabled(ShoppingItem item) {
