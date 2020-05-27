@@ -15,6 +15,8 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 import java.math.RoundingMode;
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -31,9 +33,9 @@ public class Controller implements Initializable {
     @FXML
     RadioButton visaCardRadioButton;
     @FXML
-    private Button ToFinish;
+    Button ToFinish;
     @FXML
-    private Button toCheckout;
+    Button toCheckout;
     @FXML
     TextField nameTextField;
     @FXML
@@ -125,10 +127,55 @@ public class Controller implements Initializable {
         showSavedContactInfo();
         makeIrrelevantInfoDisabled();
         checkMissingInformation();
+        addCheckMissingInformationListeners();
+    }
+
+    private void addCheckMissingInformationListeners() {
+        for (TextField field : new TextField[]{nameTextField, lastnameTextField, epostAdressTextField, telTextField,
+                adressTextField, postNrTextField, cardTextField, cvcTextField}) {
+            field.textProperty().addListener(observable -> checkMissingInformation());
+        }
+        cardToggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> checkMissingInformation());
     }
 
     private void checkMissingInformation() {
-
+        boolean hasAllInfo = true;
+        List<TextField> textFields = new ArrayList<>();
+        textFields.add(nameTextField);
+        textFields.add(lastnameTextField);
+        textFields.add(epostAdressTextField);
+        textFields.add(telTextField);
+        if (DeliverySummaryManager.deliveryType == DeliverySummaryManager.DeliveryType.DELIVERY) {
+            textFields.add(adressTextField);
+            textFields.add(postNrTextField);
+        }
+        if (DeliverySummaryManager.paymentType == DeliverySummaryManager.PaymentType.ONLINE) {
+            textFields.add(cardTextField);
+            textFields.add(cvcTextField);
+            if (!masterCardRadioButton.isSelected() && !visaCardRadioButton.isSelected()) {
+                if (!masterCardRadioButton.getStyleClass().contains("error")) {
+                    masterCardRadioButton.getStyleClass().add("error");
+                }
+                if (!visaCardRadioButton.getStyleClass().contains("error")) {
+                    visaCardRadioButton.getStyleClass().add("error");
+                }
+                hasAllInfo = false;
+            } else {
+                masterCardRadioButton.getStyleClass().remove("error");
+                visaCardRadioButton.getStyleClass().remove("error");
+            }
+        }
+        for (TextField field : textFields) {
+            if (field.getText() == null || field.getText().length() == 0) {
+                if (!field.getStyleClass().contains("error")) {
+                    field.getStyleClass().add("error");
+                }
+                hasAllInfo = false;
+            } else {
+                field.getStyleClass().remove("error");
+            }
+        }
+        ToFinish.setDisable(!hasAllInfo);
     }
 
     private void makeIrrelevantInfoDisabled() {
@@ -156,8 +203,7 @@ public class Controller implements Initializable {
         cardTextField.setText(creditCard.getCardNumber());
         if (creditCard.getVerificationCode() == 0) {
             cvcTextField.setText(null);
-        }
-        else {
+        } else {
             cvcTextField.setText(String.valueOf(creditCard.getVerificationCode()));
         }
 
@@ -177,8 +223,8 @@ public class Controller implements Initializable {
             monthComboBox.getSelectionModel().select(String.valueOf(creditCard.getValidMonth()));
         }
 
-        if (creditCard.getValidYear() == 0) {
-            yearComboBox.getSelectionModel().select(null);
+        if (creditCard.getValidYear() == 2011) {
+            yearComboBox.getSelectionModel().select("2021");
         } else {
             yearComboBox.getSelectionModel().select(String.valueOf(creditCard.getValidYear()));
         }

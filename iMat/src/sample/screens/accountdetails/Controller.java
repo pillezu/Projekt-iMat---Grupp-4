@@ -82,8 +82,8 @@ public class Controller implements Initializable {
 
 
         yearComboBox.getItems().addAll("2020","2021","2022","2023","2024");
-        if  (creditCard.getValidYear() == 0) {
-            yearComboBox.getSelectionModel().select(null);
+        if  (creditCard.getValidYear() == 2011) {
+            yearComboBox.getSelectionModel().select("2021");
         }
         else {
             yearComboBox.getSelectionModel().select(String.valueOf(creditCard.getValidYear()));
