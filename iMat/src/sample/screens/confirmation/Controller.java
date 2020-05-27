@@ -5,24 +5,22 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-
 import javafx.scene.layout.VBox;
-
+import sample.DeliverySummaryManager;
 import sample.IMat;
+import se.chalmers.cse.dat216.project.CreditCard;
+import se.chalmers.cse.dat216.project.Customer;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
-import se.chalmers.cse.dat216.project.*;
-
-
-import javax.tools.Tool;
 import java.math.RoundingMode;
 import java.net.URL;
 import java.text.DecimalFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
@@ -150,6 +148,8 @@ public class Controller implements Initializable {
 
         Tooltip.install(ToFinish, new Tooltip("Genomför köp"));
         Tooltip.install(toCheckout, new Tooltip("Gå tillbaka till kassan"));
+
+        summaryLabel.setText(DeliverySummaryManager.getDeliverySummary());
     }
   public void saveConfirmationtAction(){
 
