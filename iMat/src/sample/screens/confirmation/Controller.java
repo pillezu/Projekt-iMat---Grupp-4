@@ -18,6 +18,8 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 public class Controller implements Initializable {
 
@@ -63,6 +65,8 @@ public class Controller implements Initializable {
     Label totalLabel;
     @FXML
     Label summaryLabel;
+    @FXML
+    Label savedMessageLabel;
 
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
@@ -75,6 +79,7 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         populateReceiptTextArea();
         confirmation.toFront();
+        savedMessageLabel.setVisible(false);
 
 
         cvcTextField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -248,6 +253,10 @@ public class Controller implements Initializable {
         } catch (NumberFormatException e) {
             creditCard.setVerificationCode(0);
         }
+        savedMessageLabel.setVisible(true);
+        CompletableFuture.delayedExecutor(5, TimeUnit.SECONDS).execute(() -> {
+            savedMessageLabel.setVisible(false);
+        });
     }
 
     private void populateReceiptTextArea() {
