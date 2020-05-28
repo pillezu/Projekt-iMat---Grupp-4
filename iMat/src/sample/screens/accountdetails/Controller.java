@@ -9,6 +9,8 @@ import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 public class Controller implements Initializable {
 
@@ -36,6 +38,7 @@ public class Controller implements Initializable {
     @FXML Button cardTypeButton;
     @FXML RadioButton mastercardRadioButton;
     @FXML RadioButton visakortRadioButton;
+    @FXML Label savedMessageLabel;
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     CreditCard creditCard = dataHandler.getCreditCard();
@@ -46,11 +49,19 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-         visakortRadioButton.setToggleGroup(cardgroup);
-         mastercardRadioButton.setToggleGroup(cardgroup);
 
-         saveButton.setOnMouseClicked(mouseEvent -> saveContactAction());
-         cardTypeButton.setOnMouseClicked(mouseEvent -> removeCardTypeChoice());
+        visakortRadioButton.setToggleGroup(cardgroup);
+        mastercardRadioButton.setToggleGroup(cardgroup);
+
+        savedMessageLabel.setVisible(false);
+        saveButton.setOnMouseClicked(mouseEvent -> {
+            saveContactAction();
+            savedMessageLabel.setVisible(true);
+            CompletableFuture.delayedExecutor(5, TimeUnit.SECONDS).execute(() -> {
+                savedMessageLabel.setVisible(false);
+            });
+        });
+        cardTypeButton.setOnMouseClicked(mouseEvent -> removeCardTypeChoice());
 
         showSavedContactInfo();
 
