@@ -116,7 +116,7 @@
                </font></Button>
             <TextArea fx:id="recieptTextArea" editable="false" layoutX="823.0" layoutY="30.0" prefHeight="726.0" prefWidth="387.0" wrapText="true">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="Monospaced Bold" size="14.0" />
                </font></TextArea>
             <Button fx:id="toCheckout" layoutX="16.0" layoutY="702.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="200.0" styleClass="back-tocheckaout" stylesheets="@../../stylesheet.css" text="Tillbaka till kassan" textFill="WHITE">
                <font>

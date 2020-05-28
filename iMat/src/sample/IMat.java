@@ -28,7 +28,7 @@ public class IMat extends Application {
     public void start(Stage primaryStage) throws Exception {
 
 
-        dataHandler.getShoppingCart().clear();
+        //dataHandler.getShoppingCart().clear();
 
         Parent root = FXMLLoader.load(getClass().getResource("screens/main/Screen.fxml"));
         stage = primaryStage;

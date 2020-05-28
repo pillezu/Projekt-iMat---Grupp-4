@@ -264,18 +264,32 @@ public class Controller implements Initializable {
         df.setRoundingMode(RoundingMode.CEILING);
 
         for (ShoppingItem shoppingItem : dataHandler.getShoppingCart().getItems()) {
-            recieptTextArea.appendText((shoppingItem.getAmount() + " st" + "  " + shoppingItem.getProduct().getName() + "   " + " " + "  " + "  " + shoppingItem.getTotal() + "    kr "));
-            recieptTextArea.appendText("\n");
+            String amount = df.format(shoppingItem.getAmount());
+            String amountSuffix = shoppingItem.getProduct().getUnitSuffix();
+            String name = shoppingItem.getProduct().getName();
+            String total = df.format(shoppingItem.getTotal());
 
-            int deliveryAmount;
-            if (DeliverySummaryManager.deliveryType == DeliverySummaryManager.DeliveryType.DELIVERY) {
-                deliveryAmount = 75;
-            } else {
-                deliveryAmount = 0;
+            String left = amount + " " + amountSuffix + "  " + name;
+            String right = total + " kr";
+
+            String row = left;
+            for (int i = 0; i < 43 - left.length() - right.length(); i++) {
+                row += " ";
             }
-            deliveryLabel.setText(deliveryAmount + " kr");
 
-            totalLabel.setText(df.format(dataHandler.getShoppingCart().getTotal() + deliveryAmount) + " kr");
+            row += right;
+
+            recieptTextArea.appendText(row);
+            recieptTextArea.appendText("\n");
         }
+        int deliveryAmount;
+        if (DeliverySummaryManager.deliveryType == DeliverySummaryManager.DeliveryType.DELIVERY) {
+            deliveryAmount = 75;
+        } else {
+            deliveryAmount = 0;
+        }
+        deliveryLabel.setText(deliveryAmount + " kr");
+
+        totalLabel.setText(df.format(dataHandler.getShoppingCart().getTotal() + deliveryAmount) + " kr");
     }
 }
