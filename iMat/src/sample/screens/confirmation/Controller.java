@@ -269,7 +269,11 @@ public class Controller implements Initializable {
             String name = shoppingItem.getProduct().getName();
             String total = df.format(shoppingItem.getTotal());
 
-            String left = amount + " " + amountSuffix + "  " + name;
+            String left = amount + " " + amountSuffix;
+            for (int i = left.length(); i < 8; i++) {
+                left += " ";
+            }
+            left += name;
             String right = total + " kr";
 
             String row = left;
