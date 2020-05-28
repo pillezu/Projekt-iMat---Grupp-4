@@ -14,7 +14,7 @@
                     <Insets left="50.0" />
                 </padding>
             </Label>
-            <ScrollPane fx:id="productsScrollPane" fitToWidth="true" hbarPolicy="NEVER" styleClass="center-stage">
+            <ScrollPane fx:id="productsScrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="890.0" styleClass="center-stage">
                 <content>
                     <FlowPane fx:id="productsFlowPane" hgap="30.0" prefWrapLength="100.0" styleClass="center-stage" vgap="20.0">
                         <padding>

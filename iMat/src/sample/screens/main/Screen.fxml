@@ -50,7 +50,7 @@
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                     </padding>
                 </HBox>
-                <ScrollPane fx:id="productsScrollPane" fitToWidth="true" hbarPolicy="NEVER" styleClass="center-stage">
+                <ScrollPane fx:id="productsScrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="890.0" styleClass="center-stage">
                     <content>
                         <FlowPane fx:id="productsFlowPane" hgap="30.0" prefWrapLength="100.0" styleClass="center-stage" vgap="20.0">
                      <padding>

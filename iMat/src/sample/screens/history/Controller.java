@@ -47,5 +47,4 @@ public class Controller implements Initializable {
         dataHandler.getOrders().clear();
     }
 
-
 }
