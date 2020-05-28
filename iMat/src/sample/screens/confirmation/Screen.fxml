@@ -27,63 +27,63 @@
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Label>
-                <Label fx:id="NameLabel" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="94.0" layoutY="98.0" prefWidth="200.0" text="Förnamn:">
+                <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="164.0" layoutY="98.0" prefHeight="25.0" prefWidth="83.0" text="Förnamn:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
                 <TextField fx:id="nameTextField" layoutX="84.0" layoutY="124.0" prefHeight="40.0" prefWidth="328.0" promptText="Erik" />
-                <Label fx:id="LastnameLabel" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="600.0" layoutY="99.0" prefHeight="23.0" prefWidth="100.0" text="Efternamn:">
+                <Label fx:id="lastnameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="577.0" layoutY="99.0" prefHeight="23.0" prefWidth="99.0" text="Efternamn:">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font size="18.0" />
                     </font>
                 </Label>
                 <TextField fx:id="lastnameTextField" layoutX="418.0" layoutY="124.0" prefHeight="40.0" prefWidth="318.0" promptText="Erikson" />
-                <Label fx:id="EpostadressTextField" alignment="CENTER_RIGHT" layoutX="94.0" layoutY="175.0" prefWidth="200.0" text="Epostadress:">
+                <Label fx:id="EpostadressTextField" layoutX="149.0" layoutY="175.0" text="Epostadress:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
                 <TextField fx:id="epostAdressTextField" layoutX="85.0" layoutY="201.0" prefHeight="40.0" prefWidth="654.0" promptText=" epostadress" />
-                <Label fx:id="TelLabel" alignment="CENTER_RIGHT" layoutX="94.0" layoutY="259.0" prefWidth="200.0" text="Telefonnummer:">
+                <Label fx:id="telLabel" layoutX="130.0" layoutY="259.0" text="Telefonnummer:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
                 <TextField fx:id="telTextField" layoutX="85.0" layoutY="282.0" prefHeight="40.0" prefWidth="654.0" promptText="telefonnummer" />
-                <Label fx:id="AdressLabel" alignment="CENTER_RIGHT" layoutX="94.0" layoutY="345.0" prefWidth="200.0" text="Adress:">
+                <Label fx:id="adressLabel" layoutX="192.0" layoutY="345.0" prefHeight="23.0" prefWidth="63.0" text="Adress:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
                 <TextField fx:id="adressTextField" layoutX="83.0" layoutY="369.0" prefHeight="40.0" prefWidth="491.0" promptText="adress" />
-                <Label fx:id="PostkodLabel" alignment="CENTER_RIGHT" layoutX="600.0" layoutY="345.0" prefWidth="100.0" text="Postkod:">
+                <Label fx:id="postkodLabel" layoutX="600.0" layoutY="345.0" text="PostKod:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
                 <TextField fx:id="postNrTextField" layoutX="577.0" layoutY="369.0" prefHeight="40.0" prefWidth="157.0" promptText="postkod" />
                 <Separator layoutX="61.0" layoutY="430.0" prefHeight="25.0" prefWidth="680.0" />
-                <Label alignment="CENTER_RIGHT" layoutX="94.0" layoutY="467.0" prefWidth="200.0" text="Kortnummer:">
+                <Label layoutX="156.0" layoutY="467.0" text="Kortnummer:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
                 <TextField fx:id="cardTextField" layoutX="77.0" layoutY="489.0" prefHeight="40.0" prefWidth="499.0" promptText="xxxx xxxx xxxx xxxx" />
-                <Label alignment="CENTER_RIGHT" layoutX="600.0" layoutY="467.0" prefHeight="23.0" prefWidth="100.0" text="CVC:">
+                <Label layoutX="626.0" layoutY="467.0" prefHeight="23.0" prefWidth="42.0" text="CVC:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
                 <TextField fx:id="cvcTextField" layoutX="580.0" layoutY="489.0" prefHeight="40.0" prefWidth="151.0" promptText="xxx" />
-                <Label alignment="CENTER_RIGHT" layoutX="94.0" layoutY="560.0" prefHeight="23.0" prefWidth="200.0" text="Giltig tom (månad/år):">
+                <Label layoutX="94.0" layoutY="560.0" prefHeight="23.0" prefWidth="170.0" text="Giltig tom (månad/år):">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <ComboBox fx:id="monthComboBox" editable="true" layoutX="296.0" layoutY="554.0" prefHeight="37.0" prefWidth="83.0" promptText="månad" />
-                <ComboBox fx:id="yearComboBox" editable="true" layoutX="405.0" layoutY="554.0" prefHeight="37.0" prefWidth="83.0" promptText="år" />
-                <Label layoutX="390.0" layoutY="558.0" prefHeight="29.0" prefWidth="15.0" text="/">
+                <ComboBox fx:id="monthComboBox" editable="true" layoutX="283.0" layoutY="553.0" prefHeight="37.0" prefWidth="83.0" promptText="månad" />
+                <ComboBox fx:id="yearComboBox" editable="true" layoutX="392.0" layoutY="553.0" prefHeight="37.0" prefWidth="83.0" promptText="år" />
+                <Label layoutX="377.0" layoutY="557.0" prefHeight="29.0" prefWidth="15.0" text="/">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>
@@ -117,9 +117,9 @@
                   <DropShadow />
                </effect>
             </Rectangle>
-            <Button fx:id="ToFinish" layoutX="1277.0" layoutY="653.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="183.0" styleClass="ToFinish-Button" stylesheets="@../../stylesheet.css" text="Bekräfta köp" textFill="WHITE">
+            <Button fx:id="ToFinish" layoutX="1277.0" layoutY="683.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="151.0" styleClass="ToFinish-Button" stylesheets="@../../stylesheet.css" text="Bekräfta köp" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="24.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Button>
             <TextArea fx:id="recieptTextArea" editable="false" layoutX="823.0" layoutY="30.0" prefHeight="726.0" prefWidth="387.0" wrapText="true">
                <font>
@@ -132,7 +132,7 @@
             </Button>
             <Label layoutX="886.0" layoutY="628.0" prefHeight="23.0" prefWidth="109.0" text="Fraktkostnad:">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
             <Label layoutX="886.0" layoutY="667.0" text="Totalkostnad:">
