@@ -53,6 +53,9 @@ public class HistoryItem extends TitledPane {
         String day = getDay(order.getDate().getDay());
 
         amount = order.getItems().size();
+        for (ShoppingItem item : order.getItems()){
+            totalPrice += item.getTotal();
+        }
 
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.CEILING);

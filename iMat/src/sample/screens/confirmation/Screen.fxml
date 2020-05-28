@@ -28,7 +28,7 @@
                 <TextField fx:id="nameTextField" layoutX="84.0" layoutY="124.0" prefHeight="40.0" prefWidth="328.0" promptText="Erik" />
                 <Label fx:id="lastnameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="577.0" layoutY="99.0" prefHeight="23.0" prefWidth="99.0" text="Efternamn:">
                     <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
                 <TextField fx:id="lastnameTextField" layoutX="418.0" layoutY="124.0" prefHeight="40.0" prefWidth="318.0" promptText="Erikson" />
