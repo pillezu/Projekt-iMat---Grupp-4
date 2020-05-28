@@ -52,7 +52,7 @@ public class Controller implements Initializable {
     }
 
     private void setLabelTexts() {
-        numItemsLabel.setText("unika varor: " + getNumItems());
+        numItemsLabel.setText("Unika varor: " + getNumItems());
         totalPriceLabel.setText(getTotal() + " kr");
     }
 
