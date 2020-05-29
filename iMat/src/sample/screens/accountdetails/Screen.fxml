@@ -94,7 +94,7 @@
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="accountLabel" alignment="CENTER_RIGHT" layoutX="215.0" layoutY="514.0" prefHeight="23.0" prefWidth="250.0" text="Kontonummer:">
+                <Label fx:id="accountLabel" alignment="CENTER_RIGHT" layoutX="215.0" layoutY="514.0" prefHeight="23.0" prefWidth="250.0" text="Kortnummer:">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
