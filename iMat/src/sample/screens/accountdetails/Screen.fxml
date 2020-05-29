@@ -38,8 +38,32 @@
                 <ComboBox fx:id="monthComboBox" editable="true" layoutX="471.0" layoutY="581.0" prefHeight="40.0" prefWidth="92.0" />
                 <ComboBox fx:id="yearComboBox" editable="true" layoutX="606.0" layoutY="581.0" prefHeight="40.0" prefWidth="92.0" />
                 <TextField fx:id="cvcTextField" layoutX="471.0" layoutY="651.0" prefHeight="40.0" prefWidth="227.0" />
-            <RadioButton fx:id="mastercardRadioButton" layoutX="1285.0" layoutY="559.0" mnemonicParsing="false" text="Masterkort" />
-            <RadioButton fx:id="visakortRadioButton" layoutX="1285.0" layoutY="624.0" mnemonicParsing="false" text="Visakort" />
+            <AnchorPane layoutX="1208.0" layoutY="505.0" prefHeight="238.0" prefWidth="239.0" style="-fx-background-color: #EAEAEA;">
+               <children>
+                  <RadioButton fx:id="mastercardRadioButton" layoutX="26.0" layoutY="77.0" mnemonicParsing="false" text="Masterkort" />
+                  <RadioButton fx:id="visakortRadioButton" layoutX="26.0" layoutY="142.0" mnemonicParsing="false" text="Visakort" />
+                  <Label layoutX="26.0" layoutY="20.0" prefHeight="23.0" prefWidth="142.0" text="Välj typ av kort">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="45.0" fitWidth="59.0" layoutX="119.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/1200px-Mastercard-logo.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="70.0" layoutX="119.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/visacard.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="cardTypeButton" layoutX="26.0" layoutY="187.0" mnemonicParsing="false" styleClass="blue-button" stylesheets="@../../stylesheet.css" text="Ta bort val av korttyp" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
                 <Label fx:id="nameLabel" alignment="CENTER_RIGHT" layoutX="215.0" layoutY="68.0" prefHeight="23.0" prefWidth="250.0" text="Förnamn:">
                     <font>
                         <Font name="System Bold" size="18.0" />
@@ -85,21 +109,6 @@
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-            <Label layoutX="1285.0" layoutY="502.0" prefHeight="23.0" prefWidth="142.0" text="Välj typ av kort">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="45.0" fitWidth="59.0" layoutX="1378.0" layoutY="545.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../resources/1200px-Mastercard-logo.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="70.0" layoutX="1378.0" layoutY="613.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../resources/visacard.png" />
-               </image>
-            </ImageView>
             <Separator layoutX="14.0" layoutY="424.0" prefHeight="73.0" prefWidth="1913.0" />
             <Button fx:id="saveButton" layoutX="1514.0" layoutY="669.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="157.0" style="-fx-background-radius: 0;" styleClass="keep-shopping-button" stylesheets="@../../stylesheet.css" text="Spara" textFill="WHITE">
                <font>
@@ -108,11 +117,6 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-            </Button>
-            <Button fx:id="cardTypeButton" layoutX="1285.0" layoutY="669.0" mnemonicParsing="false" styleClass="blue-button" stylesheets="@../../stylesheet.css" text="Ta bort val av korttyp" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
             </Button>
             <Label fx:id="savedMessageLabel" layoutX="1448.0" layoutY="758.0" text="Dina uppgifter har sparats" textFill="#00900e">
                <font>
