@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="81.0" prefWidth="762.0" style="-fx-background-color: #5293A5; -fx-border-color: 918F92;" stylesheets="@../../stylesheet.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="81.0" prefWidth="762.0" style="-fx-background-color: #5293A5; -fx-border-color: 918F92;" stylesheets="@../../stylesheet.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="productImageView" fitHeight="112.0" fitWidth="112.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -18,17 +22,17 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Button fx:id="removeButton" layoutX="381.0" layoutY="21.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="39.0" styleClass="round-button" text="-" textFill="WHITE">
+      <Button fx:id="removeButton" layoutX="573.0" layoutY="21.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="39.0" styleClass="round-button" text="-" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="addButton" layoutX="514.0" layoutY="21.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="39.0" styleClass="round-button" text="+" textFill="WHITE">
+      <Button fx:id="addButton" layoutX="711.0" layoutY="21.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="39.0" styleClass="round-button" text="+" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Label fx:id="totalPriceLabel" layoutX="586.0" layoutY="25.0" prefHeight="30.0" prefWidth="176.0" style="-fx-text-fill: ffffff;" text="\%pris% kr">
+      <Label fx:id="totalPriceLabel" layoutX="314.0" layoutY="49.0" prefHeight="30.0" prefWidth="176.0" style="-fx-text-fill: ffffff;" text="\%pris% kr">
          <font>
             <Font size="17.0" />
          </font>
@@ -36,7 +40,7 @@
             <Insets left="5.0" />
          </padding>
       </Label>
-      <TextField fx:id="nrProductsTextField" alignment="CENTER" layoutX="426.0" layoutY="14.0" prefHeight="51.0" prefWidth="81.0" text="1">
+      <TextField fx:id="nrProductsTextField" alignment="CENTER" layoutX="622.0" layoutY="15.0" prefHeight="51.0" prefWidth="81.0" text="1">
          <font>
             <Font size="21.0" />
          </font>
@@ -46,6 +50,7 @@
             <Font size="16.0" />
          </font>
       </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="88.0" layoutX="550.0" layoutY="-3.0" stroke="WHITE" strokeWidth="0.0" width="5.0" />
    </children>
    <padding>
       <Insets top="5.0" />
