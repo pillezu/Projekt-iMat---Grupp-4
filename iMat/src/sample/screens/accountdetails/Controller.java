@@ -83,6 +83,12 @@ public class Controller implements Initializable {
             }
         });
 
+        telephonenrTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                telephonenrTextField.setText(newValue.replaceAll("[^\\d.]", ""));
+            }
+        });
+
         monthComboBox.getItems().addAll("1","2","3","4","5","6","7","8","9","10","11","12");
         if (creditCard.getValidMonth() == 0) {
             monthComboBox.getSelectionModel().select(null);

@@ -103,6 +103,13 @@ public class Controller implements Initializable {
             }
         });
 
+        telTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == null) return;
+            if (!newValue.matches("\\d*")) {
+                telTextField.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+
         monthComboBox.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12");
         yearComboBox.getItems().addAll("2020", "2021", "2022", "2023", "2024");
 
