@@ -88,6 +88,7 @@ public class Controller implements Initializable {
             name = name.substring(0, 1) + name.substring(1).toLowerCase();
             categoriesListView.getItems().add(name);
         }
+        categoriesListView.setFixedCellSize(60);
         categoriesListView.getSelectionModel().selectedIndexProperty().addListener((observableValue, oldNumber, newNumber) -> {
             int index = newNumber.intValue();
             if (index == -1) {
