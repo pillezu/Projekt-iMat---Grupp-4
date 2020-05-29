@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.text.Font?>
-<ToolBar fx:id="toolbar" styleClass="toolbar" stylesheets="@../../stylesheet.css" viewOrder="-10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.components.toolbar.Controller">
+
+<ToolBar fx:id="toolbar" styleClass="toolbar" stylesheets="@../../stylesheet.css" viewOrder="-10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.components.toolbar.Controller">
     <items>
         <ImageView fx:id="homeImage" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -24,7 +28,7 @@
         </Label>
       <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" translateX="50.0">
          <image>
-            <Image url="@../../resources/grid.png" />
+            <Image url="@../../resources/butik.png" />
          </image>
       </ImageView>
         <Hyperlink fx:id="mainLink" styleClass="tabLink" text="Butik" textFill="WHITE" translateX="50.0" />
