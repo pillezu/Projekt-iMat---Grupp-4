@@ -35,7 +35,10 @@ public class ProductItem extends AbstractProductItem {
         if (dataHandler.isFavorite(product)) {
             favoriteImageView.setImage(getFavoriteImage());
         }
-        favoriteImageView.setOnMouseClicked(mouseEvent -> toggleFavorite());
+        favoriteImageView.setOnMouseClicked(mouseEvent -> {
+            mouseEvent.consume();
+            toggleFavorite();
+        });
 
         if (product.isEcological()) {
             ecoImageView.setVisible(true);

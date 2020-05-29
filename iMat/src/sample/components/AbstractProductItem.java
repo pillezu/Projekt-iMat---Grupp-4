@@ -58,7 +58,7 @@ public class AbstractProductItem extends AnchorPane {
 
     private void setupDetails() {
         if (!canOpenDetailsView) return;
-        productImageView.setOnMouseClicked(mouseEvent -> {
+        this.setOnMouseClicked(mouseEvent -> {
             IMat.setDetails(product);
         });
     }
