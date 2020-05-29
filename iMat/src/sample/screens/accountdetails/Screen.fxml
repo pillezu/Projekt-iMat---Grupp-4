@@ -18,7 +18,7 @@
         <fx:include source="../../components/toolbar/View.fxml" VBox.vgrow="NEVER" />
         <AnchorPane fx:id="accountDetails" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="615.0" prefWidth="924.0" style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS">
             <children>
-                <Label fx:id="kontouppgiftLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="14.0" prefHeight="36.0" prefWidth="180.0" text="Kontouppgifter">
+                <Label fx:id="kontouppgiftLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="250.0" layoutY="14.0" prefHeight="44.0" prefWidth="206.0" text="Kontouppgifter">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>
